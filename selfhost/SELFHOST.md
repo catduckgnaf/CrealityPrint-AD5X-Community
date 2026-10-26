@@ -108,6 +108,11 @@ inherited OrcaSlicer **developer** container: it builds an AppImage and
 runs it against the host's X11 session with host networking, a
 bind-mounted home directory and `--privileged`. Defects/quirks found:
 
+* Neither upstream list installs `automake`, but the deps build runs
+  `autoreconf` (e.g. for MPFR) and dies with `Can't exec "aclocal"`
+  without it. The second CI run of `Dockerfile.selfhost` failed at
+  deps step 137/277 for exactly this reason; the Dockerfile installs
+  `automake` explicitly.
 * `BuildLinux.sh` and `run_gettext.sh` are mode `100644` in git — not
   executable — so `./BuildLinux.sh` fails with *Permission denied*
   (exit 126) on a clean checkout. The first CI run of

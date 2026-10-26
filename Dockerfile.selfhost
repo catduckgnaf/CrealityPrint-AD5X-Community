@@ -47,6 +47,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 #     this stage installs packages itself and then runs -d/-s only).
 RUN apt-get update && apt-get install -y --no-install-recommends \
     autoconf \
+    automake \
     build-essential \
     ca-certificates \
     cmake \
