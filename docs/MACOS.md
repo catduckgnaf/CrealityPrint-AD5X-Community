@@ -185,9 +185,13 @@ track.
   include to `<math.h>` — the same fix used by Qt and others, and
   what later libpng releases do. The extended patch was verified to
   apply cleanly against the pristine, SHA-256-pinned 1.6.35 archive
-  with the exact `git apply` flags the deps build uses. Expect
-  further deps of the same vintage to need similar repairs; each
-  will surface as a named failing step in the workflow run.
+  with the exact `git apply` flags the deps build uses. Run
+  `40410087298` then progressed past PNG on both arches and stopped
+  on missing runner tools — `nasm` (dep_x264 configure, x86_64) and
+  `autoreconf` (dep_MPFR configure) — which the workflow's brew
+  install step now provides. Expect further deps of the same vintage
+  to need similar repairs; each will surface as a named failing step
+  in the workflow run.
 - **Design / offline code is otherwise platform-neutral.** The AD5X
   offline changes (cloud/analytics/login disabled, Design tab,
   AD5X profiles) live in ordinary cross-platform GUI code paths. The

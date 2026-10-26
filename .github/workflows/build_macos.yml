@@ -129,8 +129,13 @@ jobs:
       - name: Install build tools
         if: env.SKIP_LEG != 'true'
         run: |
-          brew install ninja gettext ccache || brew upgrade ninja gettext ccache || true
-          brew list ninja gettext >/dev/null
+          # nasm: dep_x264's configure refuses to run without it (x86_64).
+          # autoconf/automake/libtool: dep_MPFR's configure runs autoreconf.
+          # (Both gaps found from failed CI runs on this workflow; see
+          # docs/MACOS.md "First CI runs".)
+          brew install ninja gettext ccache nasm autoconf automake libtool || \
+            brew upgrade ninja gettext ccache nasm autoconf automake libtool || true
+          brew list ninja gettext nasm autoconf >/dev/null
           # gettext is keg-only in Homebrew; build_release_macos.sh runs
           # run_gettext.sh after the slicer build and needs msgfmt on PATH.
           echo "$(brew --prefix gettext)/bin" >> "$GITHUB_PATH"
