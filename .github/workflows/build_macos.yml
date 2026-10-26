@@ -112,6 +112,14 @@ jobs:
         with:
           lfs: 'true'
 
+      - name: Make build scripts executable
+        if: env.SKIP_LEG != 'true'
+        run: |
+          # Several repo shell scripts are mode 100644 in git.
+          # build_release_macos.sh internally calls ./run_gettext.sh,
+          # which would fail with "Permission denied" after the build.
+          chmod +x build_release_macos.sh run_gettext.sh
+
       - name: Setup CMake 3.28
         if: env.SKIP_LEG != 'true'
         uses: lukka/get-cmake@latest
@@ -156,7 +164,9 @@ jobs:
           # With a cache hit this re-runs CMake configure + the deps
           # target over the restored tree, which is close to a no-op;
           # on a miss it is the full (long) deps build.
-          ./build_release_macos.sh -d -x -a ${{ matrix.arch }}
+          # NOTE: the script is mode 100644 in git (not executable),
+          # so invoke it through bash, like the Jenkins pipelines do.
+          bash ./build_release_macos.sh -d -x -a ${{ matrix.arch }}
 
       - name: Stop after deps
         if: env.SKIP_LEG != 'true' && inputs.build-deps-only
@@ -164,7 +174,7 @@ jobs:
 
       - name: Build slicer
         if: env.SKIP_LEG != 'true' && !inputs.build-deps-only
-        run: ./build_release_macos.sh -s -x -a ${{ matrix.arch }}
+        run: bash ./build_release_macos.sh -s -x -a ${{ matrix.arch }}
 
       - name: Verify app bundle and architecture
         if: env.SKIP_LEG != 'true' && !inputs.build-deps-only
