@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Refined V-notch: a chisel-cut groove across the top-right ridge -->
+  <rect width="512" height="512" fill="#232936"/>
+  <g stroke="#2a1518" stroke-width="7" stroke-linejoin="round">
+    <!-- left face -->
+    <polygon points="117.4,190 256,270 256,440 117.4,360" fill="#b23e3e"/>
+    <!-- right face with the groove crossing its top edge -->
+    <polygon points="394.6,190 364.1,207.6 336.4,285.6 308.7,239.6 256,270 256,440 394.6,360" fill="#d95757"/>
+    <!-- top face with the groove crossing its right edge -->
+    <polygon points="256,110 394.6,190 364.1,207.6 286.2,194.6 308.7,239.6 256,270 117.4,190" fill="#ef8d85"/>
+    <!-- groove walls: lit and shadowed -->
+    <polygon points="364.1,207.6 286.2,194.6 336.4,285.6" fill="#833030"/>
+    <polygon points="286.2,194.6 308.7,239.6 336.4,285.6" fill="#571d1d"/>
+  </g>
+  <!-- chips -->
+  <polygon points="420,118 443,131 420,144 397,131" fill="#ef8d85" stroke="#2a1518" stroke-width="5" stroke-linejoin="round"/>
+  <polygon points="465,178 480,186.5 465,195 450,186.5" fill="#d95757" stroke="#2a1518" stroke-width="4" stroke-linejoin="round"/>
+</svg>

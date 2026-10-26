@@ -1,0 +1,55 @@
+import { execSync } from "node:child_process";
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+import { VitePWA } from "vite-plugin-pwa";
+import { APP_NAME, APP_TAGLINE } from "./src/constants/branding.ts";
+
+// Stamped into the bundle so a running instance can say which commit it is.
+// CI passes BUILD_ID; a local build asks git; anything else is "dev".
+function buildId(): string {
+  const fromEnv = process.env.BUILD_ID?.trim();
+  if (fromEnv) return fromEnv.slice(0, 7);
+  try {
+    return execSync("git rev-parse --short HEAD", { stdio: ["ignore", "pipe", "ignore"] })
+      .toString()
+      .trim();
+  } catch {
+    return "dev";
+  }
+}
+
+export default defineConfig({
+  define: {
+    __BUILD_ID__: JSON.stringify(buildId()),
+  },
+  server: {
+    proxy: {
+      "/api": "http://localhost:8020",
+    },
+  },
+  plugins: [
+    react(),
+    tailwindcss(),
+    VitePWA({
+      registerType: "autoUpdate",
+      // Staged bundle slightly exceeds Workbox default 2 MiB cap.
+      // Preserve full offline precache instead of dropping the main editor script.
+      workbox: { maximumFileSizeToCacheInBytes: 3_000_000 },
+      includeAssets: ["icon.svg", "apple-touch-icon.png", "plates/*.stl"],
+      manifest: {
+        name: APP_NAME,
+        short_name: APP_NAME,
+        description: APP_TAGLINE,
+        display: "standalone",
+        background_color: "#232936",
+        theme_color: "#232936",
+        icons: [
+          { src: "pwa-192.png", sizes: "192x192", type: "image/png" },
+          { src: "pwa-512.png", sizes: "512x512", type: "image/png" },
+          { src: "maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
+        ],
+      },
+    }),
+  ],
+});

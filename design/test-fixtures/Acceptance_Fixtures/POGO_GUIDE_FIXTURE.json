@@ -1,0 +1,293 @@
+{
+  "id": "fixture",
+  "name": "Pogo-pin guide",
+  "version": 1,
+  "rootOrder": [
+    "root"
+  ],
+  "nodes": {
+    "c8739e31-85bc-4fb4-89b6-2da40f12ad90": {
+      "id": "c8739e31-85bc-4fb4-89b6-2da40f12ad90",
+      "kind": "box",
+      "params": {
+        "w": 100,
+        "d": 65,
+        "h": 8,
+        "radius": 0
+      },
+      "position": [
+        0,
+        0,
+        4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "Pogo-pin test guide plate"
+    },
+    "849032b2-87ca-4234-ac3f-2e9a653870ce": {
+      "id": "849032b2-87ca-4234-ac3f-2e9a653870ce",
+      "kind": "cylinder",
+      "params": {
+        "r": 0.6,
+        "h": 10,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        -18,
+        -6,
+        4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Pogo-pin guide bore"
+    },
+    "3eb8219f-ed00-4a1b-ad4c-aeed9c329049": {
+      "id": "3eb8219f-ed00-4a1b-ad4c-aeed9c329049",
+      "kind": "cylinder",
+      "params": {
+        "r": 0.6,
+        "h": 10,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        -18,
+        6,
+        4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Pogo-pin guide bore"
+    },
+    "6a4c8587-a4d2-4214-be29-8d713acc9098": {
+      "id": "6a4c8587-a4d2-4214-be29-8d713acc9098",
+      "kind": "cylinder",
+      "params": {
+        "r": 0.6,
+        "h": 10,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        -6,
+        -6,
+        4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Pogo-pin guide bore"
+    },
+    "e1261494-3d70-4286-b149-1cda571c15bf": {
+      "id": "e1261494-3d70-4286-b149-1cda571c15bf",
+      "kind": "cylinder",
+      "params": {
+        "r": 0.6,
+        "h": 10,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        -6,
+        6,
+        4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Pogo-pin guide bore"
+    },
+    "669a6546-d517-41a1-8f18-445100bc49a3": {
+      "id": "669a6546-d517-41a1-8f18-445100bc49a3",
+      "kind": "cylinder",
+      "params": {
+        "r": 0.6,
+        "h": 10,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        6,
+        -6,
+        4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Pogo-pin guide bore"
+    },
+    "c4866e90-391b-4154-8846-977e0a9167b7": {
+      "id": "c4866e90-391b-4154-8846-977e0a9167b7",
+      "kind": "cylinder",
+      "params": {
+        "r": 0.6,
+        "h": 10,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        6,
+        6,
+        4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Pogo-pin guide bore"
+    },
+    "77a43993-eb86-402a-b01d-d13874969828": {
+      "id": "77a43993-eb86-402a-b01d-d13874969828",
+      "kind": "cylinder",
+      "params": {
+        "r": 0.6,
+        "h": 10,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        18,
+        -6,
+        4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Pogo-pin guide bore"
+    },
+    "f97def73-3fc1-42bc-9799-f549397fcf67": {
+      "id": "f97def73-3fc1-42bc-9799-f549397fcf67",
+      "kind": "cylinder",
+      "params": {
+        "r": 0.6,
+        "h": 10,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        18,
+        6,
+        4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Pogo-pin guide bore"
+    },
+    "root": {
+      "id": "root",
+      "type": "group",
+      "label": "Pogo-pin guide",
+      "childIds": [
+        "c8739e31-85bc-4fb4-89b6-2da40f12ad90",
+        "849032b2-87ca-4234-ac3f-2e9a653870ce",
+        "3eb8219f-ed00-4a1b-ad4c-aeed9c329049",
+        "6a4c8587-a4d2-4214-be29-8d713acc9098",
+        "e1261494-3d70-4286-b149-1cda571c15bf",
+        "669a6546-d517-41a1-8f18-445100bc49a3",
+        "c4866e90-391b-4154-8846-977e0a9167b7",
+        "77a43993-eb86-402a-b01d-d13874969828",
+        "f97def73-3fc1-42bc-9799-f549397fcf67"
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  }
+}

@@ -12,11 +12,11 @@ Windows installer:
 
 Size:
 
-`315,497,648 bytes`
+`315,528,883 bytes`
 
 SHA-256:
 
-`F11686C0904A7D07BF0F89EC5845913765B3D2903203FD3B5E873ACB61ACD05E`
+`DD2A81FBB2DD5D3A9C083A684882E4F521A8C777248FEF51D9F41F3876F467FB`
 
 ## Packaged application verification
 
@@ -47,22 +47,21 @@ Signature status observed during release verification: **NotSigned**
 
 ## Configuration seed
 
-- 211 / 211 seed files verified by SHA-256.
+- 204 / 204 seed files verified by SHA-256.
 - AD5X 0.4 mm nozzle multi-material/Klipper machine definition included.
-- Custom filament/process presets used by the RC1 package are preserved.
+- Initial selections use the generic system presets `Flashforge AD5X Generic PLA` and `0.20mm Standard @FF AD5X`.
 - Offline preset syncing is disabled.
 - RC1 user-data location is isolated from the normal Creality Print roaming profile.
 
 ## Installer verification
 
-The final package passed:
+The current package passed:
 
 - Inno Setup compilation;
-- isolated installation;
-- 10,269 / 10,269 installed application hashes;
-- 211 / 211 seed file hashes;
-- isolated uninstall;
-- cleanup of temporary install test state while preserving the isolated RC1 data directory.
+- 10,269 / 10,269 application manifest hashes;
+- 204 / 204 seed manifest hashes;
+- canonical Setup EXE / release-copy hash match;
+- one-file ZIP entry hash match to the Setup EXE.
 
 ## Functional acceptance boundary
 

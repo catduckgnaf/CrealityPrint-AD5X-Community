@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Banana panel socket">
+<title>Banana panel socket</title>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#3f4852"/><stop offset=".43" stop-color="#222b32"/><stop offset="1" stop-color="#131b22"/></linearGradient>
+  <radialGradient id="glow" cx=".43" cy=".3" r=".78"><stop stop-color="#607585" stop-opacity=".42"/><stop offset="1" stop-color="#17232b" stop-opacity="0"/></radialGradient>
+  <linearGradient id="metal" x1="0" y1="0" x2="1" y2=".2"><stop stop-color="#737e89"/><stop offset=".19" stop-color="#dfe5e7"/><stop offset=".40" stop-color="#8d9eaa"/><stop offset=".67" stop-color="#e7eef0"/><stop offset=".84" stop-color="#84939e"/><stop offset="1" stop-color="#59646f"/></linearGradient>
+  <linearGradient id="metalDark" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d6dde1"/><stop offset=".18" stop-color="#919fa9"/><stop offset=".54" stop-color="#65727c"/><stop offset=".88" stop-color="#d0d8dc"/><stop offset="1" stop-color="#3c4650"/></linearGradient>
+  <linearGradient id="blackBody" x1="0" y1="0" x2="1" y2=".9"><stop stop-color="#626d78"/><stop offset=".19" stop-color="#313d49"/><stop offset=".6" stop-color="#1c2630"/><stop offset="1" stop-color="#0e151c"/></linearGradient>
+  <linearGradient id="redBody" x1="0" y1="0" x2="1" y2=".9"><stop stop-color="#ff8580"/><stop offset=".18" stop-color="#cf363a"/><stop offset=".59" stop-color="#912c31"/><stop offset="1" stop-color="#43161d"/></linearGradient>
+  <linearGradient id="blueBody" x1="0" y1="0" x2="1" y2=".9"><stop stop-color="#9ec8e4"/><stop offset=".22" stop-color="#3679aa"/><stop offset=".6" stop-color="#205276"/><stop offset="1" stop-color="#152e47"/></linearGradient>
+  <linearGradient id="yellowBody" x1="0" y1="0" x2="1" y2=".9"><stop stop-color="#fff19c"/><stop offset=".18" stop-color="#f7c83c"/><stop offset=".6" stop-color="#d89a20"/><stop offset="1" stop-color="#875b13"/></linearGradient>
+  <radialGradient id="socket"><stop stop-color="#070e15"/><stop offset=".7" stop-color="#101c24"/><stop offset=".94" stop-color="#39444e"/><stop offset="1" stop-color="#b8c5cc"/></radialGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2=".6"><stop stop-color="#6c481b"/><stop offset=".22" stop-color="#ffd894"/><stop offset=".52" stop-color="#d8aa56"/><stop offset="1" stop-color="#744b20"/></linearGradient>
+  <filter id="shadow" x="-25%" y="-25%" width="160%" height="170%"><feGaussianBlur stdDeviation="4"/></filter>
+</defs>
+<rect x="2" y="2" width="156" height="156" rx="20" fill="url(#bg)" stroke="#6d7780" stroke-width="2"/>
+<rect x="5" y="5" width="150" height="150" rx="17" fill="url(#glow)"/>
+<path d="M17 18 Q18 14 24 14 H134" fill="none" stroke="#b2c0c8" stroke-opacity=".25" stroke-width="1.5"/>
+<path d="M18 144 H140" stroke="#e66b64" stroke-opacity=".2"/>
+<ellipse cx="82" cy="133" rx="52" ry="9" fill="#03080c" opacity=".52" filter="url(#shadow)"/>
+
+<g transform="rotate(-13 80 80)">
+<path d="M43 90 L43 123 Q45 134 80 134 Q115 134 117 122 V92" fill="url(#redBody)" stroke="#4a2226" stroke-width="2"/>
+<path d="M50 108 Q80 123 110 107" fill="none" stroke="#f69b8d" stroke-width="3" opacity=".4"/>
+<path d="M51 61 L67 48 H94 L110 61 L123 80 L113 98 L47 98 L37 80 Z" fill="url(#metalDark)" stroke="#505d65" stroke-width="2.2"/>
+<ellipse cx="80" cy="77" rx="41" ry="34" fill="url(#metal)" stroke="#353f48" stroke-width="3"/>
+<ellipse cx="80" cy="77" rx="32" ry="27" fill="url(#blackBody)" stroke="#b8c4ca" stroke-width="2.6"/>
+<ellipse cx="80" cy="77" rx="21" ry="19" fill="url(#redBody)" stroke="#311b22" stroke-width="2"/>
+<ellipse cx="80" cy="77" rx="12" ry="11" fill="url(#metal)" stroke="#414d55" stroke-width="2.5"/>
+<ellipse cx="80" cy="77" rx="7" ry="7.5" fill="url(#socket)"/>
+<path d="M54 66 Q80 48 106 65" fill="none" stroke="#fff" stroke-width="3.8" opacity=".45"/>
+<path d="M53 104 L53 128 M107 104 L107 127" stroke="#ffb8aa" stroke-opacity=".28" stroke-width="3"/>
+</g>
+
+</svg>

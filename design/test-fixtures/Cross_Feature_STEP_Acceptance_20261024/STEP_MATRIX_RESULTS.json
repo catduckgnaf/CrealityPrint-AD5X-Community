@@ -1,0 +1,381 @@
+{
+  "status": "PASS",
+  "checked": 25,
+  "rows": [
+    {
+      "model": "BANANA_BOX_FLOOR_HOLES",
+      "bytes": 15067,
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 20278.9381,
+      "size_mm": [
+        80.0,
+        60.0,
+        22.0
+      ],
+      "min_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "model": "BANANA_BOX_FRONT_HOLES",
+      "bytes": 15130,
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 20278.9381,
+      "size_mm": [
+        80.0,
+        60.0,
+        22.0
+      ],
+      "min_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "model": "BANANA_NPA_9_5_ON_BOX",
+      "bytes": 15154,
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 20196.4713,
+      "size_mm": [
+        80.0,
+        60.0,
+        22.0
+      ],
+      "min_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "model": "BANANA_PLUG_2_HOLE_FIXTURE",
+      "bytes": 9891,
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 47195.7523,
+      "size_mm": [
+        100.0,
+        60.0,
+        8.0
+      ],
+      "min_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "model": "BANANA_STANDARD4_ON_BOX",
+      "bytes": 15130,
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 20429.7345,
+      "size_mm": [
+        80.0,
+        60.0,
+        22.0
+      ],
+      "min_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "model": "CONNECTOR_CRADLE_FIXTURE",
+      "bytes": 26127,
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 8152.0,
+      "size_mm": [
+        32.8,
+        38.8,
+        12.0
+      ],
+      "min_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "model": "CONNECTOR_MEASURED_PANEL_FIXTURE",
+      "bytes": 9917,
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 51547.6107,
+      "size_mm": [
+        100.0,
+        65.0,
+        8.0
+      ],
+      "min_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "model": "CONNECTOR_PANEL_FIXTURE",
+      "bytes": 15640,
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 51396.8142,
+      "size_mm": [
+        100.0,
+        65.0,
+        8.0
+      ],
+      "min_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "model": "DB9_FEMALE_FLOOR_BOX",
+      "bytes": 89516,
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 20056.061,
+      "size_mm": [
+        80.0,
+        60.0,
+        22.0
+      ],
+      "min_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "model": "DB9_FEMALE_FRONT_BOX",
+      "bytes": 92548,
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 20056.061,
+      "size_mm": [
+        80.0,
+        60.0,
+        22.0
+      ],
+      "min_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "model": "DB9_FEMALE_RIGHT_BOX",
+      "bytes": 89106,
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 20056.061,
+      "size_mm": [
+        80.0,
+        60.0,
+        22.0
+      ],
+      "min_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "model": "DB9_MALE_FLOOR_BOX",
+      "bytes": 89516,
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 20056.061,
+      "size_mm": [
+        80.0,
+        60.0,
+        22.0
+      ],
+      "min_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "model": "DB9_MALE_FRONT_BOX",
+      "bytes": 92548,
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 20056.061,
+      "size_mm": [
+        80.0,
+        60.0,
+        22.0
+      ],
+      "min_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "model": "DB9_MALE_RIGHT_BOX",
+      "bytes": 89106,
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 20056.061,
+      "size_mm": [
+        80.0,
+        60.0,
+        22.0
+      ],
+      "min_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "model": "INDEXED_CLAMP_FIXTURE",
+      "bytes": 29713,
+      "valid": true,
+      "solids": 2,
+      "closed": true,
+      "volume_mm3": 36871.2127,
+      "size_mm": [
+        116.0,
+        50.0,
+        18.0
+      ],
+      "min_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "model": "JIG_SAFE_PLACEMENT_FIXTURE",
+      "bytes": 47066,
+      "valid": true,
+      "solids": 2,
+      "closed": true,
+      "volume_mm3": 91928.0,
+      "size_mm": [
+        100.0,
+        146.0,
+        15.0
+      ],
+      "min_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "model": "PCB_HOLDER_FIXTURE",
+      "bytes": 23693,
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 23951.2,
+      "size_mm": [
+        78.8,
+        54.8,
+        10.0
+      ],
+      "min_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "model": "PCB_MOUNTING_ALIGNED_FIXTURE",
+      "bytes": 29506,
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 23809.8283,
+      "size_mm": [
+        78.8,
+        54.8,
+        10.0
+      ],
+      "min_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "model": "POGO_GUIDE_FIXTURE",
+      "bytes": 18496,
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 51927.6177,
+      "size_mm": [
+        100.0,
+        65.0,
+        8.0
+      ],
+      "min_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "model": "POGO_MEASURED_GUIDE_FIXTURE",
+      "bytes": 12879,
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 12572.8566,
+      "size_mm": [
+        70.0,
+        30.0,
+        6.0
+      ],
+      "min_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "model": "REPAIRED_HINGE_STEP_CURRENT",
+      "bytes": 71028,
+      "valid": true,
+      "solids": 2,
+      "closed": true,
+      "volume_mm3": 35130.2476,
+      "size_mm": [
+        81.0,
+        133.0,
+        24.25
+      ],
+      "min_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "model": "SHOP_BANANA_TYPE_B_FLOOR",
+      "bytes": 13576,
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 20230.6204,
+      "size_mm": [
+        80.0,
+        60.0,
+        22.0
+      ],
+      "min_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "model": "SHOP_BANANA_TYPE_B_FRONT",
+      "bytes": 13609,
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 20230.6204,
+      "size_mm": [
+        80.0,
+        60.0,
+        22.0
+      ],
+      "min_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "model": "SHOP_XT60_PANEL_03_FLOOR",
+      "bytes": 13579,
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 19691.8372,
+      "size_mm": [
+        80.0,
+        60.0,
+        22.0
+      ],
+      "min_z_mm": 0.0,
+      "pass": true
+    },
+    {
+      "model": "WIRE_COMB_FIXTURE",
+      "bytes": 41094,
+      "valid": true,
+      "solids": 1,
+      "closed": true,
+      "volume_mm3": 11928.0,
+      "size_mm": [
+        48.0,
+        40.0,
+        15.0
+      ],
+      "min_z_mm": 0.0,
+      "pass": true
+    }
+  ]
+}

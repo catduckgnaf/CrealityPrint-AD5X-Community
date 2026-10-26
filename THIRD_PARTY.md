@@ -15,6 +15,14 @@ See:
 
 CrealityPrint is derived from OrcaSlicer, which is derived from Bambu Studio, PrusaSlicer and Slic3r. Their upstream attribution remains applicable.
 
+## AD5X Design / Sculpo lineage
+
+The `design/` workspace began from the open-source [Sculpo](https://github.com/jwapps-app/sculpo) browser solid modeller and has been substantially modified for this project's built-in Design workflow.
+
+Sculpo is distributed under GNU AGPL-3.0, which is compatible with this fork's AGPL-3.0 licence. The Design workspace retains that lineage and includes a dedicated [design/NOTICE.md](design/NOTICE.md).
+
+The Design npm dependency licences are recorded in `design/package-lock.json`. The vendored Manifold v3.5.1 WebAssembly runtime in `design/vendor/manifold/` corresponds to the `manifold-3d` package recorded as Apache-2.0.
+
 ## Creality precompiled dependencies
 
 Two relevant dependency groups are present in the upstream CrealityPrint source tree.

@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AD5X physical panel component catalogue starter schema",
+  "type": "object",
+  "required": [
+    "library_name",
+    "library_version",
+    "units",
+    "component_count",
+    "components",
+    "policy"
+  ],
+  "properties": {
+    "library_name": {
+      "type": "string"
+    },
+    "library_version": {
+      "type": "string"
+    },
+    "units": {
+      "const": "millimeters"
+    },
+    "component_count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "supplier_sku",
+          "name",
+          "supplier",
+          "category",
+          "mount_style",
+          "mounting",
+          "status",
+          "sources",
+          "measurements_needed"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]+$"
+          },
+          "supplier_sku": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "supplier": {
+            "type": "string"
+          },
+          "mounting": {
+            "type": "object",
+            "required": [
+              "cutout",
+              "mounting_holes",
+              "physical_fit_tested",
+              "printable_cutout_template",
+              "model_step_file",
+              "cutout_dxf_file"
+            ],
+            "properties": {
+              "cutout": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "mounting_holes": {
+                "type": [
+                  "object",
+                  "null"
+                ]
+              },
+              "physical_fit_tested": {
+                "type": "boolean"
+              },
+              "printable_cutout_template": {
+                "type": "boolean"
+              },
+              "model_step_file": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "cutout_dxf_file": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "status": {
+            "enum": [
+              "nominal_2d_template_unfit_tested",
+              "needs_measurement_before_geometry"
+            ]
+          },
+          "sources": {
+            "type": "array"
+          },
+          "measurements_needed": {
+            "type": "array"
+          }
+        }
+      }
+    },
+    "policy": {
+      "type": "object"
+    }
+  }
+}

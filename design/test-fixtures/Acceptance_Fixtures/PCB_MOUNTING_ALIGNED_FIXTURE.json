@@ -1,0 +1,264 @@
+{
+  "id": "fixture",
+  "name": "PCB holder with measured bores",
+  "version": 1,
+  "rootOrder": [
+    "root"
+  ],
+  "nodes": {
+    "ac35c685-df20-42c1-a9c7-b966fce346ec": {
+      "id": "ac35c685-df20-42c1-a9c7-b966fce346ec",
+      "kind": "box",
+      "params": {
+        "w": 78.8,
+        "d": 54.8,
+        "h": 5,
+        "radius": 0
+      },
+      "position": [
+        0,
+        2,
+        2.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "PCB fixture base"
+    },
+    "73f677a0-7ee2-45de-a5a1-f0a133a1f83a": {
+      "id": "73f677a0-7ee2-45de-a5a1-f0a133a1f83a",
+      "kind": "box",
+      "params": {
+        "w": 4,
+        "d": 41.199999999999996,
+        "h": 3.35,
+        "radius": 0
+      },
+      "position": [
+        -32.4,
+        0,
+        6.325
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "PCB left locating rail"
+    },
+    "85ea4080-7acc-4f71-af6a-6cd74cc89480": {
+      "id": "85ea4080-7acc-4f71-af6a-6cd74cc89480",
+      "kind": "box",
+      "params": {
+        "w": 4,
+        "d": 41.199999999999996,
+        "h": 3.35,
+        "radius": 0
+      },
+      "position": [
+        32.4,
+        0,
+        6.325
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "PCB right locating rail"
+    },
+    "437efca5-7012-4089-aa27-491b92506bb5": {
+      "id": "437efca5-7012-4089-aa27-491b92506bb5",
+      "kind": "box",
+      "params": {
+        "w": 68.8,
+        "d": 4,
+        "h": 5.35,
+        "radius": 0
+      },
+      "position": [
+        0,
+        22.4,
+        7.325
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "PCB rear locating stop"
+    },
+    "8b39ce93-6046-4a04-a690-3163abcb0aff": {
+      "id": "8b39ce93-6046-4a04-a690-3163abcb0aff",
+      "kind": "cylinder",
+      "params": {
+        "r": 1.5,
+        "h": 7,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        -20,
+        -10,
+        2.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "PCB mounting bore 1"
+    },
+    "ce9fce2b-1689-40d1-8004-5cd888a99b6c": {
+      "id": "ce9fce2b-1689-40d1-8004-5cd888a99b6c",
+      "kind": "cylinder",
+      "params": {
+        "r": 1.5,
+        "h": 7,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        20,
+        -10,
+        2.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "PCB mounting bore 2"
+    },
+    "55887854-f6a6-4fbd-9339-3196d6f3d8ef": {
+      "id": "55887854-f6a6-4fbd-9339-3196d6f3d8ef",
+      "kind": "cylinder",
+      "params": {
+        "r": 1.5,
+        "h": 7,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        -20,
+        10,
+        2.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "PCB mounting bore 3"
+    },
+    "54acaecc-fe63-410c-9f96-4c1fd9b17c51": {
+      "id": "54acaecc-fe63-410c-9f96-4c1fd9b17c51",
+      "kind": "cylinder",
+      "params": {
+        "r": 1.5,
+        "h": 7,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        20,
+        10,
+        2.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "PCB mounting bore 4"
+    },
+    "root": {
+      "id": "root",
+      "type": "group",
+      "label": "PCB holder with measured bores",
+      "childIds": [
+        "ac35c685-df20-42c1-a9c7-b966fce346ec",
+        "73f677a0-7ee2-45de-a5a1-f0a133a1f83a",
+        "85ea4080-7acc-4f71-af6a-6cd74cc89480",
+        "437efca5-7012-4089-aa27-491b92506bb5",
+        "8b39ce93-6046-4a04-a690-3163abcb0aff",
+        "ce9fce2b-1689-40d1-8004-5cd888a99b6c",
+        "55887854-f6a6-4fbd-9339-3196d6f3d8ef",
+        "54acaecc-fe63-410c-9f96-4c1fd9b17c51"
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  }
+}

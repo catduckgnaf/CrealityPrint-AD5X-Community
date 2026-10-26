@@ -1,0 +1,27 @@
+/* v19.3 — select labelled group and drag lettering without ungrouping */
+#root .prepare-match-theme .design-label-grip {
+ display:flex;align-items:center;gap:5px;white-space:nowrap;
+ color:#dcffe4;background:#235436ef;border:2px solid #63eaa0;
+ border-radius:12px;padding:7px 10px;cursor:move;touch-action:none;user-select:none;
+ font:700 10px sans-serif;letter-spacing:0.03em;box-shadow:0 5px 20px #000a;
+}
+#root .prepare-match-theme .design-label-grip.active {background:#1c7a45;border-color:#adffd0;}
+#root .prepare-match-theme .design-label-move-panel{
+ position:fixed;right:205px;top:152px;z-index:1200;width:290px;max-width:calc(100vw - 30px);
+ display:flex;flex-direction:column;gap:10px;padding:13px;
+ color:#e8f1ed;background:#293137;border:1px solid #5c8771;border-radius:8px;
+ box-shadow:0 14px 42px #0008;font-size:12px;
+}
+#root .prepare-match-theme .design-label-move-panel header {display:flex;align-items:center;gap:7px;border-bottom:1px solid #4b625a;padding-bottom:8px;}
+#root .prepare-match-theme .design-label-move-panel header strong{font-size:14px;}
+#root .prepare-match-theme .design-label-move-panel header button{margin-left:auto;}
+#root .prepare-match-theme .design-label-move-panel p {color:#b6cbc5;line-height:1.5;margin:0;}
+#root .prepare-match-theme .design-label-move-coords {display:flex;justify-content:space-between;color:#99ffc1;font:600 13px monospace;}
+#root .prepare-match-theme .design-label-nudge {display:grid;grid-template-columns:repeat(4,1fr);gap:6px;}
+#root .prepare-match-theme .design-label-nudge button {display:flex;justify-content:center;align-items:center;padding:7px;border-radius:4px;border:1px solid #637c6e;}
+#root .prepare-match-theme .design-label-move-actions{display:flex;gap:5px;}
+#root .prepare-match-theme .design-label-move-actions button {display:flex;align-items:center;justify-content:center;gap:4px;flex:1;padding:8px 5px;border:1px solid #617d6b;border-radius:5px;}
+#root .prepare-match-theme .design-label-move-actions .primary {background:#287949;border-color:#56ae78;color:white;font-weight:600;}
+#root .prepare-match-theme .design-label-move-panel small{color:#94aaa2;font-size:10px;line-height:1.4;}
+#root .prepare-match-theme .design-label-move-error{color:#ffbda3 !important;}
+@media(max-width:1000px){#root .prepare-match-theme .design-label-move-panel{right:8px;top:137px;}}

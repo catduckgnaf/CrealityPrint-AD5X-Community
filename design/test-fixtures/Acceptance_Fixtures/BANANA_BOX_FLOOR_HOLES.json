@@ -1,0 +1,169 @@
+{
+  "id": "banana-box",
+  "name": "Banana plugs into the box",
+  "version": 1,
+  "nodes": {
+    "2a739149-c78f-4246-bbec-ed3ea76c5246": {
+      "id": "2a739149-c78f-4246-bbec-ed3ea76c5246",
+      "kind": "box",
+      "params": {
+        "w": 80,
+        "d": 60,
+        "h": 22,
+        "radius": 0
+      },
+      "position": [
+        0,
+        0,
+        11
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d"
+    },
+    "71fe9f94-839b-4865-9550-e30c23916af4": {
+      "id": "71fe9f94-839b-4865-9550-e30c23916af4",
+      "kind": "box",
+      "params": {
+        "w": 76,
+        "d": 56,
+        "h": 22,
+        "radius": 0
+      },
+      "position": [
+        0,
+        0,
+        13
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#e05d5d"
+    },
+    "shell": {
+      "id": "shell",
+      "type": "group",
+      "label": "Hollow box",
+      "childIds": [
+        "2a739149-c78f-4246-bbec-ed3ea76c5246",
+        "71fe9f94-839b-4865-9550-e30c23916af4"
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "971042f9-375f-4ce4-8fe3-9f4b98541ede": {
+      "id": "971042f9-375f-4ce4-8fe3-9f4b98541ede",
+      "kind": "cylinder",
+      "params": {
+        "r": 4,
+        "h": 4,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        -15,
+        0,
+        1
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Banana plug 1 - floor opening"
+    },
+    "a492fbb2-4a99-4f32-b568-424978cfb8e5": {
+      "id": "a492fbb2-4a99-4f32-b568-424978cfb8e5",
+      "kind": "cylinder",
+      "params": {
+        "r": 4,
+        "h": 4,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        15,
+        0,
+        1
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Banana plug 2 - floor opening"
+    },
+    "8b1a4c34-cbee-4c13-9fa7-83e842497021": {
+      "id": "8b1a4c34-cbee-4c13-9fa7-83e842497021",
+      "type": "group",
+      "label": "Box with banana-plug holes",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "childIds": [
+        "shell",
+        "971042f9-375f-4ce4-8fe3-9f4b98541ede",
+        "a492fbb2-4a99-4f32-b568-424978cfb8e5"
+      ]
+    }
+  },
+  "rootOrder": [
+    "8b1a4c34-cbee-4c13-9fa7-83e842497021"
+  ]
+}

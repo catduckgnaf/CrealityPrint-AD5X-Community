@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Banana 2 mm contact plug">
+<title>Banana 2 mm contact plug</title>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#3f4852"/><stop offset=".43" stop-color="#222b32"/><stop offset="1" stop-color="#131b22"/></linearGradient>
+  <radialGradient id="glow" cx=".43" cy=".3" r=".78"><stop stop-color="#607585" stop-opacity=".42"/><stop offset="1" stop-color="#17232b" stop-opacity="0"/></radialGradient>
+  <linearGradient id="metal" x1="0" y1="0" x2="1" y2=".2"><stop stop-color="#737e89"/><stop offset=".19" stop-color="#dfe5e7"/><stop offset=".40" stop-color="#8d9eaa"/><stop offset=".67" stop-color="#e7eef0"/><stop offset=".84" stop-color="#84939e"/><stop offset="1" stop-color="#59646f"/></linearGradient>
+  <linearGradient id="metalDark" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d6dde1"/><stop offset=".18" stop-color="#919fa9"/><stop offset=".54" stop-color="#65727c"/><stop offset=".88" stop-color="#d0d8dc"/><stop offset="1" stop-color="#3c4650"/></linearGradient>
+  <linearGradient id="blackBody" x1="0" y1="0" x2="1" y2=".9"><stop stop-color="#626d78"/><stop offset=".19" stop-color="#313d49"/><stop offset=".6" stop-color="#1c2630"/><stop offset="1" stop-color="#0e151c"/></linearGradient>
+  <linearGradient id="redBody" x1="0" y1="0" x2="1" y2=".9"><stop stop-color="#ff8580"/><stop offset=".18" stop-color="#cf363a"/><stop offset=".59" stop-color="#912c31"/><stop offset="1" stop-color="#43161d"/></linearGradient>
+  <linearGradient id="blueBody" x1="0" y1="0" x2="1" y2=".9"><stop stop-color="#9ec8e4"/><stop offset=".22" stop-color="#3679aa"/><stop offset=".6" stop-color="#205276"/><stop offset="1" stop-color="#152e47"/></linearGradient>
+  <linearGradient id="yellowBody" x1="0" y1="0" x2="1" y2=".9"><stop stop-color="#fff19c"/><stop offset=".18" stop-color="#f7c83c"/><stop offset=".6" stop-color="#d89a20"/><stop offset="1" stop-color="#875b13"/></linearGradient>
+  <radialGradient id="socket"><stop stop-color="#070e15"/><stop offset=".7" stop-color="#101c24"/><stop offset=".94" stop-color="#39444e"/><stop offset="1" stop-color="#b8c5cc"/></radialGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2=".6"><stop stop-color="#6c481b"/><stop offset=".22" stop-color="#ffd894"/><stop offset=".52" stop-color="#d8aa56"/><stop offset="1" stop-color="#744b20"/></linearGradient>
+  <filter id="shadow" x="-25%" y="-25%" width="160%" height="170%"><feGaussianBlur stdDeviation="4"/></filter>
+</defs>
+<rect x="2" y="2" width="156" height="156" rx="20" fill="url(#bg)" stroke="#6d7780" stroke-width="2"/>
+<rect x="5" y="5" width="150" height="150" rx="17" fill="url(#glow)"/>
+<path d="M17 18 Q18 14 24 14 H134" fill="none" stroke="#b2c0c8" stroke-opacity=".25" stroke-width="1.5"/>
+<path d="M18 144 H140" stroke="#91d0ff" stroke-opacity=".2"/>
+<ellipse cx="82" cy="133" rx="52" ry="9" fill="#03080c" opacity=".52" filter="url(#shadow)"/>
+<g transform="rotate(27 80 80)">
+    <rect x="75.5" y="20" width="9" height="65" rx="3" fill="url(#metal)" stroke="#3f515d" stroke-width="1.4"/>
+    <path d="M77.5 24 V76" stroke="#fcffff" stroke-opacity=".75" stroke-width="1.5"/>
+    <rect x="72.5" y="77" width="15" height="7" rx="2" fill="url(#metalDark)" stroke="#4a525c"/>
+    <ellipse cx="80" cy="21" rx="4.5" ry="5" fill="#e0e9ef" stroke="#727f88" stroke-width="1.1"/>
+    <rect x="76.5" y="31" width="7" height="3" fill="#455561" opacity=".7"/>
+    <rect x="72" y="77" width="16" height="9" rx="4" fill="url(#metalDark)" stroke="#404a53" stroke-width="1"/>
+    <rect x="67" y="84" width="26" height="51" rx="10" fill="url(#blueBody)" stroke="#111920" stroke-width="2"/>
+    <path d="M72 94 Q72 89 79 88 V126" stroke="#fff" stroke-opacity=".42" stroke-width="2" fill="none"/>
+    <path d="M71 103 h18 M71 112 h18 M71 122 h18" stroke="#071018" stroke-opacity=".45" stroke-width="2"/>
+    <ellipse cx="80" cy="133" rx="10" ry="3" fill="#18212a" stroke="#7c8791" stroke-width="1"/>
+    </g>
+</svg>

@@ -1,0 +1,83 @@
+/* v18.7: accessible command search, scoped to the experimental Design tab. */
+#root .prepare-match-theme .design-command-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: min(16vh, 130px) 14px 24px;
+  background: rgba(0,0,0,.42);
+}
+#root .prepare-match-theme .design-command-palette {
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 540px);
+  max-height: min(74vh, 670px);
+  background: #292d31;
+  border: 1px solid #596168;
+  border-radius: 9px;
+  box-shadow: 0 20px 55px rgba(0,0,0,.56);
+  color: #e8edf1;
+  overflow: hidden;
+}
+#root .prepare-match-theme .design-command-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-bottom: 1px solid #424b50;
+  color: #56d785;
+}
+#root .prepare-match-theme .design-command-search input {
+  flex: 1;
+  width: 100%;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  color: #f2f6f7;
+}
+#root .prepare-match-theme .design-command-search input::placeholder { color: #9aa6af; }
+#root .prepare-match-theme .design-command-esc,
+#root .prepare-match-theme .design-command-hint {
+  font-size: 10px;
+  color: #a8b4bc;
+  border: 1px solid #525d65;
+  border-radius: 4px;
+  padding: 3px 5px;
+  white-space: nowrap;
+}
+#root .prepare-match-theme .design-command-results {
+  overflow-y: auto;
+  min-height: 70px;
+}
+#root .prepare-match-theme .design-command-result {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 14px;
+  text-align: left;
+  color: #e0e8ed;
+  border: 0;
+}
+#root .prepare-match-theme .design-command-result:hover,
+#root .prepare-match-theme .design-command-result.active {
+  background: #33483b;
+  color: #60ec94;
+}
+#root .prepare-match-theme .design-command-group {
+  flex: 0 0 55px;
+  color: #98a7af;
+  font-size: 10px;
+}
+#root .prepare-match-theme .design-command-name {flex:1;font-size:13px;}
+#root .prepare-match-theme .design-command-empty {padding:24px;color:#9aa5af;text-align:center;}
+#root .prepare-match-theme .design-command-footer {
+  padding: 8px 14px;
+  border-top: 1px solid #424b50;
+  font-size: 11px;
+  color: #9ba7b0;
+}

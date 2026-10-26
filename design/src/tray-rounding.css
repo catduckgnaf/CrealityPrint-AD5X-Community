@@ -1,0 +1,35 @@
+/* v19.4 Tray Rounding: isolated CAD overlay, not slicer UI */
+#root .prepare-match-theme .design-tray-panel,
+#root .prepare-match-theme .design-tray-error {
+ position:fixed;z-index:1150;right:205px;top:146px;width:320px;max-width:calc(100vw - 25px);
+ background:#293136;border:1px solid #5c7768;color:#eaf6f0;border-radius:9px;
+ padding:13px;box-shadow:0 14px 42px rgba(0,0,0,.5);
+ display:flex;flex-direction:column;gap:11px;font-size:12px;
+}
+#root .prepare-match-theme .design-tray-panel header{display:flex;align-items:center;gap:9px;border-bottom:1px solid #53665e;padding-bottom:10px;}
+#root .prepare-match-theme .design-tray-panel header strong{font-size:14px;}
+#root .prepare-match-theme .design-tray-panel header button{margin-left:auto;}
+#root .prepare-match-theme .design-tray-panel p{margin:0;color:#c1d0cd;line-height:1.5;}
+#root .prepare-match-theme .design-tray-panel label{display:flex;flex-direction:column;gap:6px;color:#e3eae4;font-weight:500;}
+#root .prepare-match-theme .design-tray-input{display:flex;align-items:center;gap:10px;}
+#root .prepare-match-theme .design-tray-input input{flex:1;min-width:110px;accent-color:#67dc86;}
+#root .prepare-match-theme .design-tray-input output{width:79px;font-variant-numeric:tabular-nums;text-align:right;color:#a9fac4;font-weight:650;}
+#root .prepare-match-theme .design-tray-derived{background:#20292a;border-radius:6px;padding:9px;color:#d1e5dc;}
+#root .prepare-match-theme .design-tray-derived b{color:#a6ffcb;}
+#root .prepare-match-theme .design-tray-derived small{display:block;color:#a9c2b7;margin-top:3px;}
+#root .prepare-match-theme .design-tray-panel .design-tray-help{font-size:11px;color:#aebdb7;}
+#root .prepare-match-theme .design-tray-actions{display:flex;gap:6px;}
+#root .prepare-match-theme .design-tray-actions button{flex:1;display:flex;gap:5px;align-items:center;justify-content:center;padding:8px 6px;border:1px solid #708077;color:#e3f2e8;border-radius:5px;}
+#root .prepare-match-theme .design-tray-actions .primary{background:#257c48;border-color:#4ac676;color:white;font-weight:700;}
+#root .prepare-match-theme .design-tray-panel>small{color:#98aeaa;line-height:1.55;font-size:10px;}
+#root .prepare-match-theme .design-tray-inline-error{color:#ffcba8 !important;}
+#root .prepare-match-theme .design-tray-error{width:360px;flex-direction:row;justify-content:space-between;color:#ffccaa;}
+#root .prepare-match-theme .design-tray-grip{
+ min-width:95px;display:flex;flex-direction:column;gap:2px;align-items:center;
+ background:#215238f0;border:2px solid #71ed94;color:#c4ffdb;
+ border-radius:12px;padding:7px 10px;cursor:ns-resize;touch-action:none;user-select:none;
+ box-shadow:0 4px 21px rgba(0,0,0,.55);
+}
+#root .prepare-match-theme .design-tray-grip.is-dragging{background:#29844f;color:#fff;}
+#root .prepare-match-theme .design-tray-grip span{font-size:9px;font-weight:750;white-space:nowrap;letter-spacing:.02em;}
+@media(max-width:900px){#root .prepare-match-theme .design-tray-panel,#root .prepare-match-theme .design-tray-error{right:9px;top:137px;}}

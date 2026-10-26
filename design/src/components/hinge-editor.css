@@ -1,0 +1,88 @@
+/* One narrowly scoped AD5X Design dialog, existing charcoal/green visual family. */
+#root .prepare-match-theme .ad5x-hinge-shade {
+ position:fixed;inset:0;z-index:400;
+ display:flex;align-items:center;justify-content:center;padding:16px;
+ background:rgba(4,8,11,.76);font:12px "Segoe UI",Inter,system-ui,sans-serif;
+ color:#e6ede8;
+}
+#root .prepare-match-theme .ad5x-hinge-dialog {
+ background:#252d30;border:1px solid #51625e;border-radius:11px;
+ width:min(610px,97vw);max-height:min(92vh,820px);display:flex;flex-direction:column;
+ overflow:hidden;box-shadow:0 16px 48px #0009;
+}
+#root .prepare-match-theme .ad5x-hinge-dialog header {
+ display:flex;align-items:center;gap:9px;border-bottom:1px solid #455550;
+ background:#2b3335;padding:12px 14px;min-height:49px;
+}
+#root .prepare-match-theme .ad5x-hinge-dialog header strong {font-size:14px;color:#f5faf6}
+#root .prepare-match-theme .ad5x-hinge-dialog header span {font-size:10px;color:#a9c0b2;flex:1}
+#root .prepare-match-theme .ad5x-hinge-dialog header button {
+ border:0;background:transparent;color:#dce7e1;cursor:pointer;padding:4px;
+}
+#root .prepare-match-theme .ad5x-hinge-dialog main {
+ overflow:auto;padding:15px 18px;min-height:0;
+}
+#root .prepare-match-theme .ad5x-hinge-dialog p {font-size:11px;line-height:1.6}
+#root .prepare-match-theme .ad5x-hinge-intro {margin:0 0 13px;color:#c6d6d0}
+#root .prepare-match-theme .ad5x-hinge-pair {display:grid;grid-template-columns:1fr 1fr;gap:9px}
+#root .prepare-match-theme .ad5x-hinge-fields {display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+#root .prepare-match-theme .ad5x-hinge-dialog label {
+ display:flex;flex-direction:column;gap:5px;
+ font-size:11px;color:#c3d5c9;font-weight:600;
+}
+#root .prepare-match-theme .ad5x-hinge-dialog input,
+#root .prepare-match-theme .ad5x-hinge-dialog select {
+ border:1px solid #57645e;background:#191f22;color:#f0f4f1;
+ border-radius:5px;padding:9px 10px;min-width:0;width:100%;
+ font:12px "Segoe UI",Inter,system-ui,sans-serif;
+}
+#root .prepare-match-theme .ad5x-hinge-dialog input:focus,
+#root .prepare-match-theme .ad5x-hinge-dialog select:focus {
+ outline:1px solid #69cc90;outline-offset:1px;
+}
+#root .prepare-match-theme .ad5x-hinge-wall-label {margin-top:12px}
+#root .prepare-match-theme .ad5x-hinge-knuckles {
+ display:flex;align-items:center;justify-content:center;gap:5px;
+ margin:12px auto 6px;max-width:270px;
+}
+#root .prepare-match-theme .ad5x-hinge-knuckles span {
+ flex:1;text-align:center;border:1px solid #6c8978;
+ border-radius:5px;padding:7px 10px;font:700 10px "Segoe UI",sans-serif;
+ background:#3b4d43;color:#c8f1d5;
+}
+#root .prepare-match-theme .ad5x-hinge-knuckles span:nth-child(2){
+ background:#32557a;border-color:#5d87ae;color:#d6eaff;
+}
+#root .prepare-match-theme .ad5x-hinge-note {
+ display:flex;gap:8px;margin:12px 0 0;
+ color:#b5c8be;background:#293733;border-left:3px solid #5b9879;
+ padding:9px 11px;border-radius:4px;
+}
+#root .prepare-match-theme .ad5x-hinge-note svg{flex-shrink:0;margin-top:2px}
+#root .prepare-match-theme .ad5x-hinge-warning {
+ background:#473926;border-left:3px solid #d7a35b;color:#f5dfb9;
+ padding:9px 11px;margin:10px 0;
+}
+#root .prepare-match-theme .ad5x-hinge-error {
+ background:#4c2b2d;border-left:3px solid #d66b70;
+ color:#ffdada;padding:8px 10px;
+}
+#root .prepare-match-theme .ad5x-hinge-dialog footer {
+ display:flex;gap:9px;justify-content:flex-end;
+ padding:12px 15px;border-top:1px solid #47584e;background:#2b3434;
+}
+#root .prepare-match-theme .ad5x-hinge-dialog footer button {
+ border:1px solid #53635a;border-radius:6px;padding:9px 13px;
+ cursor:pointer;color:#e9f0eb;font-size:12px;
+}
+#root .prepare-match-theme .ad5x-hinge-cancel {background:#3c4443}
+#root .prepare-match-theme .ad5x-hinge-add {
+ background:#267649;border-color:#4bc77d!important;font-weight:650;
+}
+#root .prepare-match-theme .ad5x-hinge-add:disabled {
+ opacity:.45;cursor:not-allowed;
+}
+@media(max-width:520px) {
+ #root .prepare-match-theme .ad5x-hinge-pair,#root .prepare-match-theme .ad5x-hinge-fields {grid-template-columns:1fr}
+ #root .prepare-match-theme .ad5x-hinge-dialog main {padding:11px}
+}

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Chrome LED holder">
+<defs><linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#333d41"/><stop offset="1" stop-color="#141a1e"/></linearGradient>
+<linearGradient id="metal" x1="0" x2="1" y1="0" y2="0"><stop stop-color="#71888d"/><stop offset=".22" stop-color="#dee2dd"/><stop offset=".58" stop-color="#899ba1"/><stop offset="1" stop-color="#394a51"/></linearGradient>
+<linearGradient id="black" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#313d43"/><stop offset="1" stop-color="#0b1115"/></linearGradient>
+<filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="7" stdDeviation="6" flood-color="#020507" flood-opacity=".65"/></filter></defs>
+<rect width="160" height="160" rx="12" fill="url(#bg)"/><path d="M0 23h160M0 137h160M20 0v160M140 0v160" stroke="#87928f" stroke-opacity=".07"/>
+<rect x="8" y="8" width="144" height="144" rx="9" fill="none" stroke="#667d79" stroke-opacity=".35"/>
+
+<g filter="url(#shadow)">
+<rect x="66" y="78" width="28" height="47" rx="7" fill="url(#metal)" stroke="#c5d0d0" stroke-width="2"/>
+<ellipse cx="80" cy="82" rx="34" ry="28" fill="url(#metal)" stroke="#e0e5e3" stroke-width="4"/>
+<ellipse cx="80" cy="79" rx="25" ry="21" fill="#3d4a4e" stroke="#78898c" stroke-width="2"/>
+<circle cx="80" cy="76" r="15" fill="#3698d3" stroke="#9cdcff" stroke-width="3"/>
+<circle cx="76" cy="70" r="6" fill="#d0f8ff" opacity=".68"/>
+<path d="M68 123v15M91 123v15" stroke="#b3c2c4" stroke-width="4"/>
+</g>
+<path d="M18 142h124" stroke="#9db4a9" stroke-opacity=".15"/>
+</svg>

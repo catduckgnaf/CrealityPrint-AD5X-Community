@@ -1,0 +1,140 @@
+{
+  "id": "panel",
+  "version": 1,
+  "name": "Round product-specific connectors",
+  "nodes": {
+    "1218fdc4-c067-45cd-bb71-28d74e3dfff9": {
+      "id": "1218fdc4-c067-45cd-bb71-28d74e3dfff9",
+      "kind": "box",
+      "params": {
+        "w": 80,
+        "d": 60,
+        "h": 22,
+        "radius": 0
+      },
+      "position": [
+        0,
+        0,
+        11
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d"
+    },
+    "b834c214-e9c6-4a30-8319-f5033f8dda82": {
+      "id": "b834c214-e9c6-4a30-8319-f5033f8dda82",
+      "kind": "box",
+      "params": {
+        "w": 76,
+        "d": 56,
+        "h": 22,
+        "radius": 0
+      },
+      "position": [
+        0,
+        0,
+        13
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#e05d5d"
+    },
+    "shell": {
+      "id": "shell",
+      "type": "group",
+      "label": "Hollow box",
+      "childIds": [
+        "1218fdc4-c067-45cd-bb71-28d74e3dfff9",
+        "b834c214-e9c6-4a30-8319-f5033f8dda82"
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "7aab98f0-b40e-4ed1-bfa3-aa7c78019eb2": {
+      "id": "7aab98f0-b40e-4ed1-bfa3-aa7c78019eb2",
+      "kind": "cylinder",
+      "params": {
+        "r": 6.3,
+        "h": 4,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        0,
+        -29,
+        12
+      ],
+      "rotation": [
+        1.5707963267948966,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "4 mm banana SOCKET Type B (BAN-STB-GRN) circular mounting opening"
+    },
+    "66c53d86-aea7-42f3-af16-eb310659c3fc": {
+      "id": "66c53d86-aea7-42f3-af16-eb310659c3fc",
+      "type": "group",
+      "label": "Box with 4 mm banana SOCKET Type B (BAN-STB-GRN) opening",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "childIds": [
+        "shell",
+        "7aab98f0-b40e-4ed1-bfa3-aa7c78019eb2"
+      ]
+    }
+  },
+  "rootOrder": [
+    "66c53d86-aea7-42f3-af16-eb310659c3fc"
+  ]
+}

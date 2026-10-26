@@ -1,0 +1,406 @@
+{
+  "library_name": "AD5X Design — Small Physical Panel Components (Starter)",
+  "library_version": "0.1.0",
+  "created_utc_date": "2026-10-23",
+  "units": "millimeters",
+  "purpose": "Exact, user-selected workshop components for panel/enclosure/jig openings; NOT PCB footprints.",
+  "policy": {
+    "read_only_handover": true,
+    "do_not_modify_AD5X_application_automatically": true,
+    "no_unverified_dimensions": true,
+    "physical_fit_test_required": true,
+    "mounting_holes_require_verified_xy": true,
+    "nominal_dxf_shapes_are_not_print_proven": true,
+    "mains_power_warning": "A 3D printed panel fit test does not establish electrical safety, enclosure certification, insulation, heat/fire performance, or conformity."
+  },
+  "coordinate_convention": "All cutouts centered at local XY origin. DXF units mm. Applied panel placement and orientation handled by consumer; D flat on left in local preview.",
+  "component_count": 8,
+  "components": [
+    {
+      "id": "mr-c14-switch",
+      "supplier_sku": "C14-SWITCH",
+      "name": "IEC C14 AC inlet with rocker switch",
+      "supplier": "Micro Robotics",
+      "category": "power_inlet",
+      "manufacturer": "Not established / generic",
+      "mount_style": "screw_flange",
+      "attributes": {
+        "rated_voltage_v_ac": 250,
+        "rated_current_a": 10,
+        "spade_width_mm": 6.3,
+        "electrical_class": "MAINS"
+      },
+      "mounting": {
+        "cutout": {
+          "shape": "rectangle",
+          "width_mm": 42.0,
+          "height_mm": 27.0,
+          "dimensions_from": "supplier_product_spec"
+        },
+        "mounting_holes": {
+          "count": 2,
+          "diameter_mm": 3.5,
+          "center_to_center_mm": 50.0,
+          "centers_xy_mm": null,
+          "alignment_verified": false,
+          "notes": "Only hole diameter and spacing are given; relative Y alignment/offset to cutout is not confirmed. Do NOT auto-cut mounting holes yet."
+        },
+        "other_verified_dimensions_mm": {
+          "depth_mm": 27.5,
+          "max_panel_thickness_mm": 2.0
+        },
+        "physical_fit_tested": false,
+        "printable_cutout_template": true,
+        "model_step_file": null,
+        "cutout_dxf_file": "cutouts/MR_C14_SWITCH_opening_only_42x27.dxf"
+      },
+      "status": "nominal_2d_template_unfit_tested",
+      "notes": [
+        "Vendor calls this product generic. 42x27mm is the supplier-stated cutout, NOT the dimensions of every C14 inlet.",
+        "C14 DXF includes ONLY nominal rectangular aperture; no fixing holes.",
+        "Safety: accurate fit alone is not evidence of mains insulation, heat resistance, flame rating or regulatory compliance."
+      ],
+      "measurements_needed": [
+        "Physical test fit for this exact SKU",
+        "Mounting-hole XY positions relative to cutout center",
+        "Bezel/flange size and screwdriver clearance",
+        "Clearance around terminals and wiring path",
+        "Printer-specific fit allowance"
+      ],
+      "sources": [
+        {
+          "url": "https://www.robotics.org.za/C14-SWITCH",
+          "source_type": "supplier",
+          "supports": "42x27 panel opening; 3.5mm mounting holes; 50mm hole spacing; 27.5mm depth; max panel thickness 2mm",
+          "checked_on": "2026-10-23"
+        }
+      ]
+    },
+    {
+      "id": "itw-59-111",
+      "supplier_sku": "59-111",
+      "name": "Sealed momentary pushbutton, black, Series 59",
+      "supplier": "ITW Industrial Components (box label) / ITW Switches",
+      "category": "pushbutton",
+      "manufacturer": "ITW Switches",
+      "mount_style": "threaded_nut",
+      "attributes": {
+        "thread": "M12 x 1.0",
+        "operation": "momentary normally open",
+        "IP_rating": "IP67"
+      },
+      "mounting": {
+        "cutout": {
+          "shape": "d_flat_circle",
+          "diameter_min_mm": 13.6,
+          "diameter_max_mm": 13.65,
+          "flat_to_opposite_edge_min_mm": 12.9,
+          "flat_to_opposite_edge_max_mm": 12.95,
+          "dxf_uses_nominal_diameter_mm": 13.625,
+          "dxf_uses_nominal_flat_to_opposite_mm": 12.925,
+          "dimensions_from": "manufacturer_product_spec_and_original_series_drawing"
+        },
+        "mounting_holes": null,
+        "other_verified_dimensions_mm": {
+          "bezel_diameter_mm": 17.5,
+          "min_panel_thickness_mm": 1.5,
+          "max_panel_thickness_mm": 3.0
+        },
+        "physical_fit_tested": false,
+        "printable_cutout_template": true,
+        "model_step_file": null,
+        "cutout_dxf_file": "cutouts/ITW_59-111_nominal_D_cutout.dxf"
+      },
+      "status": "nominal_2d_template_unfit_tested",
+      "notes": [
+        "D-profile orientation in the supplied DXF is arbitrary; rotate to match the installed switch.",
+        "Panel seal relies on proper O-ring, surface quality and nut installation. 3D printing does not guarantee IP67.",
+        "DO NOT substitute a plain 13.6 mm round hole without an anti-rotation assessment."
+      ],
+      "measurements_needed": [
+        "Physical fit test with button and supplied nut/O-ring",
+        "Clearance around underside/nut",
+        "Printed hole tolerance and layer orientation"
+      ],
+      "sources": [
+        {
+          "url": "https://www.itwswitches.com/producto/pushbutton-59-111/?lang=es",
+          "source_type": "manufacturer",
+          "supports": "13.65x12.95 panel cutout; ITW 59-111 identification",
+          "checked_on": "2026-10-23"
+        },
+        {
+          "url": "https://za.rs-online.com/web/p/push-button-switches/0321278",
+          "source_type": "supplier",
+          "supports": "13.6mm panel cutout, ITW SKU, SPST momentary",
+          "checked_on": "2026-10-23"
+        }
+      ]
+    },
+    {
+      "id": "mr-c14-no-switch",
+      "supplier_sku": "C14-NO-SWITCH",
+      "name": "IEC C14 inlet, no rocker switch",
+      "supplier": "Micro Robotics",
+      "category": "power_inlet",
+      "manufacturer": "Not established / generic",
+      "mount_style": "screw_flange",
+      "attributes": {
+        "rated_voltage_v_ac": 250,
+        "rated_current_a": 10,
+        "spade_width_mm": 6.3,
+        "electrical_class": "MAINS"
+      },
+      "mounting": {
+        "cutout": null,
+        "mounting_holes": {
+          "diameter_mm": 3.5,
+          "count": null,
+          "center_to_center_mm": null,
+          "centers_xy_mm": null,
+          "alignment_verified": false
+        },
+        "other_verified_dimensions_mm": {
+          "depth_mm": 33.0,
+          "max_panel_thickness_mm": 2.0
+        },
+        "physical_fit_tested": false,
+        "printable_cutout_template": false,
+        "model_step_file": null,
+        "cutout_dxf_file": null
+      },
+      "status": "needs_measurement_before_geometry",
+      "notes": [
+        "Not interchangeable with the C14-SWITCH geometry. Cutout opening is not published in the checked text.",
+        "No DXF generated; do not borrow 42x27 dimensions from the switched inlet."
+      ],
+      "measurements_needed": [
+        "Cutout width and height",
+        "Number, position, and spacing of mounting holes",
+        "Flange width/height and wiring clearance"
+      ],
+      "sources": [
+        {
+          "url": "https://www.robotics.org.za/C14-NO-SWITCH",
+          "source_type": "supplier",
+          "supports": "33mm depth; 3.5mm fixing hole diameter; max 2mm panel thickness",
+          "checked_on": "2026-10-23"
+        }
+      ]
+    },
+    {
+      "id": "mr-ledh-03-conc",
+      "supplier_sku": "LEDH-03-CONC",
+      "name": "3mm LED concave metal holder (10-pack)",
+      "supplier": "Micro Robotics",
+      "category": "led_holder",
+      "manufacturer": "Not established / generic",
+      "mount_style": "panel_holder",
+      "attributes": {
+        "led_nominal_diameter_mm": 3,
+        "finish": "chrome",
+        "pack_quantity": 10
+      },
+      "mounting": {
+        "cutout": null,
+        "mounting_holes": null,
+        "other_verified_dimensions_mm": {},
+        "physical_fit_tested": false,
+        "printable_cutout_template": false,
+        "model_step_file": null,
+        "cutout_dxf_file": null
+      },
+      "status": "needs_measurement_before_geometry",
+      "notes": [
+        "3mm denotes the LED it accepts, NOT the panel cutout diameter.",
+        "No verified mounting dimensions in checked seller results."
+      ],
+      "measurements_needed": [
+        "Panel cutout diameter or thread specification",
+        "Bezel outer diameter",
+        "Body length and retaining-nut/clip clearance",
+        "Panel thickness range"
+      ],
+      "sources": [
+        {
+          "url": "https://www.robotics.org.za/LEDH-03-CONC",
+          "source_type": "supplier",
+          "supports": "product/SKU identification and compatibility with 3mm LEDs",
+          "checked_on": "2026-10-23"
+        }
+      ]
+    },
+    {
+      "id": "mr-led-03-pla",
+      "supplier_sku": "LED-03-PLA",
+      "name": "3mm LED black plastic snap-in holder (10-pack)",
+      "supplier": "Micro Robotics",
+      "category": "led_holder",
+      "manufacturer": "Not established / generic",
+      "mount_style": "snap_in",
+      "attributes": {
+        "led_nominal_diameter_mm": 3,
+        "material": "plastic",
+        "pack_quantity": 10
+      },
+      "mounting": {
+        "cutout": null,
+        "mounting_holes": null,
+        "other_verified_dimensions_mm": {},
+        "physical_fit_tested": false,
+        "printable_cutout_template": false,
+        "model_step_file": null,
+        "cutout_dxf_file": null
+      },
+      "status": "needs_measurement_before_geometry",
+      "notes": [
+        "LED size is not the mounting-hole size.",
+        "Snap-in geometry and panel thickness must be determined for this exact holder."
+      ],
+      "measurements_needed": [
+        "Panel hole diameter",
+        "Clip diameter/retention barb profile",
+        "Permitted panel thickness",
+        "Bezel diameter and rear clearance"
+      ],
+      "sources": [
+        {
+          "url": "https://www.robotics.org.za/LED-03-PLA",
+          "source_type": "supplier",
+          "supports": "3mm LED compatibility; black cylindrical plastic snap-in panel holder",
+          "checked_on": "2026-10-23"
+        }
+      ]
+    },
+    {
+      "id": "mr-fuse20",
+      "supplier_sku": "FUSE20",
+      "name": "Panel fuse holder for 5x20mm cartridge fuse (4-pack)",
+      "supplier": "Micro Robotics",
+      "category": "fuse_holder",
+      "manufacturer": "Not established / generic",
+      "mount_style": "panel_holder",
+      "attributes": {
+        "fuse_nominal_diameter_mm": 5,
+        "fuse_nominal_length_mm": 20,
+        "rated_current_a": 10,
+        "rated_voltage_v": 250
+      },
+      "mounting": {
+        "cutout": null,
+        "mounting_holes": null,
+        "other_verified_dimensions_mm": {},
+        "physical_fit_tested": false,
+        "printable_cutout_template": false,
+        "model_step_file": null,
+        "cutout_dxf_file": null
+      },
+      "status": "needs_measurement_before_geometry",
+      "notes": [
+        "5x20mm refers to the replaceable fuse, NOT the hole size.",
+        "Mounting method and required opening have not been established."
+      ],
+      "measurements_needed": [
+        "Panel hole shape/diameter",
+        "Whether threaded or snap-in",
+        "Bezel diameter",
+        "Rear body/terminal clearance",
+        "Panel thickness limits"
+      ],
+      "sources": [
+        {
+          "url": "https://www.robotics.org.za/FUSE20",
+          "source_type": "supplier",
+          "supports": "supplier listing of 5x20mm panel fuse holder, 10A, 250V (via search indexed listing)",
+          "checked_on": "2026-10-23"
+        }
+      ]
+    },
+    {
+      "id": "mr-car-fem-12v",
+      "supplier_sku": "CAR-FEM-12V",
+      "name": "12V automotive accessory socket, female, with cap",
+      "supplier": "Micro Robotics",
+      "category": "vehicle_power_socket",
+      "manufacturer": "Not established / generic",
+      "mount_style": "panel_socket",
+      "attributes": {
+        "rated_voltage_v_dc": 12,
+        "rated_current_a_max": 20,
+        "ip_rating_claim": "IP66 (seller claim)"
+      },
+      "mounting": {
+        "cutout": null,
+        "mounting_holes": null,
+        "other_verified_dimensions_mm": {},
+        "physical_fit_tested": false,
+        "printable_cutout_template": false,
+        "model_step_file": null,
+        "cutout_dxf_file": null
+      },
+      "status": "needs_measurement_before_geometry",
+      "notes": [
+        "No mounting hole dimensions verified. Do not infer a nominal cigar-lighter socket diameter."
+      ],
+      "measurements_needed": [
+        "Panel cutout diameter",
+        "Thread/retention and flange geometry",
+        "Rear depth with terminals",
+        "Cap swing clearance",
+        "Recommended wall thickness"
+      ],
+      "sources": [
+        {
+          "url": "https://www.robotics.org.za/CAR-FEM-12V",
+          "source_type": "supplier",
+          "supports": "12V female socket, maximum 20A, capped, advertised IP66",
+          "checked_on": "2026-10-23"
+        }
+      ]
+    },
+    {
+      "id": "communica-dpm-bmt",
+      "supplier_sku": "DPM/BMT MINI DIG VOLTMT 2,5-30V",
+      "name": "0.28-inch 2-wire DC digital voltmeter, red",
+      "supplier": "Communica",
+      "category": "panel_meter",
+      "manufacturer": "Not established / generic",
+      "mount_style": "panel_display",
+      "attributes": {
+        "measured_voltage_v_min": 2.5,
+        "measured_voltage_v_max": 30,
+        "display_nominal_inches": 0.28,
+        "wiring": "2-wire"
+      },
+      "mounting": {
+        "cutout": null,
+        "mounting_holes": null,
+        "other_verified_dimensions_mm": {},
+        "physical_fit_tested": false,
+        "printable_cutout_template": false,
+        "model_step_file": null,
+        "cutout_dxf_file": null
+      },
+      "status": "needs_measurement_before_geometry",
+      "notes": [
+        "0.28 inch is display size, NOT the panel cutout.",
+        "May be a bare module instead of an integrated snap-in panel insert; actual mounting method needs verification."
+      ],
+      "measurements_needed": [
+        "External module dimensions",
+        "Visible window cutout dimensions",
+        "Board/component thickness",
+        "Mounting/clips/fastener mechanism",
+        "Wire exit and rear clearance"
+      ],
+      "sources": [
+        {
+          "url": "https://www.communica.co.za/products/dpm-bmt-mini-dig-voltmt-2-5-30v",
+          "source_type": "supplier",
+          "supports": "seller page 0.28-inch, 2-wire red LED voltmeter, 2.5-30V DC",
+          "checked_on": "2026-10-23"
+        }
+      ]
+    }
+  ]
+}

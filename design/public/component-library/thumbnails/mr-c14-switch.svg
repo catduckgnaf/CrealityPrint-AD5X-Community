@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="IEC C14 with switch">
+<defs><linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#333d41"/><stop offset="1" stop-color="#141a1e"/></linearGradient>
+<linearGradient id="metal" x1="0" x2="1" y1="0" y2="0"><stop stop-color="#71888d"/><stop offset=".22" stop-color="#dee2dd"/><stop offset=".58" stop-color="#899ba1"/><stop offset="1" stop-color="#394a51"/></linearGradient>
+<linearGradient id="black" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#313d43"/><stop offset="1" stop-color="#0b1115"/></linearGradient>
+<filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="7" stdDeviation="6" flood-color="#020507" flood-opacity=".65"/></filter></defs>
+<rect width="160" height="160" rx="12" fill="url(#bg)"/><path d="M0 23h160M0 137h160M20 0v160M140 0v160" stroke="#87928f" stroke-opacity=".07"/>
+<rect x="8" y="8" width="144" height="144" rx="9" fill="none" stroke="#667d79" stroke-opacity=".35"/>
+
+<g filter="url(#shadow)" transform="rotate(-6 80 76)">
+<rect x="28" y="36" width="104" height="88" rx="10" fill="url(#metal)" stroke="#b0bdc0" stroke-width="3"/>
+<rect x="34" y="44" width="57" height="72" rx="6" fill="url(#black)" stroke="#7a8588" stroke-width="3"/>
+<path d="M48 58H78L81 92H45Z" fill="#101719" stroke="#737e86" stroke-width="2"/>
+<g fill="#d1d8d0"><rect x="55" y="63" width="5" height="15" rx="2"/><rect x="68" y="63" width="5" height="15" rx="2"/><rect x="62" y="84" width="5" height="11" rx="2"/></g>
+<rect x="96" y="48" width="29" height="62" rx="4" fill="#231c1a" stroke="#a3a3a0" stroke-width="2"/>
+<path d="M102 53h17l-2 22h-13Z" fill="#a73527"/><path d="M102 81h17l-2 22h-13Z" fill="#5d1b18"/>
+<circle cx="28" cy="80" r="3.5" fill="#1b2427"/><circle cx="132" cy="80" r="3.5" fill="#1b2427"/>
+</g>
+<path d="M18 142h124" stroke="#9db4a9" stroke-opacity=".15"/>
+</svg>

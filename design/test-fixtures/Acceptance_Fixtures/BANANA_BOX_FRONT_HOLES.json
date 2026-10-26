@@ -1,0 +1,169 @@
+{
+  "id": "banana-box",
+  "name": "Banana plugs into the box",
+  "version": 1,
+  "nodes": {
+    "2a739149-c78f-4246-bbec-ed3ea76c5246": {
+      "id": "2a739149-c78f-4246-bbec-ed3ea76c5246",
+      "kind": "box",
+      "params": {
+        "w": 80,
+        "d": 60,
+        "h": 22,
+        "radius": 0
+      },
+      "position": [
+        0,
+        0,
+        11
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d"
+    },
+    "71fe9f94-839b-4865-9550-e30c23916af4": {
+      "id": "71fe9f94-839b-4865-9550-e30c23916af4",
+      "kind": "box",
+      "params": {
+        "w": 76,
+        "d": 56,
+        "h": 22,
+        "radius": 0
+      },
+      "position": [
+        0,
+        0,
+        13
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#e05d5d"
+    },
+    "shell": {
+      "id": "shell",
+      "type": "group",
+      "label": "Hollow box",
+      "childIds": [
+        "2a739149-c78f-4246-bbec-ed3ea76c5246",
+        "71fe9f94-839b-4865-9550-e30c23916af4"
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "4a1f33b0-24d0-48e2-8ac8-1998b4c2486d": {
+      "id": "4a1f33b0-24d0-48e2-8ac8-1998b4c2486d",
+      "kind": "cylinder",
+      "params": {
+        "r": 4,
+        "h": 4,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        -15,
+        -29,
+        12
+      ],
+      "rotation": [
+        1.5707963267948966,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Banana plug 1 - front opening"
+    },
+    "ce1b0537-ed3a-481e-a043-2c18d05334c3": {
+      "id": "ce1b0537-ed3a-481e-a043-2c18d05334c3",
+      "kind": "cylinder",
+      "params": {
+        "r": 4,
+        "h": 4,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        15,
+        -29,
+        12
+      ],
+      "rotation": [
+        1.5707963267948966,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Banana plug 2 - front opening"
+    },
+    "13be12d0-3091-48b4-8e79-a3b7d56a3de0": {
+      "id": "13be12d0-3091-48b4-8e79-a3b7d56a3de0",
+      "type": "group",
+      "label": "Box with banana-plug holes",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "childIds": [
+        "shell",
+        "4a1f33b0-24d0-48e2-8ac8-1998b4c2486d",
+        "ce1b0537-ed3a-481e-a043-2c18d05334c3"
+      ]
+    }
+  },
+  "rootOrder": [
+    "13be12d0-3091-48b4-8e79-a3b7d56a3de0"
+  ]
+}

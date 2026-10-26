@@ -1,0 +1,331 @@
+/* v18.9 advanced modelling tools. Isolated to Design root. */
+#root .prepare-match-theme .design-advanced-shade{
+ position:fixed;inset:0;z-index:1800;display:flex;align-items:flex-start;justify-content:center;
+ padding:9vh 12px 24px;background:rgba(0,0,0,.58);
+}
+#root .prepare-match-theme .design-advanced-dialog{
+ width:min(790px,96vw);max-height:83vh;display:flex;flex-direction:column;
+ background:#282e33;border:1px solid #59656c;border-radius:9px;
+ color:#e7edef;box-shadow:0 20px 60px rgba(0,0,0,.55);font-size:12px;
+}
+#root .prepare-match-theme .design-advanced-dialog header{
+ display:flex;align-items:center;gap:10px;border-bottom:1px solid #49535b;padding:14px;
+}
+#root .prepare-match-theme .design-advanced-dialog header strong{font-size:14px;}
+#root .prepare-match-theme .design-advanced-dialog header span{font-size:10px;color:#a5b4b9;}
+#root .prepare-match-theme .design-advanced-dialog header button{margin-left:auto;}
+#root .prepare-match-theme .design-advanced-tabs{
+ display:flex;flex-wrap:wrap;gap:5px;padding:10px;border-bottom:1px solid #49535b;
+}
+#root .prepare-match-theme .design-advanced-tabs button{
+ border:1px solid #505b62;background:#31383e;color:#d7e1e3;
+ padding:6px 10px;border-radius:5px;
+}
+#root .prepare-match-theme .design-advanced-tabs button[aria-pressed="true"]{
+ background:#264632;border-color:#3f995c;color:#71f3a0;
+}
+#root .prepare-match-theme .design-advanced-content{
+ min-height:180px;padding:16px;overflow:auto;display:flex;flex-direction:column;gap:12px;
+}
+#root .prepare-match-theme .design-advanced-content p{color:#c8d1d6;line-height:1.6;max-width:680px;}
+#root .prepare-match-theme .design-advanced-fields{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:10px;
+}
+#root .prepare-match-theme .design-advanced-fields label{display:flex;flex-direction:column;gap:5px;color:#b8c6ce;}
+#root .prepare-match-theme .design-advanced-content input,
+#root .prepare-match-theme .design-advanced-content select{
+ background:#182128;border:1px solid #53656e;color:#eff9f6;
+ padding:8px 10px;border-radius:5px;font-size:13px;max-width:340px;
+}
+#root .prepare-match-theme .design-advanced-content select{width:min(100%,340px);}
+#root .prepare-match-theme .design-advanced-apply,
+#root .prepare-match-theme .design-advanced-secondary{
+ align-self:flex-start;padding:9px 13px;border-radius:5px;
+ border:1px solid #449764;background:#286c42;color:#f5fff7;font-weight:600;
+}
+#root .prepare-match-theme .design-advanced-secondary{
+ border-color:#68767d;background:#38454a;color:#e2eff1;
+}
+#root .prepare-match-theme .design-advanced-content button:disabled{opacity:.42;}
+#root .prepare-match-theme .design-advanced-error{
+ padding:8px;background:#522c31;color:#ffd6d8!important;border-radius:5px;
+}
+#root .prepare-match-theme .design-advanced-info{
+ padding:8px;background:#244633;color:#adf7c9!important;border-radius:5px;
+}
+#root .prepare-match-theme .design-advanced-dialog footer{
+ border-top:1px solid #49535b;color:#9dadb6;padding:10px 14px;font-size:11px;
+}
+
+/* v19: five compact Box & Fit tools inside existing experimental Advanced panel */
+#root .prepare-match-theme .design-boxfit{display:flex;flex-direction:column;gap:12px;}
+#root .prepare-match-theme .design-boxfit-nav{display:flex;flex-wrap:wrap;gap:5px;}
+#root .prepare-match-theme .design-boxfit-nav button{
+ border:1px solid #536369;border-radius:5px;padding:7px 10px;
+ background:#323b40;color:#d9e6e6;
+}
+#root .prepare-match-theme .design-boxfit-nav button[aria-selected="true"]{
+ border-color:#53b477;background:#244733;color:#91ffb6;
+}
+#root .prepare-match-theme .design-boxfit-text{display:flex;flex-direction:column;gap:5px;color:#b8c6ce;}
+#root .prepare-match-theme .design-boxfit-text textarea{
+ width:min(100%,470px);resize:vertical;background:#182128;border:1px solid #53656e;
+ color:#eef7f4;border-radius:5px;padding:8px 10px;font-size:13px;
+}
+
+/* v19 Box and Fit inside existing Advanced Design panel */
+#root .prepare-match-theme .design-boxfit{display:flex;flex-direction:column;gap:12px;}
+#root .prepare-match-theme .design-boxfit-nav{display:flex;flex-wrap:wrap;gap:5px;}
+#root .prepare-match-theme .design-boxfit-nav button{border:1px solid #536369;border-radius:5px;padding:7px 10px;background:#323b40;color:#d9e6e6;}
+#root .prepare-match-theme .design-boxfit-nav button[aria-selected="true"]{border-color:#53b477;background:#244733;color:#91ffb6;}
+#root .prepare-match-theme .design-boxfit-text{display:flex;flex-direction:column;gap:5px;color:#b8c6ce;}
+#root .prepare-match-theme .design-boxfit-text textarea{width:min(100%,470px);resize:vertical;background:#182128;border:1px solid #53656e;color:#eef7f4;border-radius:5px;padding:8px 10px;font-size:13px;}
+/* AD5X Workshop v19.5.29: a choose -> size -> create flow inside the EXISTING native Design tab. */
+#root .prepare-match-theme .ad5x-workshop-simple{
+ max-height:min(85vh,820px);
+ border-color:#465d65;
+ box-shadow:0 16px 45px rgba(0,0,0,.5);
+}
+#root .prepare-match-theme .ad5x-workshop-simple .design-advanced-content{
+ gap:12px;padding:16px 18px;
+}
+#root .prepare-match-theme .ad5x-simple-heading{display:flex;flex-direction:column;gap:3px;}
+#root .prepare-match-theme .ad5x-simple-heading h3{
+ margin:0;color:#f0f7f5;font-size:16px;font-weight:700;letter-spacing:0;
+}
+#root .prepare-match-theme .ad5x-simple-heading h4{
+ margin:1px 0 0;font-size:13px;font-weight:650;color:#eaf4ed;
+}
+#root .prepare-match-theme .ad5x-simple-heading p{
+ margin:0;font-size:12px;color:#a8b9bf;line-height:1.35;
+}
+#root .prepare-match-theme .ad5x-simple-tool-grid{
+ display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;
+}
+#root .prepare-match-theme .ad5x-simple-tool-grid button{
+ display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
+ gap:3px;min-height:58px;padding:8px 10px;border:1px solid #53646d;
+ background:#333d44;border-radius:8px;color:#eaf4f3;text-align:left;
+}
+#root .prepare-match-theme .ad5x-simple-tool-grid button strong{font-size:12px;font-weight:650;line-height:1.25;}
+#root .prepare-match-theme .ad5x-simple-tool-grid button small{font-size:11px;color:#b0c1c7;line-height:1.2;}
+#root .prepare-match-theme .ad5x-simple-tool-grid button[aria-pressed="true"]{
+ border:2px solid #63bf87;background:#224534;padding:7px 9px;
+}
+#root .prepare-match-theme .ad5x-simple-tool-grid button[aria-pressed="true"] small{color:#c1eace;}
+#root .prepare-match-theme .ad5x-simple-tool-grid button:hover{border-color:#77c69a;}
+#root .prepare-match-theme .ad5x-simple-tool-grid button:focus-visible{
+ outline:2px solid #91dcb2;outline-offset:2px;
+}
+#root .prepare-match-theme .ad5x-simple-extra{
+ border:1px solid #4c5b62;border-radius:7px;background:#252e33;
+}
+#root .prepare-match-theme .ad5x-simple-extra summary{
+ cursor:pointer;list-style:revert;padding:10px 13px;color:#c6d8db;font-weight:600;font-size:12px;
+}
+#root .prepare-match-theme .ad5x-simple-extra summary:focus-visible{
+ outline:2px solid #89bdc5;outline-offset:-2px;
+}
+#root .prepare-match-theme .ad5x-simple-extra[open] summary{border-bottom:1px solid #45565c;}
+#root .prepare-match-theme .ad5x-simple-extra-body{
+ display:flex;flex-direction:column;gap:12px;padding:12px;
+}
+#root .prepare-match-theme .ad5x-simple-extra-body p{font-size:12px;line-height:1.35;}
+#root .prepare-match-theme .ad5x-simple-extra-body h4{font-size:13px;font-weight:650;}
+#root .prepare-match-theme .ad5x-simple-list{font-size:12px;}
+#root .prepare-match-theme .ad5x-simple-list label{display:flex;flex-direction:column;gap:4px;padding:9px 12px;}
+#root .prepare-match-theme .ad5x-simple-check{display:flex;align-items:center;gap:9px;min-height:27px;color:#d0e1e1;}
+#root .prepare-match-theme .ad5x-simple-check input[type="checkbox"]{width:16px;height:16px;margin:0;accent-color:#54bc7b;}
+#root .prepare-match-theme .ad5x-workshop-simple .design-advanced-fields{
+ grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;
+}
+#root .prepare-match-theme .ad5x-workshop-simple .design-advanced-fields label{
+ gap:4px;min-width:0;color:#becdd2;font-size:12px;
+}
+#root .prepare-match-theme .ad5x-workshop-simple .design-advanced-fields input{
+ width:100%;max-width:none;padding:8px 9px;height:37px;font-size:14px;
+}
+#root .prepare-match-theme .ad5x-workshop-simple .design-advanced-apply{
+ align-self:stretch;max-width:none;text-align:center;padding:11px 16px;
+ background:#287744;border-color:#4cb16c;border-radius:7px;font-size:13px;
+}
+#root .prepare-match-theme .ad5x-workshop-simple .design-advanced-apply:hover{
+ background:#318c50;
+}
+#root .prepare-match-theme .ad5x-workshop-simple .design-advanced-error{
+ display:flex;align-items:center;gap:10px;justify-content:space-between;font-size:12px;
+ background:#4c2f35;color:#ffe2de!important;padding:10px;border:1px solid #855960;
+}
+#root .prepare-match-theme .ad5x-workshop-simple .design-advanced-error button{
+ flex-shrink:0;text-decoration:underline;
+}
+#root .prepare-match-theme .ad5x-workshop-simple footer{
+ font-size:11px;padding:8px 14px;color:#aebec3;
+}
+#root .prepare-match-theme .ad5x-simple-caution{
+ padding:8px 10px;background:#3b3427;border-radius:6px;color:#edd6a7!important;
+ border:1px solid #6b5a38;font-size:12px;
+}
+@media(max-width:650px){
+ #root .prepare-match-theme .ad5x-simple-tool-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+ #root .prepare-match-theme .ad5x-workshop-simple .design-advanced-fields{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+/* Banana plug holding jig: direct count / pitch / position workflow. */
+#root .prepare-match-theme .ad5x-banana-tool{display:flex;flex-direction:column;gap:10px;min-width:0;}
+#root .prepare-match-theme .ad5x-banana-tool .ad5x-simple-heading h4{font-size:15px;}
+#root .prepare-match-theme .ad5x-banana-primary,
+#root .prepare-match-theme .ad5x-banana-sizes{
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;
+}
+#root .prepare-match-theme .ad5x-banana-primary label,
+#root .prepare-match-theme .ad5x-banana-sizes label,
+#root .prepare-match-theme .ad5x-banana-hole-row label{
+ display:flex;flex-direction:column;gap:4px;min-width:0;
+ font-size:12px;color:#c9d8da;
+}
+#root .prepare-match-theme .ad5x-banana-tool input,
+#root .prepare-match-theme .ad5x-banana-tool select{
+ width:100%;min-width:0;border:1px solid #53616d;background:#1a2229;
+ color:#f4f6f8;border-radius:6px;min-height:36px;padding:6px 8px;
+ font-size:14px;
+}
+#root .prepare-match-theme .ad5x-banana-tool input:focus-visible,
+#root .prepare-match-theme .ad5x-banana-tool select:focus-visible{outline:2px solid #80c89a;outline-offset:1px;}
+#root .prepare-match-theme .ad5x-banana-help{font-size:11px;color:#b9c8ce;line-height:1.4;}
+#root .prepare-match-theme .ad5x-banana-preview{
+ border:1px solid #586e74;border-radius:8px;overflow:hidden;
+ background:#17242a;padding:8px 10px;
+}
+#root .prepare-match-theme .ad5x-banana-preview-head{
+ display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:6px;
+ font-size:12px;margin-bottom:5px;color:#edf6ed;
+}
+#root .prepare-match-theme .ad5x-banana-preview-head span{font-size:11px;color:#b6c9c9;}
+#root .prepare-match-theme .ad5x-banana-preview svg{
+ display:block;width:100%;height:190px;max-height:28vh;overflow:visible;touch-action:none;
+}
+#root .prepare-match-theme .ad5x-banana-individual{
+ border:1px solid #46585d;border-radius:7px;background:#263238;
+}
+#root .prepare-match-theme .ad5x-banana-individual summary{
+ cursor:pointer;font-size:12px;font-weight:650;padding:8px 11px;
+ color:#d9ece8;
+}
+#root .prepare-match-theme .ad5x-banana-hole-rows{
+ padding:7px 10px 9px;max-height:155px;overflow-y:auto;
+ display:flex;flex-direction:column;gap:7px;
+}
+#root .prepare-match-theme .ad5x-banana-hole-row{
+ display:grid;grid-template-columns:76px repeat(2,minmax(0,1fr));
+ gap:8px;align-items:center;
+}
+#root .prepare-match-theme .ad5x-banana-hole-row strong{font-size:12px;color:#e5e8e7;}
+#root .prepare-match-theme .ad5x-banana-hole-row input{min-height:32px;padding:4px 7px;}
+#root .prepare-match-theme .ad5x-banana-errors{
+ background:#563038;border:1px solid #9b5960;border-radius:6px;padding:8px 10px;
+ font-size:12px;color:#ffe5df;display:flex;flex-direction:column;gap:4px;
+}
+#root .prepare-match-theme .ad5x-banana-errors p{font-size:12px;color:#ffe5df;margin:0;}
+#root .prepare-match-theme .ad5x-banana-ok{
+ padding:8px 10px;font-size:12px;color:#c8f2d5;
+ background:#244e37;border-radius:6px;border:1px solid #437f59;
+}
+#root .prepare-match-theme .ad5x-banana-tool .design-advanced-apply:disabled{
+ background:#3b4d45;border-color:#516b60;color:#a7b9b0;cursor:not-allowed;opacity:.7;
+}
+@media(max-width:650px){
+ #root .prepare-match-theme .ad5x-banana-primary,
+ #root .prepare-match-theme .ad5x-banana-sizes{grid-template-columns:1fr;}
+ #root .prepare-match-theme .ad5x-banana-preview svg{height:175px;}
+}
+/* v19.5.31: banana fixture cuts directly into the selected box. */
+#root .prepare-match-theme .ad5x-banana-target{
+ display:flex;flex-direction:column;gap:10px;
+}
+#root .prepare-match-theme .ad5x-banana-face{
+ display:flex;flex-direction:column;gap:5px;font-size:12px;
+ color:#d0e1df;max-width:360px;
+}
+#root .prepare-match-theme .ad5x-banana-face select{
+ background:#1b252a;border:1px solid #53616d;color:#f6f8f8;
+ border-radius:6px;padding:7px 9px;min-height:37px;
+}
+
+/* v19.5.32 - categorical plug sizing. Never infer body diameter from mating pin. */
+#root .prepare-match-theme .ad5x-banana-primary{
+ grid-template-columns:repeat(2,minmax(0,1fr));
+}
+#root .prepare-match-theme .ad5x-banana-preset{
+ display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);
+ gap:9px;align-items:end;
+}
+#root .prepare-match-theme .ad5x-banana-preset label{
+ display:flex;flex-direction:column;gap:4px;font-size:12px;
+ color:#d4e3df;min-width:0;
+}
+#root .prepare-match-theme .ad5x-banana-preset-size{
+ min-height:36px;padding:5px 8px;display:flex;flex-direction:column;
+ border:1px solid #4b6b5b;border-radius:6px;background:#1d3b2c;
+}
+#root .prepare-match-theme .ad5x-banana-preset-size strong{font-size:14px;color:#d1f2db;}
+#root .prepare-match-theme .ad5x-banana-preset-size small{font-size:11px;color:#a7c5ae;}
+@media(max-width:650px){
+ #root .prepare-match-theme .ad5x-banana-preset{grid-template-columns:1fr;}
+}
+
+/* v19.5.33 connector-type entry point, inside the existing Workshop Jigs tab. */
+#root .prepare-match-theme .ad5x-connector-chooser{
+ display:flex;flex-direction:column;gap:10px;padding:8px 10px;
+ border:1px solid #52676a;border-radius:8px;background:#253439;
+}
+#root .prepare-match-theme .ad5x-connector-chooser label{
+ display:flex;flex-direction:column;gap:5px;color:#e0e9e6;font-size:12px;
+}
+#root .prepare-match-theme .ad5x-connector-chooser select{
+ min-height:39px;border:1px solid #6b8882;border-radius:6px;
+ padding:7px 11px;background:#1c292c;color:#f2f9f6;
+}
+#root .prepare-match-theme .ad5x-connector-unverified{
+ display:flex;flex-direction:column;gap:7px;padding:13px;
+ border-radius:8px;border:1px solid #806f50;background:#3b352b;
+ color:#f6e5c1;font-size:12px;line-height:1.45;
+}
+#root .prepare-match-theme .ad5x-connector-unverified strong{font-size:15px;}
+
+/* v19.5.34 verified DE9/DB9 D-shell wall cutter within native Workshop. */
+#root .prepare-match-theme .ad5x-db9-tool{display:flex;flex-direction:column;gap:9px;}
+#root .prepare-match-theme .ad5x-db9-tool .ad5x-simple-heading{margin-bottom:3px;}
+#root .prepare-match-theme .ad5x-db9-side,#root .prepare-match-theme .ad5x-db9-position label,
+#root .prepare-match-theme .ad5x-db9-options label{
+ display:flex;flex-direction:column;gap:5px;color:#e0e9e6;font-size:12px;min-width:0;
+}
+#root .prepare-match-theme .ad5x-db9-tool input[type=number],
+#root .prepare-match-theme .ad5x-db9-tool select{
+ width:100%;min-width:0;min-height:36px;background:#192529;
+ border:1px solid #57717a;color:#f4f7f7;border-radius:6px;padding:7px 9px;font-size:13px;
+}
+#root .prepare-match-theme .ad5x-db9-side{max-width:350px;}
+#root .prepare-match-theme .ad5x-db9-position,
+#root .prepare-match-theme .ad5x-db9-options{
+ display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;
+}
+#root .prepare-match-theme .ad5x-db9-preview{
+ border:1px solid #516e71;border-radius:8px;padding:8px;background:#1b292e;
+}
+#root .prepare-match-theme .ad5x-db9-preview-header{
+ display:flex;align-items:center;justify-content:space-between;gap:5px;
+ font-size:12px;color:#d6efdc;flex-wrap:wrap;
+}
+#root .prepare-match-theme .ad5x-db9-preview-header span{font-size:11px;color:#b4c5c6;}
+#root .prepare-match-theme .ad5x-db9-preview svg{
+ width:100%;height:182px;max-height:28vh;display:block;
+}
+#root .prepare-match-theme .ad5x-db9-checks{display:flex;flex-direction:column;gap:7px;}
+#root .prepare-match-theme .ad5x-db9-checks label{
+ display:flex;gap:8px;align-items:center;font-size:12px;line-height:1.4;color:#dce7e2;
+}
+#root .prepare-match-theme .ad5x-db9-checks input{accent-color:#48a96c;min-width:16px;min-height:16px;}
+@media(max-width:600px){
+ #root .prepare-match-theme .ad5x-db9-position,
+ #root .prepare-match-theme .ad5x-db9-options{grid-template-columns:1fr;}
+}

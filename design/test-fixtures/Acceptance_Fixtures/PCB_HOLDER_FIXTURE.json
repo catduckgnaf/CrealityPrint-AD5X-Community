@@ -1,0 +1,148 @@
+{
+  "id": "fixture",
+  "name": "PCB edge locating holder",
+  "version": 1,
+  "rootOrder": [
+    "root"
+  ],
+  "nodes": {
+    "d1f98dc0-3ed4-42a6-bdd9-022cf00b71d3": {
+      "id": "d1f98dc0-3ed4-42a6-bdd9-022cf00b71d3",
+      "kind": "box",
+      "params": {
+        "w": 78.8,
+        "d": 54.8,
+        "h": 5,
+        "radius": 0
+      },
+      "position": [
+        0,
+        2,
+        2.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "PCB fixture base"
+    },
+    "a0e0b82d-d5e6-492b-8c3c-7a765ef273e4": {
+      "id": "a0e0b82d-d5e6-492b-8c3c-7a765ef273e4",
+      "kind": "box",
+      "params": {
+        "w": 4,
+        "d": 41.199999999999996,
+        "h": 3.35,
+        "radius": 0
+      },
+      "position": [
+        -32.4,
+        0,
+        6.325
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "PCB left locating rail"
+    },
+    "fe82d20e-1788-4a52-b018-617c4f9ea318": {
+      "id": "fe82d20e-1788-4a52-b018-617c4f9ea318",
+      "kind": "box",
+      "params": {
+        "w": 4,
+        "d": 41.199999999999996,
+        "h": 3.35,
+        "radius": 0
+      },
+      "position": [
+        32.4,
+        0,
+        6.325
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "PCB right locating rail"
+    },
+    "7220582d-f6af-499d-87c8-ddef1e96e9e6": {
+      "id": "7220582d-f6af-499d-87c8-ddef1e96e9e6",
+      "kind": "box",
+      "params": {
+        "w": 68.8,
+        "d": 4,
+        "h": 5.35,
+        "radius": 0
+      },
+      "position": [
+        0,
+        22.4,
+        7.325
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "PCB rear locating stop"
+    },
+    "root": {
+      "id": "root",
+      "type": "group",
+      "label": "PCB edge locating holder",
+      "childIds": [
+        "d1f98dc0-3ed4-42a6-bdd9-022cf00b71d3",
+        "a0e0b82d-d5e6-492b-8c3c-7a765ef273e4",
+        "fe82d20e-1788-4a52-b018-617c4f9ea318",
+        "7220582d-f6af-499d-87c8-ddef1e96e9e6"
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  }
+}

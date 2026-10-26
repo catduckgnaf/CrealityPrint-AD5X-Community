@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Digital voltmeter">
+<defs><linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#333d41"/><stop offset="1" stop-color="#141a1e"/></linearGradient>
+<linearGradient id="metal" x1="0" x2="1" y1="0" y2="0"><stop stop-color="#71888d"/><stop offset=".22" stop-color="#dee2dd"/><stop offset=".58" stop-color="#899ba1"/><stop offset="1" stop-color="#394a51"/></linearGradient>
+<linearGradient id="black" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#313d43"/><stop offset="1" stop-color="#0b1115"/></linearGradient>
+<filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="7" stdDeviation="6" flood-color="#020507" flood-opacity=".65"/></filter></defs>
+<rect width="160" height="160" rx="12" fill="url(#bg)"/><path d="M0 23h160M0 137h160M20 0v160M140 0v160" stroke="#87928f" stroke-opacity=".07"/>
+<rect x="8" y="8" width="144" height="144" rx="9" fill="none" stroke="#667d79" stroke-opacity=".35"/>
+
+<g filter="url(#shadow)" transform="rotate(-4 80 75)">
+<rect x="23" y="50" width="114" height="61" rx="8" fill="url(#black)" stroke="#727f84" stroke-width="3"/>
+<rect x="30" y="56" width="100" height="49" rx="5" fill="#0e1418" stroke="#252c32" stroke-width="2"/>
+<text x="80" y="91" text-anchor="middle" font-family="Consolas,monospace" font-size="35" font-weight="800" fill="#f43832" letter-spacing="-2">12.8</text>
+<path d="M41 111v22M119 111v22" stroke="#b61a1c" stroke-width="3"/>
+<path d="M45 114l-5 19M116 114l5 19" stroke="#262c30" stroke-width="3"/>
+</g>
+<path d="M18 142h124" stroke="#9db4a9" stroke-opacity=".15"/>
+</svg>

@@ -1,0 +1,351 @@
+{
+  "id": "fixture",
+  "name": "Experimental indexed adjustable clamp",
+  "version": 1,
+  "rootOrder": [
+    "root"
+  ],
+  "nodes": {
+    "f1e61155-3ee6-4a40-bf17-9a54c99922c4": {
+      "id": "f1e61155-3ee6-4a40-bf17-9a54c99922c4",
+      "kind": "box",
+      "params": {
+        "w": 100,
+        "d": 50,
+        "h": 6,
+        "radius": 0
+      },
+      "position": [
+        0,
+        0,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "Indexed clamp base"
+    },
+    "b5e25294-f087-41b9-a880-c25900ff89ca": {
+      "id": "b5e25294-f087-41b9-a880-c25900ff89ca",
+      "kind": "box",
+      "params": {
+        "w": 8,
+        "d": 42,
+        "h": 12.4,
+        "radius": 0
+      },
+      "position": [
+        -42,
+        0,
+        11.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "Fixed clamp jaw"
+    },
+    "81b75456-f28f-4bda-a24a-a0ba2c0e2b90": {
+      "id": "81b75456-f28f-4bda-a24a-a0ba2c0e2b90",
+      "kind": "cylinder",
+      "params": {
+        "r": 2.65,
+        "h": 8,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        -22,
+        0,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Clamp index bore 1"
+    },
+    "04733b34-6b76-42a9-bf26-1533771a7c50": {
+      "id": "04733b34-6b76-42a9-bf26-1533771a7c50",
+      "kind": "cylinder",
+      "params": {
+        "r": 2.65,
+        "h": 8,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        -12,
+        0,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Clamp index bore 2"
+    },
+    "c27d39b2-4277-4313-9257-195e13ff9496": {
+      "id": "c27d39b2-4277-4313-9257-195e13ff9496",
+      "kind": "cylinder",
+      "params": {
+        "r": 2.65,
+        "h": 8,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        -2,
+        0,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Clamp index bore 3"
+    },
+    "bec9a871-e2e0-4396-a491-adce8327a0d5": {
+      "id": "bec9a871-e2e0-4396-a491-adce8327a0d5",
+      "kind": "cylinder",
+      "params": {
+        "r": 2.65,
+        "h": 8,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        8,
+        0,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Clamp index bore 4"
+    },
+    "1e3d6bd1-387b-48da-a944-383ddadbadd0": {
+      "id": "1e3d6bd1-387b-48da-a944-383ddadbadd0",
+      "kind": "cylinder",
+      "params": {
+        "r": 2.65,
+        "h": 8,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        18,
+        0,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Clamp index bore 5"
+    },
+    "68929af8-f1b3-48d6-a9a2-d3e5cfb62324": {
+      "id": "68929af8-f1b3-48d6-a9a2-d3e5cfb62324",
+      "kind": "cylinder",
+      "params": {
+        "r": 2.65,
+        "h": 8,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        28,
+        0,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Clamp index bore 6"
+    },
+    "e43e20fd-52e2-4f53-8319-532dc8003604": {
+      "id": "e43e20fd-52e2-4f53-8319-532dc8003604",
+      "kind": "cylinder",
+      "params": {
+        "r": 2.65,
+        "h": 8,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        38,
+        0,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Clamp index bore 7"
+    },
+    "4cd9e510-946f-41db-a089-a33994445e94": {
+      "id": "4cd9e510-946f-41db-a089-a33994445e94",
+      "kind": "box",
+      "params": {
+        "w": 8,
+        "d": 38,
+        "h": 12,
+        "radius": 0
+      },
+      "position": [
+        62,
+        0,
+        12
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "Removable indexed jaw (print separately)"
+    },
+    "443dd30c-1476-4144-a916-c263a73659fe": {
+      "id": "443dd30c-1476-4144-a916-c263a73659fe",
+      "kind": "cylinder",
+      "params": {
+        "r": 2.5,
+        "h": 6.4,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        62,
+        0,
+        3.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#5d8fe0",
+      "label": "Removable jaw locating peg"
+    },
+    "root": {
+      "id": "root",
+      "type": "group",
+      "label": "Experimental indexed adjustable clamp",
+      "childIds": [
+        "f1e61155-3ee6-4a40-bf17-9a54c99922c4",
+        "b5e25294-f087-41b9-a880-c25900ff89ca",
+        "81b75456-f28f-4bda-a24a-a0ba2c0e2b90",
+        "04733b34-6b76-42a9-bf26-1533771a7c50",
+        "c27d39b2-4277-4313-9257-195e13ff9496",
+        "bec9a871-e2e0-4396-a491-adce8327a0d5",
+        "1e3d6bd1-387b-48da-a944-383ddadbadd0",
+        "68929af8-f1b3-48d6-a9a2-d3e5cfb62324",
+        "e43e20fd-52e2-4f53-8319-532dc8003604",
+        "4cd9e510-946f-41db-a089-a33994445e94",
+        "443dd30c-1476-4144-a916-c263a73659fe"
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  }
+}

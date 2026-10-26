@@ -1,0 +1,148 @@
+{
+  "id": "fixture",
+  "name": "Connector soldering cradle",
+  "version": 1,
+  "rootOrder": [
+    "root"
+  ],
+  "nodes": {
+    "fb23f5c7-513e-426c-a387-dfbaa3a6b706": {
+      "id": "fb23f5c7-513e-426c-a387-dfbaa3a6b706",
+      "kind": "box",
+      "params": {
+        "w": 32.8,
+        "d": 38.8,
+        "h": 5,
+        "radius": 0
+      },
+      "position": [
+        0,
+        2,
+        2.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "Connector soldering cradle base"
+    },
+    "2c04e715-2eb3-4c33-8846-5fb38f695693": {
+      "id": "2c04e715-2eb3-4c33-8846-5fb38f695693",
+      "kind": "box",
+      "params": {
+        "w": 4,
+        "d": 23.2,
+        "h": 7.35,
+        "radius": 0
+      },
+      "position": [
+        -8.4,
+        0,
+        8.325
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "Connector left guide"
+    },
+    "f2107e82-c143-42b0-b246-3e0fd455c7ca": {
+      "id": "f2107e82-c143-42b0-b246-3e0fd455c7ca",
+      "kind": "box",
+      "params": {
+        "w": 4,
+        "d": 23.2,
+        "h": 7.35,
+        "radius": 0
+      },
+      "position": [
+        8.4,
+        0,
+        8.325
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "Connector right guide"
+    },
+    "eed29442-07ef-4bbb-8e9b-962bb9faf2cc": {
+      "id": "eed29442-07ef-4bbb-8e9b-962bb9faf2cc",
+      "kind": "box",
+      "params": {
+        "w": 20.8,
+        "d": 4,
+        "h": 6.35,
+        "radius": 0
+      },
+      "position": [
+        0,
+        13.4,
+        7.825
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "Connector rear locating stop"
+    },
+    "root": {
+      "id": "root",
+      "type": "group",
+      "label": "Connector soldering cradle",
+      "childIds": [
+        "fb23f5c7-513e-426c-a387-dfbaa3a6b706",
+        "2c04e715-2eb3-4c33-8846-5fb38f695693",
+        "f2107e82-c143-42b0-b246-3e0fd455c7ca",
+        "eed29442-07ef-4bbb-8e9b-962bb9faf2cc"
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "id": "panel",
+  "version": 1,
+  "name": "Round product-specific connectors",
+  "nodes": {
+    "08bae4d3-e409-4928-8667-a04890474f86": {
+      "id": "08bae4d3-e409-4928-8667-a04890474f86",
+      "kind": "box",
+      "params": {
+        "w": 80,
+        "d": 60,
+        "h": 22,
+        "radius": 0
+      },
+      "position": [
+        0,
+        0,
+        11
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d"
+    },
+    "b92eeab4-00cc-4236-a1d5-7552427f716d": {
+      "id": "b92eeab4-00cc-4236-a1d5-7552427f716d",
+      "kind": "box",
+      "params": {
+        "w": 76,
+        "d": 56,
+        "h": 22,
+        "radius": 0
+      },
+      "position": [
+        0,
+        0,
+        13
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#e05d5d"
+    },
+    "shell": {
+      "id": "shell",
+      "type": "group",
+      "label": "Hollow box",
+      "childIds": [
+        "08bae4d3-e409-4928-8667-a04890474f86",
+        "b92eeab4-00cc-4236-a1d5-7552427f716d"
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "3bcd8661-900e-4fd7-9318-5585247c70f4": {
+      "id": "3bcd8661-900e-4fd7-9318-5585247c70f4",
+      "kind": "cylinder",
+      "params": {
+        "r": 11.2,
+        "h": 4,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        0,
+        0,
+        1
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "XT60 round panel mount (XT60-PAN-03) circular mounting opening"
+    },
+    "683a3a6f-51cb-4636-9054-9a53016de7d3": {
+      "id": "683a3a6f-51cb-4636-9054-9a53016de7d3",
+      "type": "group",
+      "label": "Box with XT60 round panel mount (XT60-PAN-03) opening",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "childIds": [
+        "shell",
+        "3bcd8661-900e-4fd7-9318-5585247c70f4"
+      ]
+    }
+  },
+  "rootOrder": [
+    "683a3a6f-51cb-4636-9054-9a53016de7d3"
+  ]
+}

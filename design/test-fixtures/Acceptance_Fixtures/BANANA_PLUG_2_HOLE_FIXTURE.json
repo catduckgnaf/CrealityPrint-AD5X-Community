@@ -1,0 +1,119 @@
+{
+  "id": "banana-plug-fixture",
+  "version": 1,
+  "name": "Measured banana-plug fixture",
+  "rootOrder": [
+    "banana_holder_root"
+  ],
+  "nodes": {
+    "f757dbf0-63f7-4d50-9336-6cf4bb265cd2": {
+      "id": "f757dbf0-63f7-4d50-9336-6cf4bb265cd2",
+      "kind": "box",
+      "params": {
+        "w": 100,
+        "d": 60,
+        "h": 8,
+        "radius": 0
+      },
+      "position": [
+        0,
+        0,
+        4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "Banana-plug holding plate"
+    },
+    "dcdf2f41-d60c-4236-a44a-7d816cbbc4a8": {
+      "id": "dcdf2f41-d60c-4236-a44a-7d816cbbc4a8",
+      "kind": "cylinder",
+      "params": {
+        "r": 4,
+        "h": 10,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        -15,
+        0,
+        4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Banana plug 1 holder opening"
+    },
+    "6135431d-2b31-4f4b-8742-7d3b6b8d432f": {
+      "id": "6135431d-2b31-4f4b-8742-7d3b6b8d432f",
+      "kind": "cylinder",
+      "params": {
+        "r": 4,
+        "h": 10,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        15,
+        0,
+        4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Banana plug 2 holder opening"
+    },
+    "banana_holder_root": {
+      "id": "banana_holder_root",
+      "type": "group",
+      "label": "Banana-plug assembly holder",
+      "childIds": [
+        "f757dbf0-63f7-4d50-9336-6cf4bb265cd2",
+        "dcdf2f41-d60c-4236-a44a-7d816cbbc4a8",
+        "6135431d-2b31-4f4b-8742-7d3b6b8d432f"
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  }
+}

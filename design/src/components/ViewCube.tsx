@@ -1,0 +1,70 @@
+import { useRef } from "react";
+import { GizmoHelper, GizmoViewcube } from "@react-three/drei";
+import { sceneApi } from "../lib/sceneApi";
+import { gizmoState } from "../lib/gizmoState";
+
+const DRAG_THRESHOLD = 3; // px before a press counts as an orbit, not a click
+
+// The corner orientation cube: click a face/edge/corner to snap the camera,
+// or drag it to orbit freely. drei's cube is click-only, so the drag is
+// layered on here — with the trailing click swallowed after a real drag so
+// releasing over a face doesn't also snap the view.
+export function ViewCube() {
+  const drag = useRef<{ x: number; y: number; moved: boolean } | null>(null);
+
+  const onMove = (e: PointerEvent) => {
+    const d = drag.current;
+    if (!d) return;
+    const dx = e.clientX - d.x;
+    const dy = e.clientY - d.y;
+    if (!d.moved && Math.hypot(dx, dy) < DRAG_THRESHOLD) return;
+    d.moved = true;
+    d.x = e.clientX;
+    d.y = e.clientY;
+    sceneApi.orbitBy(dx, dy);
+  };
+
+  const onUp = () => {
+    const d = drag.current;
+    drag.current = null;
+    gizmoState.handleActive = false;
+    gizmoState.lastInteractionEnd = performance.now();
+    window.removeEventListener("pointermove", onMove);
+    window.removeEventListener("pointerup", onUp);
+    window.removeEventListener("pointercancel", onUp);
+    if (!d?.moved) return;
+    // Eat the click this drag is about to produce.
+    const swallow = (ev: MouseEvent) => {
+      ev.stopPropagation();
+      ev.preventDefault();
+      window.removeEventListener("click", swallow, true);
+    };
+    window.addEventListener("click", swallow, true);
+    setTimeout(() => window.removeEventListener("click", swallow, true), 400);
+  };
+
+  return (
+    <GizmoHelper alignment="top-right" margin={[64, 64]}>
+      <group
+        onPointerDown={(e) => {
+          e.stopPropagation();
+          // Tell the viewport a gizmo owns this press, so it doesn't start a
+          // marquee (or drop a measure point) behind the cube.
+          gizmoState.handleActive = true;
+          drag.current = { x: e.clientX, y: e.clientY, moved: false };
+          window.addEventListener("pointermove", onMove);
+          window.addEventListener("pointerup", onUp);
+          window.addEventListener("pointercancel", onUp);
+        }}
+      >
+        <GizmoViewcube
+          color="#383e42"
+          textColor="#e7eeec"
+          strokeColor="#697579"
+          hoverColor="#35d76b"
+          faces={["Right", "Left", "Back", "Front", "Top", "Bottom"]}
+        />
+      </group>
+    </GizmoHelper>
+  );
+}

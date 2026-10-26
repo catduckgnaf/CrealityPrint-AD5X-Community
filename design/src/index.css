@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  overscroll-behavior: none;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  user-select: none;
+  /* Long-press on a shape should not raise iOS's copy/share callout. */
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Keep the UI clear of the iPad's rounded corners and home indicator. */
+#root {
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
+  box-sizing: border-box;
+}
+
+input,
+textarea {
+  user-select: text;
+}
+
+/* A label that only a touch device shows — see the toolbar rules below. */
+.touch-label {
+  display: none;
+}
+
+/* Fingertips need bigger targets than a cursor does. The toolbar's icon
+   buttons are ~29px: fine to click, fiddly to tap. On touch the
+   Move/Rotate/Scale buttons matter more too, since each mode now shows its
+   own single set of on-shape handles.
+   Keyed off the root element rather than @media (pointer: coarse), because an
+   iPad with a mouse attached reports a fine pointer while its screen is still
+   a touchscreen. lib/pointer.ts decides by whichever input was used last and
+   writes the answer here. */
+:root[data-pointer="coarse"] {
+  /* At cursor size the toolbar exactly fills an iPad's landscape width, with
+     nothing to spare — and portrait is narrower still. Bigger buttons have to
+     wrap onto another row, or they shove the rightmost controls off the edge
+     where there is no way to reach them. Vertical space is the one thing there
+     is plenty of. */
+  header {
+    flex-wrap: wrap;
+    row-gap: 4px;
+  }
+
+  /* Touch buttons are wide enough to read as separate; the dividers between
+     groups can be tighter, which keeps a 12.9" iPad's toolbar on one row. */
+  header .toolbar-divider {
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+
+  header button,
+  header select {
+    min-width: 40px;
+    min-height: 40px;
+  }
+
+  /* The minimum above makes a box wider than the glyph inside it, and a
+     flex row left-aligns what it cannot fill — which parked every icon-only
+     button's glyph off to one side, most visibly on the dark active ones. */
+  header button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Scale the glyph with its box. Left at 17px the active state reads as a
+     large black square with a small icon adrift inside it. */
+  header button svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  /* The spacer that right-aligns the file actions grows to fill whatever is
+     left of its row. Once the toolbar wraps that is most of a row — the empty
+     trench that made this look broken. Collapse it and let the buttons run on
+     in one continuous flow. */
+  header .toolbar-gap {
+    flex: 0 0 auto;
+    width: 0;
+  }
+
+  /* Controls that a cursor reveals by hovering have to be there all along —
+     a finger cannot hover, so an opacity-0 button is simply missing. */
+  .hover-reveal {
+    opacity: 1;
+  }
+
+  /* Icon-only buttons explain themselves through hover tooltips, which a
+     touchscreen cannot show at all. The transform modes are the ones you have
+     to be able to find, so there they say their own name. */
+  .touch-label {
+    display: inline;
+  }
+}

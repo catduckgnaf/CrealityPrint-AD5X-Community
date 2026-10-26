@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="12V accessory socket">
+<defs><linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#333d41"/><stop offset="1" stop-color="#141a1e"/></linearGradient>
+<linearGradient id="metal" x1="0" x2="1" y1="0" y2="0"><stop stop-color="#71888d"/><stop offset=".22" stop-color="#dee2dd"/><stop offset=".58" stop-color="#899ba1"/><stop offset="1" stop-color="#394a51"/></linearGradient>
+<linearGradient id="black" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#313d43"/><stop offset="1" stop-color="#0b1115"/></linearGradient>
+<filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="7" stdDeviation="6" flood-color="#020507" flood-opacity=".65"/></filter></defs>
+<rect width="160" height="160" rx="12" fill="url(#bg)"/><path d="M0 23h160M0 137h160M20 0v160M140 0v160" stroke="#87928f" stroke-opacity=".07"/>
+<rect x="8" y="8" width="144" height="144" rx="9" fill="none" stroke="#667d79" stroke-opacity=".35"/>
+
+<g filter="url(#shadow)" transform="rotate(8 80 80)">
+<rect x="54" y="75" width="52" height="49" rx="10" fill="url(#black)" stroke="#627c86" stroke-width="3"/>
+<ellipse cx="80" cy="76" rx="43" ry="38" fill="#1c2931" stroke="#6299b4" stroke-width="5"/>
+<ellipse cx="80" cy="76" rx="33" ry="29" fill="url(#black)" stroke="#b6bdbd" stroke-width="3"/>
+<ellipse cx="80" cy="76" rx="18" ry="16" fill="#101619" stroke="#47525a" stroke-width="3"/>
+<circle cx="80" cy="76" r="5" fill="#dbb576"/>
+<path d="M54 111q-23 15-4 27h36" fill="none" stroke="#8ba5af" stroke-width="5"/>
+<path d="M90 113l26 16" stroke="#344951" stroke-width="6"/>
+</g>
+<path d="M18 142h124" stroke="#9db4a9" stroke-opacity=".15"/>
+</svg>

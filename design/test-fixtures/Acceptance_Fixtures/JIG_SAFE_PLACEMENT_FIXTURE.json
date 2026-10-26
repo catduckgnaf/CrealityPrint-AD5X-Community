@@ -1,0 +1,292 @@
+{
+  "id": "test",
+  "name": "test",
+  "version": 1,
+  "nodes": {
+    "8279d513-8cbd-45bb-9f5f-7d95376b9696": {
+      "id": "8279d513-8cbd-45bb-9f5f-7d95376b9696",
+      "kind": "box",
+      "params": {
+        "w": 100,
+        "d": 100,
+        "h": 8,
+        "radius": 0
+      },
+      "position": [
+        0,
+        0,
+        4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d"
+    },
+    "d5ab966a-a7c9-4c22-89b9-c8694fadfb85": {
+      "id": "d5ab966a-a7c9-4c22-89b9-c8694fadfb85",
+      "kind": "box",
+      "params": {
+        "w": 48,
+        "d": 40,
+        "h": 5,
+        "radius": 0
+      },
+      "position": [
+        0,
+        0,
+        2.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "Wire comb base plate"
+    },
+    "4d3309be-13ef-4176-9269-d7fd9ccf0765": {
+      "id": "4d3309be-13ef-4176-9269-d7fd9ccf0765",
+      "kind": "box",
+      "params": {
+        "w": 46,
+        "d": 6,
+        "h": 10.4,
+        "radius": 0
+      },
+      "position": [
+        0,
+        0,
+        9.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "Wire comb raised guide"
+    },
+    "061a4b36-cd5d-4f3b-b4a0-959a9f0899bd": {
+      "id": "061a4b36-cd5d-4f3b-b4a0-959a9f0899bd",
+      "kind": "box",
+      "params": {
+        "w": 2,
+        "d": 8,
+        "h": 7,
+        "radius": 0
+      },
+      "position": [
+        -15,
+        0,
+        12.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#e05d5d",
+      "label": "Open wire slot 1"
+    },
+    "d6493be5-0201-4fbd-a706-caeb486a2486": {
+      "id": "d6493be5-0201-4fbd-a706-caeb486a2486",
+      "kind": "box",
+      "params": {
+        "w": 2,
+        "d": 8,
+        "h": 7,
+        "radius": 0
+      },
+      "position": [
+        -9,
+        0,
+        12.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#e05d5d",
+      "label": "Open wire slot 2"
+    },
+    "bf9acd9c-d988-4b3c-afc3-ddc8cd30bf2f": {
+      "id": "bf9acd9c-d988-4b3c-afc3-ddc8cd30bf2f",
+      "kind": "box",
+      "params": {
+        "w": 2,
+        "d": 8,
+        "h": 7,
+        "radius": 0
+      },
+      "position": [
+        -3,
+        0,
+        12.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#e05d5d",
+      "label": "Open wire slot 3"
+    },
+    "f1b40fe6-11bb-4b7b-9fe2-44f907c36045": {
+      "id": "f1b40fe6-11bb-4b7b-9fe2-44f907c36045",
+      "kind": "box",
+      "params": {
+        "w": 2,
+        "d": 8,
+        "h": 7,
+        "radius": 0
+      },
+      "position": [
+        3,
+        0,
+        12.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#e05d5d",
+      "label": "Open wire slot 4"
+    },
+    "5c354707-87dd-492f-9361-b7c45f0808d2": {
+      "id": "5c354707-87dd-492f-9361-b7c45f0808d2",
+      "kind": "box",
+      "params": {
+        "w": 2,
+        "d": 8,
+        "h": 7,
+        "radius": 0
+      },
+      "position": [
+        9,
+        0,
+        12.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#e05d5d",
+      "label": "Open wire slot 5"
+    },
+    "24b7b008-2ae8-4cb2-9ebf-77c262f194e8": {
+      "id": "24b7b008-2ae8-4cb2-9ebf-77c262f194e8",
+      "kind": "box",
+      "params": {
+        "w": 2,
+        "d": 8,
+        "h": 7,
+        "radius": 0
+      },
+      "position": [
+        15,
+        0,
+        12.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#e05d5d",
+      "label": "Open wire slot 6"
+    },
+    "new_jig": {
+      "id": "new_jig",
+      "type": "group",
+      "label": "Wire jig placed safely",
+      "childIds": [
+        "d5ab966a-a7c9-4c22-89b9-c8694fadfb85",
+        "4d3309be-13ef-4176-9269-d7fd9ccf0765",
+        "061a4b36-cd5d-4f3b-b4a0-959a9f0899bd",
+        "d6493be5-0201-4fbd-a706-caeb486a2486",
+        "bf9acd9c-d988-4b3c-afc3-ddc8cd30bf2f",
+        "f1b40fe6-11bb-4b7b-9fe2-44f907c36045",
+        "5c354707-87dd-492f-9361-b7c45f0808d2",
+        "24b7b008-2ae8-4cb2-9ebf-77c262f194e8"
+      ],
+      "position": [
+        0,
+        -76,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  "rootOrder": [
+    "8279d513-8cbd-45bb-9f5f-7d95376b9696",
+    "new_jig"
+  ]
+}

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Fuse holder">
+<defs><linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#333d41"/><stop offset="1" stop-color="#141a1e"/></linearGradient>
+<linearGradient id="metal" x1="0" x2="1" y1="0" y2="0"><stop stop-color="#71888d"/><stop offset=".22" stop-color="#dee2dd"/><stop offset=".58" stop-color="#899ba1"/><stop offset="1" stop-color="#394a51"/></linearGradient>
+<linearGradient id="black" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#313d43"/><stop offset="1" stop-color="#0b1115"/></linearGradient>
+<filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="7" stdDeviation="6" flood-color="#020507" flood-opacity=".65"/></filter></defs>
+<rect width="160" height="160" rx="12" fill="url(#bg)"/><path d="M0 23h160M0 137h160M20 0v160M140 0v160" stroke="#87928f" stroke-opacity=".07"/>
+<rect x="8" y="8" width="144" height="144" rx="9" fill="none" stroke="#667d79" stroke-opacity=".35"/>
+
+<g filter="url(#shadow)" transform="rotate(-12 80 75)">
+<rect x="51" y="74" width="58" height="55" rx="10" fill="#222c32" stroke="#93a2a9" stroke-width="3"/>
+<rect x="59" y="112" width="43" height="22" rx="4" fill="url(#metal)" stroke="#bac7c7" stroke-width="2"/>
+<ellipse cx="80" cy="77" rx="41" ry="32" fill="url(#metal)" stroke="#cad5d5" stroke-width="3"/>
+<ellipse cx="80" cy="77" rx="33" ry="25" fill="#172229" stroke="#89989b" stroke-width="2"/>
+<rect x="59" y="69" width="42" height="15" rx="5" fill="#586c73"/>
+<path d="M64 76h32" stroke="#d3dfe2" stroke-width="3"/>
+<circle cx="80" cy="77" r="5" fill="#243139"/>
+</g>
+<path d="M18 142h124" stroke="#9db4a9" stroke-opacity=".15"/>
+</svg>

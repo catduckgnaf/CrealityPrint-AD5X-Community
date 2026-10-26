@@ -1,0 +1,476 @@
+/*
+ * Prepare Match / Dark Graphite — Design only.
+ * Scoped under the editor's root; does NOT skin native Creality Print,
+ * printer dialogs, or other applications. Contrast-first, green accent.
+ *
+ * Layout and modelling interaction remain untouched.
+ */
+#root .prepare-match-theme {
+  --pm-app: #202326;
+  --pm-toolbar: #25282b;
+  --pm-panel: #292c30;
+  --pm-panel-raised: #303438;
+  --pm-input: #1d2023;
+  --pm-canvas: #32363a;
+  --pm-border: #42484d;
+  --pm-border-strong: #5b646b;
+  --pm-text: #e8eef0;
+  --pm-muted: #aab3b9;
+  --pm-faint: #89949b;
+  --pm-accent: #35d76b;
+  --pm-accent-hover: #52eb83;
+  --pm-accent-dim: #153b28;
+  --pm-accent-stroke: #299b56;
+  --pm-on-accent: #0d2115;
+  --pm-danger: #ef7272;
+  color: var(--pm-text);
+  background: var(--pm-app);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  color-scheme: dark;
+  accent-color: var(--pm-accent);
+}
+
+/* Stable workspace composition. White backgrounds throughout Sculpo are
+   explicitly mapped, instead of changing individual geometry/logic panels. */
+#root .prepare-match-theme .design-toolbar {
+  background: var(--pm-toolbar);
+  color: var(--pm-text);
+  border-bottom: 1px solid var(--pm-border);
+  min-height: 39px;
+}
+#root .prepare-match-theme .design-palette,
+#root .prepare-match-theme .design-inspector {
+  background: var(--pm-panel);
+  color: var(--pm-text);
+  border-color: var(--pm-border);
+}
+#root .prepare-match-theme .design-palette { min-width: 128px; }
+#root .prepare-match-theme .design-inspector { min-width: 224px; }
+#root .prepare-match-theme .design-viewport {
+  background: var(--pm-canvas);
+}
+#root .prepare-match-theme .design-viewport canvas {
+  background: var(--pm-canvas) !important;
+}
+
+/* Tailwind defaults used by the original editor, its modals and our CAD
+   extensions. Higher specificity and unlayered rules win over utilities. */
+#root .prepare-match-theme .bg-white,
+#root .prepare-match-theme .bg-white\/90,
+#root .prepare-match-theme .bg-white\/95 {
+  background-color: var(--pm-panel-raised);
+}
+#root .prepare-match-theme .bg-neutral-50,
+#root .prepare-match-theme .bg-neutral-100,
+#root .prepare-match-theme .bg-sky-50\/50,
+#root .prepare-match-theme .bg-sky-50\/60,
+#root .prepare-match-theme .bg-sky-50,
+#root .prepare-match-theme .bg-blue-50 {
+  background-color: var(--pm-panel-raised);
+}
+#root .prepare-match-theme .bg-neutral-200,
+#root .prepare-match-theme .bg-neutral-800,
+#root .prepare-match-theme .bg-neutral-800\/90,
+#root .prepare-match-theme .bg-neutral-800\/95 {
+  background-color: var(--pm-input);
+}
+#root .prepare-match-theme .border-neutral-100,
+#root .prepare-match-theme .border-neutral-200,
+#root .prepare-match-theme .border-neutral-300,
+#root .prepare-match-theme .border-neutral-400,
+#root .prepare-match-theme .border-sky-200,
+#root .prepare-match-theme .border-sky-300 {
+  border-color: var(--pm-border);
+}
+#root .prepare-match-theme .border-blue-500,
+#root .prepare-match-theme .border-sky-500,
+#root .prepare-match-theme .border-sky-600 {
+  border-color: var(--pm-accent-stroke);
+}
+#root .prepare-match-theme .text-neutral-400,
+#root .prepare-match-theme .text-neutral-500,
+#root .prepare-match-theme .text-neutral-600 {
+  color: var(--pm-muted);
+}
+#root .prepare-match-theme .text-neutral-700,
+#root .prepare-match-theme .text-neutral-800,
+#root .prepare-match-theme .text-neutral-900,
+#root .prepare-match-theme .text-slate-800 {
+  color: var(--pm-text);
+}
+#root .prepare-match-theme .text-sky-900,
+#root .prepare-match-theme .text-sky-800,
+#root .prepare-match-theme .text-blue-600 {
+  color: var(--pm-accent);
+}
+#root .prepare-match-theme .text-red-600 { color: var(--pm-danger); }
+#root .prepare-match-theme .bg-sky-100,
+#root .prepare-match-theme .bg-blue-100 {
+  background: var(--pm-accent-dim);
+}
+#root .prepare-match-theme .bg-sky-600,
+#root .prepare-match-theme .bg-blue-600 {
+  background-color: #1f964d;
+  color: #fff;
+}
+#root .prepare-match-theme .bg-sky-700,
+#root .prepare-match-theme .bg-blue-700 {
+  background-color: #1aa052;
+  color: #fff;
+}
+
+/* Native-slicer-style ribbon. Active tools use restrained green, rather
+   than the original filled blue/black state. */
+#root .prepare-match-theme .design-toolbar .design-icon-button {
+  min-width: 30px;
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--pm-border);
+  border-radius: 4px;
+  background: var(--pm-panel-raised);
+  color: #c2cbd0;
+  padding: 5px 6px;
+}
+#root .prepare-match-theme .design-toolbar .design-icon-button:hover:not(:disabled) {
+  background: #3b4146;
+  color: #f0f6f4;
+  border-color: var(--pm-border-strong);
+}
+#root .prepare-match-theme .design-toolbar .design-icon-button.is-active {
+  background: var(--pm-accent-dim);
+  color: var(--pm-accent);
+  border-color: var(--pm-accent-stroke);
+}
+#root .prepare-match-theme .design-toolbar .design-icon-button.is-primary {
+  background: var(--pm-accent);
+  color: var(--pm-on-accent);
+  border-color: var(--pm-accent);
+}
+#root .prepare-match-theme .design-toolbar .design-icon-button.is-primary:hover {
+  background: var(--pm-accent-hover);
+}
+#root .prepare-match-theme .design-toolbar button:disabled,
+#root .prepare-match-theme button:disabled {
+  opacity: .42;
+  cursor: not-allowed;
+}
+#root .prepare-match-theme .toolbar-divider {
+  background-color: var(--pm-border-strong);
+  height: 22px;
+  opacity: .75;
+}
+#root .prepare-match-theme .design-toolbar input[title="Project name"] {
+  background: var(--pm-input);
+  border: 1px solid transparent;
+  color: var(--pm-text);
+}
+#root .prepare-match-theme .design-toolbar input[title="Project name"]:focus {
+  border-color: var(--pm-accent-stroke);
+}
+
+/* Shape palette: low-glare thumbnails, clear hover and active selection.
+   Keep original image thumbnails (no artificial recolour of model parts). */
+#root .prepare-match-theme .design-palette button[draggable="true"] {
+  background: #34383c;
+  border: 1px solid #495056;
+  border-radius: 5px;
+}
+#root .prepare-match-theme .design-palette button[draggable="true"]:hover {
+  background: #40494a;
+  border-color: #6b7d75;
+}
+#root .prepare-match-theme .design-palette button[draggable="true"].bg-blue-50 {
+  background: var(--pm-accent-dim);
+  border-color: var(--pm-accent);
+  box-shadow: 0 0 0 1px #27884d inset;
+}
+#root .prepare-match-theme .design-palette img { filter: saturate(.93); }
+
+/* Uniform interactive fields and sections. Protect focus visibility and
+   keyboard input; do not change range slider/checkbox mechanics. */
+#root .prepare-match-theme input:not([type="checkbox"]):not([type="range"]):not([type="color"]):not([type="file"]),
+#root .prepare-match-theme select,
+#root .prepare-match-theme textarea {
+  background: var(--pm-input);
+  border: 1px solid var(--pm-border);
+  color: var(--pm-text);
+  border-radius: 4px;
+}
+#root .prepare-match-theme input:not([type="checkbox"]):not([type="range"]):not([type="color"]):not([type="file"]):hover,
+#root .prepare-match-theme select:hover {
+  border-color: var(--pm-border-strong);
+}
+#root .prepare-match-theme input::placeholder,
+#root .prepare-match-theme textarea::placeholder { color: var(--pm-faint); }
+#root .prepare-match-theme select option {
+  background: var(--pm-input);
+  color: var(--pm-text);
+}
+#root .prepare-match-theme input:focus-visible,
+#root .prepare-match-theme button:focus-visible,
+#root .prepare-match-theme select:focus-visible,
+#root .prepare-match-theme textarea:focus-visible,
+#root .prepare-match-theme summary:focus-visible {
+  outline: 2px solid var(--pm-accent);
+  outline-offset: 2px;
+}
+#root .prepare-match-theme button {
+  transition: background-color .12s ease, border-color .12s ease, color .12s ease;
+}
+#root .prepare-match-theme button:not(:disabled):hover {
+  border-color: var(--pm-border-strong);
+}
+#root .prepare-match-theme button.bg-sky-600:hover:not(:disabled),
+#root .prepare-match-theme button.bg-blue-600:hover:not(:disabled) {
+  background-color: #28b85e;
+}
+#root .prepare-match-theme button.bg-neutral-800,
+#root .prepare-match-theme button[aria-pressed="true"] {
+  background: var(--pm-accent-dim);
+  color: var(--pm-accent);
+  border-color: var(--pm-accent-stroke);
+}
+#root .prepare-match-theme .design-inspector button,
+#root .prepare-match-theme .design-palette button,
+#root .prepare-match-theme .design-viewport button {
+  border-radius: 4px;
+}
+#root .prepare-match-theme .design-inspector fieldset:not(.contents),
+#root .prepare-match-theme .design-inspector details,
+#root .prepare-match-theme .design-inspector div.rounded-md.border,
+#root .prepare-match-theme .design-inspector div.rounded.border {
+  border-color: var(--pm-border);
+}
+#root .prepare-match-theme .design-inspector details {
+  background: #272b2f;
+  padding: 8px;
+}
+#root .prepare-match-theme .design-inspector summary {
+  color: #d2ddd9;
+}
+#root .prepare-match-theme .design-inspector [role="status"] {
+  color: #7fe5a3;
+}
+#root .prepare-match-theme .design-viewport button.bg-white\/90 {
+  background: #262a2d;
+  color: #cbd5d7;
+  border-color: #535b5f;
+}
+#root .prepare-match-theme .design-viewport button.bg-white\/90:hover {
+  background: #383e43;
+  color: white;
+}
+
+/* Scrollbars and dialogs match the ribbon, without recolouring the actual
+   3D model, base artwork, or STL export. */
+#root .prepare-match-theme * {
+  scrollbar-color: #566068 #292c30;
+  scrollbar-width: thin;
+}
+#root .prepare-match-theme ::selection {
+  background-color: #1d7e42;
+  color: white;
+}
+@media (prefers-reduced-motion: reduce) {
+  #root .prepare-match-theme button { transition: none; }
+}
+
+
+/* v18.4 — Prepare's native outline ribbon translated to the embedded Design UI.
+   Scope is exclusively the Design root. No native Creality window reskinning. */
+#root .prepare-match-theme .design-native-ribbon {
+  --pm-toolbar: #292c30;
+  --pm-tile: #2c3034;
+  --pm-tile-border: #484d52;
+  --pm-tile-hover: #393f44;
+  --pm-tile-muted: #666c72;
+  --pm-group-divider: #464b50;
+  min-height: 56px;
+  padding: 6px 10px;
+  gap: 4px;
+  flex-wrap: nowrap;
+  background: #292c30;
+  border-bottom: 1px solid #3c4247;
+  box-shadow: inset 0 1px 0 #353a3e;
+  isolation: isolate;
+}
+#root .prepare-match-theme .design-native-ribbon .design-icon-button {
+  flex: 0 0 38px;
+  width: 38px;
+  min-width: 38px;
+  height: 38px;
+  min-height: 38px;
+  padding: 7px;
+  border: 1px solid var(--pm-tile-border);
+  border-radius: 5px;
+  color: #bfc7cd;
+  background: var(--pm-tile);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.018);
+}
+#root .prepare-match-theme .design-native-ribbon .design-icon-button svg {
+  width: 21px;
+  height: 21px;
+  stroke-width: 1.65;
+  flex-shrink: 0;
+}
+#root .prepare-match-theme .design-native-ribbon .design-icon-button:hover:not(:disabled) {
+  border-color: #697279;
+  color: #f2f7f4;
+  background: var(--pm-tile-hover);
+}
+#root .prepare-match-theme .design-native-ribbon .design-icon-button.is-active,
+#root .prepare-match-theme .design-native-ribbon .design-icon-button[aria-expanded="true"] {
+  color: #39dc72;
+  background: #27362d;
+  border-color: #348c55;
+  box-shadow: inset 0 0 0 1px rgba(53,215,107,.12);
+}
+#root .prepare-match-theme .design-native-ribbon .design-icon-button:disabled {
+  background: #2a2d31;
+  border-color: #383d42;
+  color: #697178;
+  opacity: .52;
+}
+#root .prepare-match-theme .design-native-ribbon .design-icon-button.is-primary {
+  background: #35d76b;
+  border-color: #35d76b;
+  color: #10241a;
+}
+#root .prepare-match-theme .design-native-ribbon .toolbar-divider {
+  flex: 0 0 1px;
+  width: 1px;
+  height: 30px;
+  background: var(--pm-group-divider);
+  opacity: 1;
+  margin: 0 5px;
+}
+#root .prepare-match-theme .design-native-ribbon .design-workflow-tools {
+  gap: 4px;
+  flex: 0 0 auto;
+}
+#root .prepare-match-theme .design-native-ribbon input[title="Project name"] {
+  flex-shrink: 0;
+  width: 105px;
+  margin: 0 6px 0 0;
+  min-height: 30px;
+  background: #24272a;
+  border: 1px solid #42474d;
+  color: #e6eaee;
+  border-radius: 4px;
+}
+#root .prepare-match-theme .design-native-ribbon .toolbar-gap {
+  min-width: 4px;
+}
+#root .prepare-match-theme .design-native-ribbon .design-primary-export {
+  flex: 0 0 38px;
+  width: 38px;
+  min-width: 38px;
+  height: 38px;
+  border-radius: 5px;
+  border: 1px solid #359957;
+  color: #45e07c;
+  background: #23392c;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+#root .prepare-match-theme .design-native-ribbon .design-primary-export:hover {
+  background: #2b4a36;
+  color: #69f39a;
+}
+#root .prepare-match-theme .design-native-ribbon .design-workflow-popover,
+#root .prepare-match-theme .design-native-ribbon .design-toolbar-settings .absolute,
+#root .prepare-match-theme .design-native-ribbon .design-native-ribbon-menu {
+  background: #2b2f33;
+  color: #e5edf0;
+  border: 1px solid #51595f;
+  box-shadow: 0 12px 28px rgba(0,0,0,.45);
+  border-radius: 5px;
+}
+#root .prepare-match-theme .design-native-ribbon .design-workflow-popover button:not(:disabled) {
+  border-color: #51595f;
+}
+#root .prepare-match-theme .design-native-ribbon .design-workflow-popover input,
+#root .prepare-match-theme .design-native-ribbon .design-workflow-popover select {
+  background: #1d2023;
+  border-color: #50575c;
+}
+#root .prepare-match-theme .design-native-ribbon .design-workflow-popover .bg-sky-600 {
+  background: #238d4c;
+}
+/* Keep all tools discoverable on smaller viewports; the host may be resized.
+   Do not wrap the ribbon into a second accidental row. */
+@media (max-width: 1500px) {
+  #root .prepare-match-theme .design-native-ribbon {
+    gap: 2px;
+    padding-inline: 6px;
+  }
+  #root .prepare-match-theme .design-native-ribbon .design-icon-button {
+    flex-basis: 34px;
+    width: 34px;
+    min-width: 34px;
+    height: 36px;
+    min-height: 36px;
+  }
+  #root .prepare-match-theme .design-native-ribbon .toolbar-divider { margin-inline: 2px; }
+  #root .prepare-match-theme .design-native-ribbon input[title="Project name"] { width: 80px; }
+}
+
+
+/* v18.5: ALL toolbar menus must layer above the Three.js build workspace.
+   The v18.4 header had isolation:isolate with auto z-index, so later sibling
+   viewport/left palette were painting on top of the popovers. */
+#root .prepare-match-theme .design-toolbar.design-native-ribbon {
+  position: relative;
+  z-index: 100;
+  overflow: visible;
+}
+#root .prepare-match-theme .design-native-ribbon .design-toolbar-settings {
+  position: relative;
+}
+#root .prepare-match-theme .design-native-ribbon .design-toolbar-settings > .absolute {
+  left: 0;
+  right: auto;
+  top: calc(100% + 8px);
+  min-width: 260px;
+  max-height: min(70vh, 580px);
+  overflow-y: auto;
+}
+/* Dropdowns are interactive content, not clipped to palette or viewport. */
+#root .prepare-match-theme .design-native-ribbon .design-workflow-popover {
+  z-index: 130;
+  overflow-x: visible;
+}
+
+/* AD5X v19.5.27: expose workshop features and label existing CAD primitives. */
+#root .ad5x-workspace-nav {
+ display:flex;align-items:center;flex-wrap:wrap;gap:12px;
+ padding:8px 14px;background:#18232d;color:#e7f2fa;
+ border-bottom:1px solid #364956;min-height:58px;
+}
+#root .ad5x-workspace-brand {display:flex;flex-direction:column;min-width:122px;line-height:1.2}
+#root .ad5x-workspace-brand strong {font-size:15px;letter-spacing:.01em}
+#root .ad5x-workspace-brand span {font-size:11px;color:#a1b7c8}
+#root .ad5x-workspace-actions {display:flex;flex:1;flex-wrap:wrap;gap:7px}
+#root .ad5x-workspace-actions button {
+ display:inline-flex;align-items:center;justify-content:center;gap:7px;
+ border:1px solid #546c7b;border-radius:7px;
+ padding:9px 12px;background:#293b48;color:#fff;
+ font-size:13px;font-weight:600;white-space:nowrap;
+}
+#root .ad5x-workspace-actions button:hover,
+#root .ad5x-workspace-actions button:focus-visible {
+ background:#365467;border-color:#9ac8e5;outline:2px solid transparent;
+}
+#root .ad5x-workspace-hint {display:inline-flex;align-items:center;gap:5px;font-size:11px;color:#b0c6d1}
+#root .design-palette {width:170px!important;min-width:170px!important;padding:10px!important;}
+#root .ad5x-palette-tile {display:flex;flex-direction:column;align-items:center;gap:3px;padding:5px 0;max-width:74px;}
+#root .ad5x-palette-tile span {font-size:10px;line-height:1.2;text-align:center;overflow-wrap:anywhere;}
+#root .design-palette .grid > button {aspect-ratio:auto!important;min-height:67px;}
+@media(max-width:1120px) {
+ #root .ad5x-workspace-nav {gap:7px;padding:6px 9px;}
+ #root .ad5x-workspace-actions button {font-size:12px;padding:6px 8px;}
+ #root .ad5x-workspace-hint {display:none;}
+}

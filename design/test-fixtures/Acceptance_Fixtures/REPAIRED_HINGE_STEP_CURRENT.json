@@ -1,0 +1,504 @@
+{
+  "id": "step-repaired-hinge",
+  "name": "Hinged-Box-STEP-20261024",
+  "version": 1,
+  "rootOrder": [
+    "0db5d165-07c2-4472-a9bd-36a15b736a60",
+    "fbb53db8-3db8-4202-9dac-abf1d097b522"
+  ],
+  "nodes": {
+    "box": {
+      "id": "box",
+      "type": "group",
+      "label": "box",
+      "childIds": [
+        "dc261001-61af-4830-847e-5e66a1172ee1",
+        "ae884422-1cb7-4412-8e5b-cfd8673865a4"
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "dc261001-61af-4830-847e-5e66a1172ee1": {
+      "id": "dc261001-61af-4830-847e-5e66a1172ee1",
+      "kind": "box",
+      "params": {
+        "w": 80,
+        "d": 60,
+        "h": 22,
+        "radius": 0
+      },
+      "position": [
+        0,
+        0,
+        11
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d"
+    },
+    "ae884422-1cb7-4412-8e5b-cfd8673865a4": {
+      "id": "ae884422-1cb7-4412-8e5b-cfd8673865a4",
+      "kind": "box",
+      "params": {
+        "w": 76,
+        "d": 56,
+        "h": 22,
+        "radius": 0
+      },
+      "position": [
+        0,
+        0,
+        13
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#e05d5d"
+    },
+    "lid": {
+      "id": "lid",
+      "type": "group",
+      "label": "lid",
+      "childIds": [
+        "67828345-4dca-4952-9a56-965044353c80",
+        "9e3d836b-4ac7-44a4-abfe-176093998547",
+        "b7f5ea62-79a9-41c5-b073-4a75df1adf10"
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "67828345-4dca-4952-9a56-965044353c80": {
+      "id": "67828345-4dca-4952-9a56-965044353c80",
+      "kind": "box",
+      "params": {
+        "w": 81,
+        "d": 61,
+        "h": 2.4,
+        "radius": 0
+      },
+      "position": [
+        0,
+        72.5,
+        1.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d"
+    },
+    "9e3d836b-4ac7-44a4-abfe-176093998547": {
+      "id": "9e3d836b-4ac7-44a4-abfe-176093998547",
+      "kind": "box",
+      "params": {
+        "w": 75.4,
+        "d": 55.4,
+        "h": 4.3,
+        "radius": 0
+      },
+      "position": [
+        0,
+        72.5,
+        4.25
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d"
+    },
+    "b7f5ea62-79a9-41c5-b073-4a75df1adf10": {
+      "id": "b7f5ea62-79a9-41c5-b073-4a75df1adf10",
+      "kind": "box",
+      "params": {
+        "w": 72.4,
+        "d": 52.4,
+        "h": 4.8,
+        "radius": 0
+      },
+      "position": [
+        0,
+        72.5,
+        4.800000000000001
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#e05d5d"
+    },
+    "a388c884-a18c-4f52-b0d9-124b6d3597c6": {
+      "id": "a388c884-a18c-4f52-b0d9-124b6d3597c6",
+      "kind": "box",
+      "params": {
+        "w": 11.733333333333334,
+        "d": 5.35,
+        "h": 3,
+        "radius": 0
+      },
+      "position": [
+        -12.133333333333335,
+        31.85,
+        20.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "Box hinge mounting web left"
+    },
+    "7adb675e-9995-47e0-bde7-f90b76431f61": {
+      "id": "7adb675e-9995-47e0-bde7-f90b76431f61",
+      "kind": "cylinder",
+      "params": {
+        "r": 3.5,
+        "h": 11.733333333333334,
+        "segments": 80,
+        "bevel": 0
+      },
+      "position": [
+        -12.133333333333335,
+        34.35,
+        20.75
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#5d8fe0",
+      "label": "Box hinge outer knuckle left"
+    },
+    "c5bf0c66-e9e9-4111-b05c-cd6bda2ac194": {
+      "id": "c5bf0c66-e9e9-4111-b05c-cd6bda2ac194",
+      "kind": "cylinder",
+      "params": {
+        "r": 1.375,
+        "h": 11.883333333333335,
+        "segments": 80,
+        "bevel": 0
+      },
+      "position": [
+        -12.133333333333335,
+        34.35,
+        20.75
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Box hinge removable pin bore"
+    },
+    "1dbe2b4f-1008-45c0-ac0a-b4f3d6c44817": {
+      "id": "1dbe2b4f-1008-45c0-ac0a-b4f3d6c44817",
+      "kind": "box",
+      "params": {
+        "w": 11.733333333333334,
+        "d": 5.35,
+        "h": 3,
+        "radius": 0
+      },
+      "position": [
+        12.133333333333335,
+        31.85,
+        20.15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "Box hinge mounting web right"
+    },
+    "3300ef52-9efa-4ec3-918f-559de7fa6b95": {
+      "id": "3300ef52-9efa-4ec3-918f-559de7fa6b95",
+      "kind": "cylinder",
+      "params": {
+        "r": 3.5,
+        "h": 11.733333333333334,
+        "segments": 80,
+        "bevel": 0
+      },
+      "position": [
+        12.133333333333335,
+        34.35,
+        20.75
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#5d8fe0",
+      "label": "Box hinge outer knuckle right"
+    },
+    "676dc1d9-c6e2-486d-86bb-04887fb9e8ba": {
+      "id": "676dc1d9-c6e2-486d-86bb-04887fb9e8ba",
+      "kind": "cylinder",
+      "params": {
+        "r": 1.375,
+        "h": 11.883333333333335,
+        "segments": 80,
+        "bevel": 0
+      },
+      "position": [
+        12.133333333333335,
+        34.35,
+        20.75
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Box hinge removable pin bore"
+    },
+    "f90071f2-c7cd-46f5-a6fe-583546621e6f": {
+      "id": "f90071f2-c7cd-46f5-a6fe-583546621e6f",
+      "kind": "box",
+      "params": {
+        "w": 11.733333333333334,
+        "d": 4.85,
+        "h": 1.9999999999999998,
+        "radius": 0
+      },
+      "position": [
+        0,
+        40.4,
+        1.0499999999999998
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "Lid hinge mounting web"
+    },
+    "0408800b-e09f-4cce-bf86-8ce222fb1070": {
+      "id": "0408800b-e09f-4cce-bf86-8ce222fb1070",
+      "kind": "cylinder",
+      "params": {
+        "r": 3.5,
+        "h": 11.733333333333334,
+        "segments": 80,
+        "bevel": 0
+      },
+      "position": [
+        0,
+        38.15,
+        3.65
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#5d8fe0",
+      "label": "Lid hinge centre knuckle"
+    },
+    "feaaf99c-5c16-4551-a359-2d0a6e7f5e2a": {
+      "id": "feaaf99c-5c16-4551-a359-2d0a6e7f5e2a",
+      "kind": "cylinder",
+      "params": {
+        "r": 1.375,
+        "h": 11.883333333333335,
+        "segments": 80,
+        "bevel": 0
+      },
+      "position": [
+        0,
+        38.15,
+        3.65
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Lid hinge removable pin bore"
+    },
+    "0db5d165-07c2-4472-a9bd-36a15b736a60": {
+      "id": "0db5d165-07c2-4472-a9bd-36a15b736a60",
+      "type": "group",
+      "label": "Box with removable-pin hinge",
+      "feature": "hinge-box",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "childIds": [
+        "box",
+        "a388c884-a18c-4f52-b0d9-124b6d3597c6",
+        "7adb675e-9995-47e0-bde7-f90b76431f61",
+        "c5bf0c66-e9e9-4111-b05c-cd6bda2ac194",
+        "1dbe2b4f-1008-45c0-ac0a-b4f3d6c44817",
+        "3300ef52-9efa-4ec3-918f-559de7fa6b95",
+        "676dc1d9-c6e2-486d-86bb-04887fb9e8ba"
+      ]
+    },
+    "fbb53db8-3db8-4202-9dac-abf1d097b522": {
+      "id": "fbb53db8-3db8-4202-9dac-abf1d097b522",
+      "type": "group",
+      "label": "Lid with removable-pin hinge",
+      "feature": "hinge-lid",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "childIds": [
+        "lid",
+        "f90071f2-c7cd-46f5-a6fe-583546621e6f",
+        "0408800b-e09f-4cce-bf86-8ce222fb1070",
+        "feaaf99c-5c16-4551-a359-2d0a6e7f5e2a"
+      ]
+    }
+  }
+}

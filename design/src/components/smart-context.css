@@ -1,0 +1,283 @@
+/* v18.6: native-style context menu, confined to experimental Design */
+#root .prepare-match-theme .design-context-menu {
+  width: 270px;
+  max-height: min(68vh, 520px);
+  overflow-y: auto;
+  padding: 6px;
+  background: #292d31;
+  color: #e7ecef;
+  border: 1px solid #555e65;
+  border-radius: 6px;
+  box-shadow: 0 12px 32px rgba(0,0,0,.55);
+  font-size: 12px;
+}
+#root .prepare-match-theme .design-context-heading {
+  padding: 8px 10px;
+  font-size: 11px;
+  color: #aab4bc;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#root .prepare-match-theme .design-context-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 4px;
+  color: #e2e8ed;
+  text-align: left;
+}
+#root .prepare-match-theme .design-context-item:hover:not(:disabled) {
+  background: #314b3b;
+  color: #55ef88;
+}
+#root .prepare-match-theme .design-context-item:disabled {
+  opacity: .35;
+  cursor: not-allowed;
+}
+#root .prepare-match-theme .design-context-item.is-danger:hover:not(:disabled) {
+  background: #592e36;
+  color: #ff9ea8;
+}
+#root .prepare-match-theme .design-context-divider {
+  height: 1px;
+  margin: 5px 8px;
+  background: #475057;
+}
+#root .prepare-match-theme .design-context-back { color: #45e47c; }
+#root .prepare-match-theme .design-context-subpanel {
+  background: #f5f7f8;
+  padding: 6px;
+  border-radius: 4px;
+  color: #24282d;
+}
+/* Keep the reused existing hole editors readable inside the native-dark menu. */
+#root .prepare-match-theme .design-context-subpanel > div {
+  background: #f8fafb !important;
+  color: #29313b !important;
+}
+#root .prepare-match-theme .design-context-subpanel p,
+#root .prepare-match-theme .design-context-subpanel label { color: #52606b !important; }
+#root .prepare-match-theme .design-context-subpanel input {
+  color: #29313b !important;
+  background: white !important;
+  border-color: #aab3bd !important;
+}
+
+#root .prepare-match-theme .design-context-shell-hint { margin: 4px 9px 8px; font-size: 11px; color: #d7b887; line-height: 1.45; }
+
+
+/* v19.5.36: compact right-click hierarchy, keyboard/click friendly.
+ * Parent menu stays inside the native viewport; no off-screen flyouts. */
+#root .prepare-match-theme .design-context-path{
+ margin:2px 6px 7px;padding:5px 8px;
+ border-bottom:1px solid #4a5e55;
+ color:#bdd7c6;font-size:11px;line-height:1.4;
+}
+#root .prepare-match-theme .design-context-back{
+ display:inline-flex;align-items:center;gap:4px;
+ cursor:pointer;min-height:28px;padding:0 8px;border-radius:4px;
+}
+#root .prepare-match-theme .design-context-back:hover,
+#root .prepare-match-theme .design-context-back:focus-visible{
+ background:#355644;color:#a6ffc2;
+}
+
+
+/* v19.5.37 -- native Windows-style hover flyouts. Main scroll area stays
+ * scrollable; every submenu floats OUTSIDE it as a sibling, not clipped. */
+#root .prepare-match-theme .design-context-host{
+ position:relative;width:270px;overflow:visible;
+ font-family:inherit;font-size:12px;font-weight:400;line-height:1.35;
+}
+#root .prepare-match-theme .design-context-flyout,
+#root .prepare-match-theme .design-context-child{
+ position:absolute;z-index:5;width:240px;
+ padding:6px;border:1px solid #555e65;border-radius:6px;
+ color:#e7ecef;background:#292d31;
+ font-family:inherit;font-size:12px;font-weight:400;line-height:1.35;
+ box-shadow:0 12px 28px rgba(0,0,0,.45);
+ overflow:visible;
+}
+#root .prepare-match-theme .design-context-flyout{
+ left:calc(100% - 2px);right:auto;
+ max-height:min(68vh,520px);overflow:visible;
+}
+#root .prepare-match-theme .design-context-host.opens-left > .design-context-flyout{
+ left:auto;right:calc(100% - 2px);
+}
+#root .prepare-match-theme .design-context-branch{position:relative;}
+#root .prepare-match-theme .design-context-branch > .design-context-child{
+ display:none;top:-5px;left:calc(100% - 2px);right:auto;
+}
+#root .prepare-match-theme .design-context-branch.opens-left > .design-context-child{
+ left:auto;right:calc(100% - 2px);
+}
+/* Stable React-selected branch: do not hide when cursor crosses a gap
+   or traverses the next panel diagonally. */
+#root .prepare-match-theme .design-context-branch.is-open > .design-context-child{
+ display:block;
+}
+#root .prepare-match-theme .design-context-branch.is-open > .design-context-branch-trigger,
+#root .prepare-match-theme .design-context-branch:hover > .design-context-branch-trigger,
+#root .prepare-match-theme .design-context-connector-trigger[aria-expanded=true]{
+ color:#6df6a0;background:#314b3b;
+}
+#root .prepare-match-theme .design-context-arrow{margin-left:auto;flex-shrink:0;}
+#root .prepare-match-theme .design-context-item span{flex:1;}
+#root .prepare-match-theme .design-context-child .design-context-shell-hint{
+ font-size:10px;padding:0 4px;margin:5px 4px;line-height:1.4;
+}
+#root .prepare-match-theme .design-context-flyout .design-context-item{
+ min-height:35px;
+}
+
+/* Unified typography for root and EVERY hover level, including native button
+   reset differences. No scaled-up or heavier submenu labels. */
+#root .prepare-match-theme .design-context-host .design-context-menu,
+#root .prepare-match-theme .design-context-host .design-context-flyout,
+#root .prepare-match-theme .design-context-host .design-context-child{
+ font-family:inherit;font-size:12px;font-weight:400;line-height:1.35;
+}
+#root .prepare-match-theme .design-context-host .design-context-item{
+ font-family:inherit;font-size:12px;font-weight:400;line-height:1.35;
+ cursor:pointer;
+}
+
+/* v19.5.47 — #01 Hover Shelf, user-chosen. ONE subpanel, not the old 4-level
+   connector cascade. Scoped to isolated Design; no printer/slicer CSS changes. */
+#root .prepare-match-theme .design-hover-shelf-host {
+  position:relative;
+  width:270px;
+  overflow:visible;
+  isolation:isolate;
+  color:#e4ebea;
+}
+#root .prepare-match-theme .design-hover-shelf-root {
+  background:#1d2223;
+  border:1px solid #485550;
+  border-radius:11px;
+  padding:5px 0 7px;
+  width:270px;
+  max-height:min(68vh,520px);
+  overflow-y:auto;
+  overflow-x:hidden;
+  box-shadow:0 14px 38px rgba(0,0,0,.55);
+}
+#root .prepare-match-theme .design-hover-shelf-heading {
+  display:flex;align-items:flex-start;justify-content:space-between;gap:7px;
+  padding:12px 12px 11px;border-bottom:1px solid #303b38;
+}
+#root .prepare-match-theme .design-hover-shelf-heading strong {
+  color:#e5f3e9;max-width:170px;overflow:hidden;text-overflow:ellipsis;
+  font-size:13px;line-height:1.3;font-weight:650;white-space:nowrap;
+}
+#root .prepare-match-theme .design-hover-shelf-heading span {
+  font-size:10px;color:#9cafaa;white-space:nowrap;
+}
+#root .prepare-match-theme .design-hover-shelf-quick,
+#root .prepare-match-theme .design-hover-shelf-footer {
+  display:flex;gap:3px;align-items:stretch;
+  padding:7px 7px;
+}
+#root .prepare-match-theme .design-hover-shelf-quick {
+  border-bottom:1px solid #303b38;
+}
+#root .prepare-match-theme .design-hover-shelf-footer {
+  border-top:1px solid #303b38;flex-wrap:wrap;
+}
+#root .prepare-match-theme .design-hover-shelf-quick > .design-context-item,
+#root .prepare-match-theme .design-hover-shelf-footer > .design-context-item {
+  width:0;min-width:0;flex:1 1 0;display:flex;gap:4px;
+  padding:7px 5px;font-size:10px!important;justify-content:center;
+  background:#292f30;border:1px solid #38473f;border-radius:6px;
+  white-space:nowrap;line-height:1.2;
+}
+#root .prepare-match-theme .design-hover-shelf-quick > .design-context-item svg,
+#root .prepare-match-theme .design-hover-shelf-footer > .design-context-item svg {
+  height:13px;width:13px;flex-shrink:0;
+}
+#root .prepare-match-theme .design-hover-shelf-quick .design-context-item span,
+#root .prepare-match-theme .design-hover-shelf-footer .design-context-item span {
+  flex:0 1 auto!important;min-width:0;overflow:hidden;text-overflow:ellipsis;
+}
+#root .prepare-match-theme .design-hover-shelf-categories {padding:6px;}
+#root .prepare-match-theme .design-hover-shelf-trigger {
+  width:100%;margin-bottom:2px;padding:9px 8px;min-height:36px;
+  border-radius:7px;color:#dce5e2;transition:background .13s,color .13s;
+}
+#root .prepare-match-theme .design-hover-shelf-trigger.is-active,
+#root .prepare-match-theme .design-hover-shelf-trigger:hover,
+#root .prepare-match-theme .design-hover-shelf-trigger:focus-visible {
+  background:#2d4438;color:#a6ffc5;outline:none;
+}
+#root .prepare-match-theme .design-hover-shelf-trigger svg {
+  color:#a8bdb2;flex-shrink:0;
+}
+#root .prepare-match-theme .design-hover-shelf-trigger span {
+  flex:1 1 auto;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+#root .prepare-match-theme .design-hover-shelf-trigger .design-context-arrow {
+  flex:0 0 auto;
+}
+#root .prepare-match-theme .design-hover-shelf-panel {
+  position:absolute;z-index:7;
+  top:0;left:calc(100% - 2px);right:auto;
+  width:292px;max-width:min(292px,calc(100vw - 18px));
+  /* Keep the entire sideways crossing from ANY category inside the shelf. */
+  /* Before: short shelves only occupied the top 2-3 rows, so moving from */
+  /* Edit geometry/Position/Controls crossed the outside canvas and closed it. */
+  min-height:100%;
+  border-radius:0 11px 11px 0;
+  border:1px solid #576b60;
+  color:#e2eae7;background:#252d2a;
+  box-shadow:10px 15px 38px rgba(0,0,0,.48);
+  overflow:hidden;
+  animation:ad5x-shelf-in .18s cubic-bezier(.2,.85,.2,1) both;
+}
+#root .prepare-match-theme .design-hover-shelf-host.opens-left > .design-hover-shelf-panel {
+  right:calc(100% - 2px);left:auto;
+  border-radius:11px 0 0 11px;
+  animation-name:ad5x-shelf-in-left;
+}
+#root .prepare-match-theme .design-hover-shelf-panel-heading {
+  padding:12px 13px 10px;font-size:12px;line-height:1.35;font-weight:650;
+  color:#b7eccb;border-bottom:1px solid #3e5449;
+}
+#root .prepare-match-theme .design-hover-shelf-panel-items {
+  padding:6px;max-height:min(64vh,480px);overflow:auto;overscroll-behavior:contain;
+}
+#root .prepare-match-theme .design-hover-shelf-panel .design-context-item {
+  font-size:11px!important;line-height:1.35;
+  padding:8px 9px;min-height:33px;gap:9px;border-radius:6px;
+  white-space:normal;
+}
+#root .prepare-match-theme .design-hover-shelf-panel .design-context-item span {
+  white-space:normal;overflow-wrap:break-word;
+}
+#root .prepare-match-theme .design-hover-shelf-section {
+  margin:7px 9px 3px;color:#9fc5ac;letter-spacing:.055em;
+  font-size:10px;text-transform:uppercase;font-weight:650;
+}
+#root .prepare-match-theme .design-hover-shelf-footnote {
+  font-size:10px;text-align:center;color:#879e95;width:100%;
+}
+#root .prepare-match-theme .design-hover-shelf-footer > .design-context-shell-hint {
+  flex:1 1 100%;width:100%;
+}
+@keyframes ad5x-shelf-in {
+  from {opacity:.65;transform:translateX(-10px) scale(.99)}
+  to {opacity:1;transform:translateX(0) scale(1)}
+}
+@keyframes ad5x-shelf-in-left {
+  from {opacity:.65;transform:translateX(10px) scale(.99)}
+  to {opacity:1;transform:translateX(0) scale(1)}
+}
+@media(prefers-reduced-motion:reduce) {
+  #root .prepare-match-theme .design-hover-shelf-panel{animation:none}
+}

@@ -1,0 +1,260 @@
+import * as THREE from "three";
+import { Brush, Evaluator, ADDITION, SUBTRACTION } from "three-bvh-csg";
+import type { GroupNode, Project, SceneNode, ShapeNode } from "../types/scene";
+import { isGroup, nodeRole } from "../types/scene";
+import { buildGeometry } from "./primitives";
+import { bakeTransform, composeMatrix } from "./transform";
+import { holeRim, type RimSpec } from "./rounding/rims";
+import {
+  cutGroup,
+  isClosedSolid,
+  isFlatExtrusion,
+  manifoldLoaded,
+  repairExtrusion,
+} from "./manifold";
+
+// Two engines. Manifold (WebAssembly, loaded asynchronously) is the real one:
+// its output is always a closed, consistently oriented skin, which is what a
+// slicer needs. three-bvh-csg covers two cases Manifold cannot — inputs that
+// are not themselves closed solids (a scanned mesh with holes, a font glyph
+// whose outline crosses itself), and the moment before the WASM arrives.
+const evaluator = new Evaluator();
+evaluator.attributes = ["position", "normal"];
+
+// three-bvh-csg leaves two kinds of trash in its output:
+// stale vertices beyond drawRange (it reuses oversized buffers)
+// and degenerate sliver triangles along cut planes — invisible, but they
+// stretch the bounding box, so drop-to-workplane, align, measure, and
+// placement all see a phantom extent where removed material used to be.
+// Rebuild the result keeping only real triangles in exactly-sized buffers.
+const MIN_TRIANGLE_AREA = 1e-4; // mm² — far below anything visible/printable
+
+function compactEvaluated(geo: THREE.BufferGeometry): THREE.BufferGeometry {
+  const pos = geo.getAttribute("position");
+  if (!pos) return geo;
+  const total = geo.index ? geo.index.count : pos.count;
+  const start = geo.drawRange.start;
+  const end =
+    geo.drawRange.count === Infinity ? total : Math.min(start + geo.drawRange.count, total);
+  const normal = geo.getAttribute("normal");
+  const maxVerts = end - start;
+  const outPos = new Float32Array(maxVerts * 3);
+  const outNorm = normal ? new Float32Array(maxVerts * 3) : null;
+  let w = 0; // vertices written
+  const p = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+  for (let i = start; i + 2 < end; i += 3) {
+    for (let k = 0; k < 3; k++) {
+      const v = geo.index ? geo.index.getX(i + k) : i + k;
+      p[k * 3] = pos.getX(v);
+      p[k * 3 + 1] = pos.getY(v);
+      p[k * 3 + 2] = pos.getZ(v);
+    }
+    const ux = p[3] - p[0];
+    const uy = p[4] - p[1];
+    const uz = p[5] - p[2];
+    const vx = p[6] - p[0];
+    const vy = p[7] - p[1];
+    const vz = p[8] - p[2];
+    const nx = uy * vz - uz * vy;
+    const ny = uz * vx - ux * vz;
+    const nz = ux * vy - uy * vx;
+    if (0.5 * Math.hypot(nx, ny, nz) < MIN_TRIANGLE_AREA) continue; // sliver
+    for (let k = 0; k < 3; k++) {
+      const v = geo.index ? geo.index.getX(i + k) : i + k;
+      outPos[w * 3] = p[k * 3];
+      outPos[w * 3 + 1] = p[k * 3 + 1];
+      outPos[w * 3 + 2] = p[k * 3 + 2];
+      if (outNorm && normal) {
+        outNorm[w * 3] = normal.getX(v);
+        outNorm[w * 3 + 1] = normal.getY(v);
+        outNorm[w * 3 + 2] = normal.getZ(v);
+      }
+      w++;
+    }
+  }
+  const out = new THREE.BufferGeometry();
+  out.setAttribute("position", new THREE.BufferAttribute(outPos.subarray(0, w * 3), 3));
+  if (outNorm) out.setAttribute("normal", new THREE.BufferAttribute(outNorm.subarray(0, w * 3), 3));
+  return out;
+}
+
+// Evaluates a group per the Tinkercad rule: union of solid children minus the
+// union of hole children. Nested groups evaluate innermost-first; a nested
+// group counts as a solid unless nothing inside it is solid, in which case it
+// is a hole group and cuts. A hole group on its own evaluates to the union of
+// its holes, so it can be seen, moved and measured as one shape. The result
+// is in the group's local space (children keep their own transforms; the
+// group's transform is applied at render/export). Null when empty.
+export function evaluateGroup(
+  group: GroupNode,
+  nodes: Project["nodes"],
+): THREE.BufferGeometry | null {
+  const solids: THREE.BufferGeometry[] = [];
+  const holes: THREE.BufferGeometry[] = [];
+  const rims: (RimSpec | null)[] = [];
+
+  for (const childId of group.childIds) {
+    const child = nodes[childId];
+    if (!child) continue;
+
+    let geo: THREE.BufferGeometry | null;
+    let role: "solid" | "hole";
+    if (isGroup(child)) {
+      role = nodeRole(child, nodes);
+      if (role === "hole") {
+        for (const leaf of holeLeaves(child, nodes)) {
+          const g = prepareChild(leaf.node).geo;
+          if (!g) continue;
+          holes.push(bakeTransform(g, leaf.frame));
+          rims.push(holeRim(leaf.node, leaf.frame));
+        }
+        continue;
+      }
+      geo = evaluateGroup(child, nodes);
+    } else {
+      const prepared = prepareChild(child);
+      geo = prepared.geo;
+      role = prepared.role;
+    }
+    if (!geo) continue;
+    if (role === "solid") solids.push(bakeChild(child, geo));
+    else {
+      holes.push(bakeChild(child, geo));
+      rims.push(holeRimOf(child));
+    }
+  }
+
+  // Nothing solid: a hole group. Its shape is the union of its holes.
+  const [add, cut] = solids.length ? [solids, holes] : [holes, []];
+  if (!add.length) return null;
+  if (manifoldLoaded()) {
+    const clean = cutGroup(add, cut, cut.length ? rims : []);
+    if (clean) return clean;
+  }
+  return cutGroupBvh(add, cut);
+}
+
+/**
+ * The shapes inside a hole group, each with its full placement in the
+ * group being cut. A hole group is subtracted as its shapes one by one
+ * rather than as their union — the same cut, but each cylinder in it is
+ * then a hole of its own whose rims can be found and treated.
+ */
+export function holeLeaves(
+  group: GroupNode,
+  nodes: Project["nodes"],
+  frame = composeMatrix(group.position, group.rotation, group.scale),
+): { node: ShapeNode; frame: THREE.Matrix4 }[] {
+  const out: { node: ShapeNode; frame: THREE.Matrix4 }[] = [];
+  for (const id of group.childIds) {
+    const n = nodes[id];
+    if (!n) continue;
+    const f = frame.clone().multiply(composeMatrix(n.position, n.rotation, n.scale));
+    if (isGroup(n)) out.push(...holeLeaves(n, nodes, f));
+    else out.push({ node: n, frame: f });
+  }
+  return out;
+}
+
+/** The rim spec for a hole child, with its placement in the group, or null. */
+export function holeRimOf(child: SceneNode): RimSpec | null {
+  if (isGroup(child)) return null;
+  return holeRim(child, composeMatrix(child.position, child.rotation, child.scale));
+}
+
+/** A shape child's geometry, repaired where a flat outline needs it, and
+ *  its role. Shared by the in-thread and the worker evaluation. */
+export function prepareChild(child: ShapeNode): { geo: THREE.BufferGeometry | null; role: "solid" | "hole" } {
+  let geo = buildGeometry(child);
+  // A glyph or SVG outline that overlaps itself is not a closed solid.
+  // Rebuilt here, in its own flat frame, before the transform bakes in.
+  // Only flat extrusions can be rebuilt, so only they are probed: the
+  // probe is a full conversion, a second per 700k triangles, and a scan
+  // would pay it here and again in the cut for nothing.
+  if (geo && manifoldLoaded() && isFlatExtrusion(geo) && !isClosedSolid(geo)) {
+    geo = repairExtrusion(geo) ?? geo;
+  }
+  return { geo, role: child.role };
+}
+
+/** The child's full transform (including non-uniform or mirrored scale)
+ *  baked into its geometry, so the boolean runs on clean world-space meshes. */
+export function bakeChild(child: SceneNode, geo: THREE.BufferGeometry): THREE.BufferGeometry {
+  return bakeTransform(geo, composeMatrix(child.position, child.rotation, child.scale));
+}
+
+export function cutGroupBvh(
+  solids: THREE.BufferGeometry[],
+  holes: THREE.BufferGeometry[],
+): THREE.BufferGeometry {
+  const brushOf = (geo: THREE.BufferGeometry) => {
+    const brush = new Brush(geo);
+    brush.updateMatrixWorld();
+    return brush;
+  };
+  let solid = brushOf(solids[0]);
+  for (const geo of solids.slice(1)) {
+    solid = evaluator.evaluate(solid, brushOf(geo), ADDITION);
+  }
+  for (const geo of holes) {
+    solid = evaluator.evaluate(solid, brushOf(geo), SUBTRACTION);
+  }
+  return compactEvaluated(solid.geometry);
+}
+
+// Every distinct params object gets a small number the first time it is
+// seen. Params are replaced, never mutated, so the number stands in for
+// their content — without serializing them, which for an imported mesh means
+// tens of megabytes of base64 on every store update.
+const paramsIds = new WeakMap<object, number>();
+let nextParamsId = 1;
+function paramsId(params: object): number {
+  let id = paramsIds.get(params);
+  if (id === undefined) {
+    id = nextParamsId++;
+    paramsIds.set(params, id);
+  }
+  return id;
+}
+
+// Signature of everything that affects a group's evaluated geometry. The
+// group's own transform is deliberately excluded so moving a group never
+// re-runs the boolean, and so are colour, lock, transparency and visibility,
+// which change how a group is drawn but not its shape. Cheap enough to run
+// as a store selector: it is evaluated on every store update.
+export function subtreeSignature(group: GroupNode, nodes: Project["nodes"]): string {
+  const parts: string[] = [group.childIds.join(",")];
+  const visit = (id: string) => {
+    const n = nodes[id];
+    if (!n) return;
+    parts.push(id, n.position.join(","), n.rotation.join(","), n.scale.join(","));
+    if (isGroup(n)) {
+      parts.push(n.childIds.join(","));
+      n.childIds.forEach(visit);
+    } else {
+      parts.push(n.kind, n.role, String(paramsId(n.params)));
+    }
+  };
+  group.childIds.forEach(visit);
+  return parts.join("|");
+}
+
+export function firstSolidColor(group: GroupNode, nodes: Project["nodes"]): string {
+  return findSolidColor(group, nodes) ?? "#b0b0b0";
+}
+
+// Null while searching: a nested group with no solid in it must not answer
+// with the fallback grey and stop the search short of a solid sibling.
+function findSolidColor(group: GroupNode, nodes: Project["nodes"]): string | null {
+  for (const childId of group.childIds) {
+    const child = nodes[childId];
+    if (!child) continue;
+    if (isGroup(child)) {
+      const c = findSolidColor(child, nodes);
+      if (c) return c;
+    } else if ((child as ShapeNode).role === "solid") {
+      return (child as ShapeNode).color;
+    }
+  }
+  return null;
+}

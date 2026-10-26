@@ -1,0 +1,264 @@
+{
+  "id": "fixture",
+  "name": "Open wire positioning comb",
+  "version": 1,
+  "rootOrder": [
+    "root"
+  ],
+  "nodes": {
+    "b9ecaf9f-fd6a-412f-8924-407e318fee02": {
+      "id": "b9ecaf9f-fd6a-412f-8924-407e318fee02",
+      "kind": "box",
+      "params": {
+        "w": 48,
+        "d": 40,
+        "h": 5,
+        "radius": 0
+      },
+      "position": [
+        0,
+        0,
+        2.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "Wire comb base plate"
+    },
+    "f811c015-e9e5-40ff-9085-655a52633aaa": {
+      "id": "f811c015-e9e5-40ff-9085-655a52633aaa",
+      "kind": "box",
+      "params": {
+        "w": 46,
+        "d": 6,
+        "h": 10.4,
+        "radius": 0
+      },
+      "position": [
+        0,
+        0,
+        9.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "Wire comb raised guide"
+    },
+    "f7e19668-7ad8-4a5e-8e09-d2b7b3a45002": {
+      "id": "f7e19668-7ad8-4a5e-8e09-d2b7b3a45002",
+      "kind": "box",
+      "params": {
+        "w": 2,
+        "d": 8,
+        "h": 7,
+        "radius": 0
+      },
+      "position": [
+        -15,
+        0,
+        12.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#e05d5d",
+      "label": "Open wire slot 1"
+    },
+    "aebc00be-a6ec-459c-85b1-67c6254adda4": {
+      "id": "aebc00be-a6ec-459c-85b1-67c6254adda4",
+      "kind": "box",
+      "params": {
+        "w": 2,
+        "d": 8,
+        "h": 7,
+        "radius": 0
+      },
+      "position": [
+        -9,
+        0,
+        12.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#e05d5d",
+      "label": "Open wire slot 2"
+    },
+    "76a1f55d-57ca-4415-93ac-9e39ca0e99ff": {
+      "id": "76a1f55d-57ca-4415-93ac-9e39ca0e99ff",
+      "kind": "box",
+      "params": {
+        "w": 2,
+        "d": 8,
+        "h": 7,
+        "radius": 0
+      },
+      "position": [
+        -3,
+        0,
+        12.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#e05d5d",
+      "label": "Open wire slot 3"
+    },
+    "d0fd16c8-8943-4a4e-82ce-7b926fdffc23": {
+      "id": "d0fd16c8-8943-4a4e-82ce-7b926fdffc23",
+      "kind": "box",
+      "params": {
+        "w": 2,
+        "d": 8,
+        "h": 7,
+        "radius": 0
+      },
+      "position": [
+        3,
+        0,
+        12.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#e05d5d",
+      "label": "Open wire slot 4"
+    },
+    "3dff7d82-1ecb-4d68-bc8f-7b06402107b6": {
+      "id": "3dff7d82-1ecb-4d68-bc8f-7b06402107b6",
+      "kind": "box",
+      "params": {
+        "w": 2,
+        "d": 8,
+        "h": 7,
+        "radius": 0
+      },
+      "position": [
+        9,
+        0,
+        12.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#e05d5d",
+      "label": "Open wire slot 5"
+    },
+    "806032aa-b95f-4f52-984c-2d403f6f7c21": {
+      "id": "806032aa-b95f-4f52-984c-2d403f6f7c21",
+      "kind": "box",
+      "params": {
+        "w": 2,
+        "d": 8,
+        "h": 7,
+        "radius": 0
+      },
+      "position": [
+        15,
+        0,
+        12.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#e05d5d",
+      "label": "Open wire slot 6"
+    },
+    "root": {
+      "id": "root",
+      "type": "group",
+      "label": "Open wire positioning comb",
+      "childIds": [
+        "b9ecaf9f-fd6a-412f-8924-407e318fee02",
+        "f811c015-e9e5-40ff-9085-655a52633aaa",
+        "f7e19668-7ad8-4a5e-8e09-d2b7b3a45002",
+        "aebc00be-a6ec-459c-85b1-67c6254adda4",
+        "76a1f55d-57ca-4415-93ac-9e39ca0e99ff",
+        "d0fd16c8-8943-4a4e-82ce-7b926fdffc23",
+        "3dff7d82-1ecb-4d68-bc8f-7b06402107b6",
+        "806032aa-b95f-4f52-984c-2d403f6f7c21"
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  }
+}

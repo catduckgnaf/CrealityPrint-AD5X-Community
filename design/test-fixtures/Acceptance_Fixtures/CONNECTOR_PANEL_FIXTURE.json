@@ -1,0 +1,235 @@
+{
+  "id": "fixture",
+  "name": "Connector mounting panel",
+  "version": 1,
+  "rootOrder": [
+    "root"
+  ],
+  "nodes": {
+    "0f057244-51b3-4ccd-a3cf-c51dc3b0e7c1": {
+      "id": "0f057244-51b3-4ccd-a3cf-c51dc3b0e7c1",
+      "kind": "box",
+      "params": {
+        "w": 100,
+        "d": 65,
+        "h": 8,
+        "radius": 0
+      },
+      "position": [
+        0,
+        0,
+        4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "Connector mounting panel"
+    },
+    "640241e3-3a39-4f2a-9c7b-92a5f2b7a53d": {
+      "id": "640241e3-3a39-4f2a-9c7b-92a5f2b7a53d",
+      "kind": "cylinder",
+      "params": {
+        "r": 2,
+        "h": 10,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        -30,
+        -12.5,
+        4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Connector mounting hole"
+    },
+    "03654c09-9c27-41c9-8495-559026554b60": {
+      "id": "03654c09-9c27-41c9-8495-559026554b60",
+      "kind": "cylinder",
+      "params": {
+        "r": 2,
+        "h": 10,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        -30,
+        12.5,
+        4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Connector mounting hole"
+    },
+    "95e67c27-aca8-40b6-985f-5d990d49d18b": {
+      "id": "95e67c27-aca8-40b6-985f-5d990d49d18b",
+      "kind": "cylinder",
+      "params": {
+        "r": 2,
+        "h": 10,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        0,
+        -12.5,
+        4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Connector mounting hole"
+    },
+    "134244d3-3344-44f7-8329-e7714431dc49": {
+      "id": "134244d3-3344-44f7-8329-e7714431dc49",
+      "kind": "cylinder",
+      "params": {
+        "r": 2,
+        "h": 10,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        0,
+        12.5,
+        4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Connector mounting hole"
+    },
+    "a1e6ece5-a1ef-4b4c-860e-2d2b03d44d84": {
+      "id": "a1e6ece5-a1ef-4b4c-860e-2d2b03d44d84",
+      "kind": "cylinder",
+      "params": {
+        "r": 2,
+        "h": 10,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        30,
+        -12.5,
+        4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Connector mounting hole"
+    },
+    "9c5e3ec4-bd4e-423f-a1fe-58ea86692b55": {
+      "id": "9c5e3ec4-bd4e-423f-a1fe-58ea86692b55",
+      "kind": "cylinder",
+      "params": {
+        "r": 2,
+        "h": 10,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        30,
+        12.5,
+        4
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Connector mounting hole"
+    },
+    "root": {
+      "id": "root",
+      "type": "group",
+      "label": "Connector mounting panel",
+      "childIds": [
+        "0f057244-51b3-4ccd-a3cf-c51dc3b0e7c1",
+        "640241e3-3a39-4f2a-9c7b-92a5f2b7a53d",
+        "03654c09-9c27-41c9-8495-559026554b60",
+        "95e67c27-aca8-40b6-985f-5d990d49d18b",
+        "134244d3-3344-44f7-8329-e7714431dc49",
+        "a1e6ece5-a1ef-4b4c-860e-2d2b03d44d84",
+        "9c5e3ec4-bd4e-423f-a1fe-58ea86692b55"
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  }
+}

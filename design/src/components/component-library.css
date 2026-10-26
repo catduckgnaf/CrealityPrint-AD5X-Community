@@ -1,0 +1,162 @@
+/* AD5X v19.5.52 — scoped offline starter component browser. Existing
+   industrial menu / toolbar / printer styles are UNCHANGED. */
+#root .prepare-match-theme .ad5x-components-shade{
+ position:fixed;inset:0;z-index:390;background:rgba(5,9,11,.72);
+ display:flex;align-items:center;justify-content:center;padding:18px;
+ color:#e5ecea;font:12px "Segoe UI",Inter,system-ui,sans-serif;
+}
+#root .prepare-match-theme .ad5x-components-dialog{
+ width:min(875px,98vw);max-height:min(780px,95vh);min-height:430px;
+ background:#252d30;border:1px solid #50625e;border-radius:11px;
+ box-shadow:0 20px 60px rgba(0,0,0,.65);display:flex;flex-direction:column;
+ overflow:hidden;
+}
+#root .prepare-match-theme .ad5x-components-dialog header{
+ display:flex;align-items:center;gap:9px;min-height:48px;padding:12px 15px;
+ background:#292f33;border-bottom:1px solid #41504c;
+}
+#root .prepare-match-theme .ad5x-components-dialog header strong{
+ font-size:14px;font-weight:650;color:#f3f7f5;
+}
+#root .prepare-match-theme .ad5x-components-dialog header span{
+ color:#99aca7;font-size:11px;flex:1;
+}
+#root .prepare-match-theme .ad5x-components-dialog header button{
+ padding:5px;color:#bbc8c5;background:transparent;border:0;cursor:pointer;
+}
+#root .prepare-match-theme .ad5x-components-layout{
+ display:grid;grid-template-columns:minmax(215px,36%) minmax(0,1fr);min-height:0;flex:1;
+}
+#root .prepare-match-theme .ad5x-components-list{
+ min-height:0;display:flex;flex-direction:column;border-right:1px solid #41504c;
+}
+#root .prepare-match-theme .ad5x-components-search{
+ display:flex;gap:7px;align-items:center;margin:12px;background:#171e20;
+ border:1px solid #485e53;border-radius:6px;padding:8px 10px;color:#99b3a4;
+}
+#root .prepare-match-theme .ad5x-components-search input{
+ color:#e7f4ed;background:transparent;outline:none;border:0;
+ width:100%;min-width:0;font-size:12px;
+}
+#root .prepare-match-theme .ad5x-components-entries{
+ display:flex;flex-direction:column;gap:3px;overflow:auto;min-height:0;
+ padding:0 7px 12px;
+}
+#root .prepare-match-theme .ad5x-components-entry{
+ color:#dee9e3;background:transparent;text-align:left;width:100%;display:flex;
+ align-items:center;gap:9px;padding:6px;min-height:66px;border:1px solid transparent;
+ border-radius:7px;cursor:pointer;
+}
+#root .prepare-match-theme .ad5x-components-entry:hover{
+ background:#33433d;border-color:#4c7760;
+}
+#root .prepare-match-theme .ad5x-components-entry.selected{
+ background:#2f473b;border-color:#60ba82;
+}
+#root .prepare-match-theme .ad5x-components-entry img{
+ width:55px;height:55px;object-fit:contain;border-radius:6px;flex-shrink:0;
+ border:1px solid #3c5250;
+}
+#root .prepare-match-theme .ad5x-components-entry-text{
+ display:flex;flex-direction:column;min-width:0;gap:2px;
+}
+#root .prepare-match-theme .ad5x-components-entry-text strong{
+ font-size:11px;color:#e9f4ee;overflow-wrap:anywhere;
+}
+#root .prepare-match-theme .ad5x-components-entry-text small{
+ font-size:10px;line-height:1.35;color:#aabbb7;
+ display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+#root .prepare-match-theme .ad5x-components-entry-text em{
+ font-size:10px;color:#95ceb1;font-style:normal;
+}
+#root .prepare-match-theme .ad5x-components-detail{
+ padding:14px 16px;overflow:auto;min-height:0;
+}
+#root .prepare-match-theme .ad5x-components-product{
+ display:flex;align-items:center;gap:13px;margin-bottom:14px;
+}
+#root .prepare-match-theme .ad5x-components-product img{
+ width:95px;height:95px;object-fit:contain;border:1px solid #4c625b;
+ border-radius:8px;
+}
+#root .prepare-match-theme .ad5x-components-product h2{
+ font-size:16px;font-weight:650;color:#edf6f0;margin:0 0 6px;line-height:1.3;
+}
+#root .prepare-match-theme .ad5x-components-sku{
+ color:#c5e9d3;font-weight:600;font-size:12px;overflow-wrap:anywhere;
+}
+#root .prepare-match-theme .ad5x-components-muted{
+ color:#9cb1aa;font-size:11px;line-height:1.4;
+}
+#root .prepare-match-theme .ad5x-components-fitstatus{
+ border:1px solid #597361;background:#283c30;
+ border-radius:6px;padding:9px 10px;color:#b2eabf;
+ display:flex;align-items:center;gap:7px;margin:0 0 13px;
+ font-size:12px;font-weight:600;
+}
+#root .prepare-match-theme .ad5x-components-block{
+ border-top:1px solid #3f4d49;padding:10px 0 6px;
+}
+#root .prepare-match-theme .ad5x-components-block>strong{
+ color:#d8f0df;font-size:12px;
+}
+#root .prepare-match-theme .ad5x-components-block p{
+ margin:7px 0;color:#c0cfca;line-height:1.55;font-size:11px;
+}
+#root .prepare-match-theme .ad5x-components-block ul{
+ padding-left:18px;list-style:disc;margin:7px 0 5px;color:#b5c8bf;
+ font-size:11px;line-height:1.65;
+}
+#root .prepare-match-theme .ad5x-components-reference{margin:9px 0 4px;display:flex;flex-direction:column;align-items:start;gap:6px}
+#root .prepare-match-theme .ad5x-components-reference img{max-width:min(100%,280px);max-height:245px;object-fit:contain;background:#eee;padding:5px;border-radius:5px}
+#root .prepare-match-theme .ad5x-components-reference figcaption{color:#b5c8bf;font-size:11px;line-height:1.45}
+#root .prepare-match-theme .ad5x-components-specs{
+ margin:8px 0;display:flex;flex-wrap:wrap;gap:6px;
+}
+#root .prepare-match-theme .ad5x-components-specs span{
+ background:#323d3a;border-radius:5px;padding:6px 8px;color:#bacfc3;
+ font-size:11px;
+}
+#root .prepare-match-theme .ad5x-components-safety{
+ margin:10px 0;border-left:3px solid #d5a05a;padding:8px 12px;
+ background:#443729;color:#f2ddbe;font-size:11px;line-height:1.55;
+}
+#root .prepare-match-theme .ad5x-components-sources{
+ display:flex;flex-wrap:wrap;gap:12px;margin-top:14px;
+}
+#root .prepare-match-theme .ad5x-components-sources a{
+ display:inline-flex;align-items:center;gap:4px;color:#95dcb6;
+ font-size:11px;text-decoration:underline;
+}
+#root .prepare-match-theme .ad5x-components-dialog footer{
+ border-top:1px solid #42534b;display:flex;gap:9px;align-items:center;
+ justify-content:flex-end;padding:11px 14px;background:#2b3334;
+}
+#root .prepare-match-theme .ad5x-components-caveat{
+ font-size:10px;color:#9aacaa;line-height:1.4;margin-right:auto;
+}
+#root .prepare-match-theme .ad5x-components-dialog footer button{
+ display:inline-flex;align-items:center;gap:7px;justify-content:center;
+ font-size:12px;border-radius:6px;cursor:pointer;white-space:nowrap;
+ padding:9px 12px;
+}
+#root .prepare-match-theme .ad5x-components-close{
+ background:#384344;border:1px solid #566461;color:#dae2de;
+}
+#root .prepare-match-theme .ad5x-components-place{
+ background:#247246;border:1px solid #4bbd79;color:#f2fff7;font-weight:600;
+}
+#root .prepare-match-theme .ad5x-components-place:disabled{
+ opacity:.55;cursor:not-allowed;background:#44504a;border-color:#637167;
+}
+@media(max-width:680px){
+ #root .prepare-match-theme .ad5x-components-shade{padding:6px}
+ #root .prepare-match-theme .ad5x-components-dialog{max-height:98vh}
+ #root .prepare-match-theme .ad5x-components-layout{grid-template-columns:minmax(135px,39%) minmax(0,1fr)}
+ #root .prepare-match-theme .ad5x-components-entry{gap:4px}
+ #root .prepare-match-theme .ad5x-components-entry img{width:35px;height:39px}
+ #root .prepare-match-theme .ad5x-components-detail{padding:9px}
+ #root .prepare-match-theme .ad5x-components-product{flex-direction:column;align-items:flex-start}
+ #root .prepare-match-theme .ad5x-components-dialog footer{flex-wrap:wrap}
+}

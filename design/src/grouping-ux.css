@@ -1,0 +1,40 @@
+/* v19.5: one clear group-edit affordance. View controls don't change CSG. */
+#root .prepare-match-theme .design-group-focus{
+ position:absolute;z-index:82;left:50%;bottom:12px;transform:translateX(-50%);
+ display:flex;align-items:center;gap:9px;max-width:min(96vw,850px);
+ background:#242f33f5;border:1px solid #668374;border-radius:9px;
+ padding:8px 11px;color:#dcefe6;box-shadow:0 7px 24px #0008;
+ font-size:12px;pointer-events:auto;
+}
+#root .prepare-match-theme .design-group-focus-info{display:flex;align-items:center;gap:7px;min-width:0;}
+#root .prepare-match-theme .design-group-focus-info strong{max-width:170px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#c8f8d8;font-weight:650;}
+#root .prepare-match-theme .design-group-focus-info span{white-space:nowrap;color:#a6bab2;font-size:11px;}
+#root .prepare-match-theme .design-group-hint{color:#bdccc6;font-size:11px;white-space:nowrap;}
+#root .prepare-match-theme .design-group-focus button{
+ display:inline-flex;align-items:center;justify-content:center;gap:5px;
+ padding:6px 10px;border:1px solid #66766f;border-radius:5px;white-space:nowrap;
+ background:#37463e;color:#e5f5ec;min-height:30px;
+}
+#root .prepare-match-theme .design-group-focus button.primary{background:#25894e;border-color:#4cba70;color:white;font-weight:650;}
+#root .prepare-match-theme .design-group-focus button:disabled{opacity:.35;cursor:not-allowed;}
+#root .prepare-match-theme .design-objects-editing{
+ display:flex;align-items:center;justify-content:space-between;gap:8px;
+ padding:7px 12px;background:#244436;border-bottom:1px solid #407456;
+ color:#bff8cf;
+}
+#root .prepare-match-theme .design-objects-editing button{
+ padding:4px 12px;background:#287949;border:1px solid #4bab6c;
+ color:#fff;border-radius:4px;
+}
+#root .prepare-match-theme .design-objects-tip{padding:8px 12px;font-size:11px;color:#f0d6aa;background:#3a3225;}
+#root .prepare-match-theme .design-object-kind.is-cutout{color:#de9cbd;}
+#root .prepare-match-theme .design-object-row button.design-object-edit{
+ width:auto;flex:0 0 auto;height:auto;min-height:24px;display:inline-flex;
+ padding:3px 7px;align-items:center;color:#8fecab;border:1px solid #4e7960;
+ border-radius:4px;font-size:10px;
+}
+@media(max-width:1100px){
+ #root .prepare-match-theme .design-group-hint{display:none;}
+ #root .prepare-match-theme .design-group-focus{gap:6px;padding:6px;}
+ #root .prepare-match-theme .design-group-focus-info strong{max-width:110px;}
+}

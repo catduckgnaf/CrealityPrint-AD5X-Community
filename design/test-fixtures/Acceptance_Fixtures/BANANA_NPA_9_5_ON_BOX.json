@@ -1,0 +1,169 @@
+{
+  "id": "size-check",
+  "version": 1,
+  "name": "Size fixture",
+  "rootOrder": [
+    "26d1c637-a664-4b93-ba7b-952235231fa0"
+  ],
+  "nodes": {
+    "7e776d0d-68d2-4478-9935-cfc7eeec79fc": {
+      "id": "7e776d0d-68d2-4478-9935-cfc7eeec79fc",
+      "kind": "box",
+      "params": {
+        "w": 80,
+        "d": 60,
+        "h": 22,
+        "radius": 0
+      },
+      "position": [
+        0,
+        0,
+        11
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d"
+    },
+    "daaad969-1d75-4dad-95d8-3b49584269a5": {
+      "id": "daaad969-1d75-4dad-95d8-3b49584269a5",
+      "kind": "box",
+      "params": {
+        "w": 76,
+        "d": 56,
+        "h": 22,
+        "radius": 0
+      },
+      "position": [
+        0,
+        0,
+        13
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#e05d5d"
+    },
+    "hollow": {
+      "id": "hollow",
+      "type": "group",
+      "label": "Hollow box",
+      "childIds": [
+        "7e776d0d-68d2-4478-9935-cfc7eeec79fc",
+        "daaad969-1d75-4dad-95d8-3b49584269a5"
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    },
+    "3780193e-89ed-48e6-9396-5e653d6560ef": {
+      "id": "3780193e-89ed-48e6-9396-5e653d6560ef",
+      "kind": "cylinder",
+      "params": {
+        "r": 4.75,
+        "h": 4,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        -15,
+        -29,
+        12
+      ],
+      "rotation": [
+        1.5707963267948966,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Banana plug 1 - front opening"
+    },
+    "81f853d6-42b6-407a-aa5e-bbd69df7212f": {
+      "id": "81f853d6-42b6-407a-aa5e-bbd69df7212f",
+      "kind": "cylinder",
+      "params": {
+        "r": 4.75,
+        "h": 4,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        15,
+        -29,
+        12
+      ],
+      "rotation": [
+        1.5707963267948966,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Banana plug 2 - front opening"
+    },
+    "26d1c637-a664-4b93-ba7b-952235231fa0": {
+      "id": "26d1c637-a664-4b93-ba7b-952235231fa0",
+      "type": "group",
+      "label": "Box with banana-plug holes",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "childIds": [
+        "hollow",
+        "3780193e-89ed-48e6-9396-5e653d6560ef",
+        "81f853d6-42b6-407a-aa5e-bbd69df7212f"
+      ]
+    }
+  }
+}

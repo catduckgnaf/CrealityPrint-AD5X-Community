@@ -94,9 +94,12 @@ rediscover them.
 The tag `v7.3.0-ad5x-rc1` (`29d9867e`) is an ancestor of `master`
 (`820d4226`); master is 4 commits ahead — installer-doc changes, a
 Design demo commit, and the commit that *publishes the Design workspace
-source* (`design/`). This branch is based on the tag as the released
-baseline; rebasing onto master is the obvious follow-up, mainly to pick
-up `design/`.
+source* (`design/`). This branch was created from the tag as the
+released baseline, and `master` was then merged into it (the tag-based
+branch conflicted with master's rewritten README, which also blocked
+the PR's CI from starting). The branch therefore now contains the
+`design/` source as well; the packaging itself is unchanged by the
+merge.
 
 ### The existing Dockerfile is not a self-host image
 
@@ -200,12 +203,13 @@ Problems for Linux, in order:
    report that service as unavailable rather than degrade silently.
    The replacement is unit-smoke-tested (status contract, STL ticket +
    spool write, static serving).
-3. **`www/` assets are not at the RC1 tag.** The Design source
+3. **`www/` assets are not built yet.** The Design source
    (`design/`, React/TypeScript/Vite) was published on master *after*
-   the tag. Until this branch is rebased onto master and the image
-   build grows a Design stage (`npm ci && npm run build` → `dist/`),
-   the image ships a placeholder page in `www/`; you can bind-mount a
-   locally built `dist/` over the `www/` folder to use Design today.
+   the RC1 tag; it is in this branch's tree (via the master merge), but
+   the image build does not yet have a Design stage
+   (`npm ci && npm run build` → `dist/`). Until it does, the image
+   ships a placeholder page in `www/`; you can bind-mount a locally
+   built `dist/` over the `www/` folder to use Design today.
 
 So on Linux today: **Prepare / slicing / device workflows are the
 goal of this image; Design is scaffolded and bridged, but its web
@@ -229,8 +233,8 @@ success much cheaper.
 ## Known limitations / follow-ups
 
 * `linux/amd64` only (closed libs, above).
-* Design web assets not bundled yet (above); rebase onto master and add
-  the Design build stage.
+* Design web assets not bundled yet (above); the `design/` source is
+  in the tree, so adding the Design build stage is the next step.
 * The GUI is a streamed desktop (noVNC), not a native web app —
   WebKitGTK pages inside the slicer ( Fluidd view etc.) render inside
   that desktop.

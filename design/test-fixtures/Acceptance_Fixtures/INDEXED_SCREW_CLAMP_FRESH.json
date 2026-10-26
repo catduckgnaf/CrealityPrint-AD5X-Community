@@ -1,0 +1,816 @@
+{
+  "id": "test",
+  "name": "M4 clamp",
+  "version": 1,
+  "rootOrder": [
+    "screw-clamp"
+  ],
+  "nodes": {
+    "50aaee6f-2c4c-4546-a539-cf6147e2cf34": {
+      "id": "50aaee6f-2c4c-4546-a539-cf6147e2cf34",
+      "kind": "box",
+      "params": {
+        "w": 100,
+        "d": 50,
+        "h": 6,
+        "radius": 0
+      },
+      "position": [
+        0,
+        0,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "Indexed clamp base"
+    },
+    "eac5a0ef-250d-4032-a169-e3fbdd2f8305": {
+      "id": "eac5a0ef-250d-4032-a169-e3fbdd2f8305",
+      "kind": "box",
+      "params": {
+        "w": 8,
+        "d": 42,
+        "h": 12.4,
+        "radius": 0
+      },
+      "position": [
+        -42,
+        0,
+        11.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "Fixed clamp jaw"
+    },
+    "1f791d5d-fa7d-4cc5-af74-4b57f60e9c4e": {
+      "id": "1f791d5d-fa7d-4cc5-af74-4b57f60e9c4e",
+      "kind": "cylinder",
+      "params": {
+        "r": 2.65,
+        "h": 8,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        -20,
+        -13,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Clamp station 1 left bore"
+    },
+    "6e3e6c93-b0a4-42dc-9794-47f1ea1d11eb": {
+      "id": "6e3e6c93-b0a4-42dc-9794-47f1ea1d11eb",
+      "kind": "cylinder",
+      "params": {
+        "r": 2.65,
+        "h": 8,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        -10,
+        -13,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Clamp station 2 left bore"
+    },
+    "87bc0850-7245-4d1c-9757-991cbf6d76d7": {
+      "id": "87bc0850-7245-4d1c-9757-991cbf6d76d7",
+      "kind": "cylinder",
+      "params": {
+        "r": 2.65,
+        "h": 8,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        0,
+        -13,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Clamp station 3 left bore"
+    },
+    "26b735ad-0332-4fe6-b993-9469fd7ee608": {
+      "id": "26b735ad-0332-4fe6-b993-9469fd7ee608",
+      "kind": "cylinder",
+      "params": {
+        "r": 2.65,
+        "h": 8,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        10,
+        -13,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Clamp station 4 left bore"
+    },
+    "32ba6890-ea08-4efb-861e-709781a5727c": {
+      "id": "32ba6890-ea08-4efb-861e-709781a5727c",
+      "kind": "cylinder",
+      "params": {
+        "r": 2.65,
+        "h": 8,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        20,
+        -13,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Clamp station 5 left bore"
+    },
+    "ccbeea9a-e713-4259-b8ed-e2cde4ffe7b4": {
+      "id": "ccbeea9a-e713-4259-b8ed-e2cde4ffe7b4",
+      "kind": "cylinder",
+      "params": {
+        "r": 2.65,
+        "h": 8,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        30,
+        -13,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Clamp station 6 left bore"
+    },
+    "26a4e12d-33fc-4c36-890d-22f6417679de": {
+      "id": "26a4e12d-33fc-4c36-890d-22f6417679de",
+      "kind": "cylinder",
+      "params": {
+        "r": 2.65,
+        "h": 8,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        40,
+        -13,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Clamp station 7 left bore"
+    },
+    "7c80ec6b-1157-4567-97b4-d0540c92e066": {
+      "id": "7c80ec6b-1157-4567-97b4-d0540c92e066",
+      "kind": "box",
+      "params": {
+        "w": 12,
+        "d": 38,
+        "h": 12,
+        "radius": 0
+      },
+      "position": [
+        62,
+        0,
+        6
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "Two-peg screw clamp movable jaw — M4 nut",
+      "feature": "indexed-m4-clamp"
+    },
+    "5e16769d-2e24-4efd-8c3a-1fb4f534ae93": {
+      "id": "5e16769d-2e24-4efd-8c3a-1fb4f534ae93",
+      "kind": "cylinder",
+      "params": {
+        "r": 2.5,
+        "h": 6.4,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        62,
+        -13,
+        14.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#5d8fe0",
+      "label": "Clamp locating peg left"
+    },
+    "9ea21607-6eb0-4460-94c3-c626d760f25a": {
+      "id": "9ea21607-6eb0-4460-94c3-c626d760f25a",
+      "kind": "cylinder",
+      "params": {
+        "r": 2.5,
+        "h": 6.4,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        62,
+        13,
+        14.8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#5d8fe0",
+      "label": "Clamp locating peg right"
+    },
+    "e47f4bc3-0a4b-42d5-980d-4bf31946da2a": {
+      "id": "e47f4bc3-0a4b-42d5-980d-4bf31946da2a",
+      "kind": "cylinder",
+      "params": {
+        "r": 2.65,
+        "h": 8,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        -20,
+        13,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Clamp station 1 right bore"
+    },
+    "a26782aa-d860-4e93-b073-ee3944c36225": {
+      "id": "a26782aa-d860-4e93-b073-ee3944c36225",
+      "kind": "cylinder",
+      "params": {
+        "r": 2.65,
+        "h": 8,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        -10,
+        13,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Clamp station 2 right bore"
+    },
+    "6df38bc2-9422-4bf4-97b5-fd46e5b292df": {
+      "id": "6df38bc2-9422-4bf4-97b5-fd46e5b292df",
+      "kind": "cylinder",
+      "params": {
+        "r": 2.65,
+        "h": 8,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        0,
+        13,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Clamp station 3 right bore"
+    },
+    "20391937-e961-4771-90e2-015d0552ff01": {
+      "id": "20391937-e961-4771-90e2-015d0552ff01",
+      "kind": "cylinder",
+      "params": {
+        "r": 2.65,
+        "h": 8,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        10,
+        13,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Clamp station 4 right bore"
+    },
+    "885a6ec8-ec0d-48ea-93b4-d13c52cc9a9d": {
+      "id": "885a6ec8-ec0d-48ea-93b4-d13c52cc9a9d",
+      "kind": "cylinder",
+      "params": {
+        "r": 2.65,
+        "h": 8,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        20,
+        13,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Clamp station 5 right bore"
+    },
+    "a5357b98-3144-4031-b9bd-b9bd5f868386": {
+      "id": "a5357b98-3144-4031-b9bd-b9bd5f868386",
+      "kind": "cylinder",
+      "params": {
+        "r": 2.65,
+        "h": 8,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        30,
+        13,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Clamp station 6 right bore"
+    },
+    "4c3022c7-154a-4ba5-a413-2dea134837fb": {
+      "id": "4c3022c7-154a-4ba5-a413-2dea134837fb",
+      "kind": "cylinder",
+      "params": {
+        "r": 2.65,
+        "h": 8,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        40,
+        13,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Clamp station 7 right bore"
+    },
+    "e826ef90-20c2-4969-b4dd-315eee33935d": {
+      "id": "e826ef90-20c2-4969-b4dd-315eee33935d",
+      "kind": "cylinder",
+      "params": {
+        "r": 2.25,
+        "h": 14,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        62,
+        0,
+        7
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "M4 clearance through movable jaw"
+    },
+    "68314ebf-0df9-4632-9dab-2da594c24f6d": {
+      "id": "68314ebf-0df9-4632-9dab-2da594c24f6d",
+      "kind": "cylinder",
+      "params": {
+        "r": 4.2,
+        "h": 4.3,
+        "segments": 6,
+        "bevel": 0
+      },
+      "position": [
+        65.9,
+        0,
+        7
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "M4 hex nut pocket — insert nut from rear"
+    },
+    "733cf3ab-7cc8-4243-9534-78ee1bb0976f": {
+      "id": "733cf3ab-7cc8-4243-9534-78ee1bb0976f",
+      "kind": "box",
+      "params": {
+        "w": 14,
+        "d": 3.8,
+        "h": 3.6,
+        "radius": 0
+      },
+      "position": [
+        62,
+        -7,
+        10.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#e05d5d",
+      "label": "Pressure-pad left guide groove"
+    },
+    "a36ff0e4-cb65-4fa5-8348-4adf2fe12f61": {
+      "id": "a36ff0e4-cb65-4fa5-8348-4adf2fe12f61",
+      "kind": "box",
+      "params": {
+        "w": 14,
+        "d": 3.8,
+        "h": 3.6,
+        "radius": 0
+      },
+      "position": [
+        62,
+        7,
+        10.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#e05d5d",
+      "label": "Pressure-pad right guide groove"
+    },
+    "ac7673c5-e5a6-4920-9ad0-80ffe8607578": {
+      "id": "ac7673c5-e5a6-4920-9ad0-80ffe8607578",
+      "kind": "box",
+      "params": {
+        "w": 4,
+        "d": 24,
+        "h": 12,
+        "radius": 0
+      },
+      "position": [
+        80,
+        0,
+        6
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "Separate sliding clamp pressure pad"
+    },
+    "2af9477a-56f1-419d-9118-04fca0a67ee0": {
+      "id": "2af9477a-56f1-419d-9118-04fca0a67ee0",
+      "kind": "box",
+      "params": {
+        "w": 17.4,
+        "d": 3,
+        "h": 3,
+        "radius": 0
+      },
+      "position": [
+        90.4,
+        -7,
+        1.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "Sliding pad left guide tongue"
+    },
+    "dbf68430-8d30-4817-a989-5ba276b0b46d": {
+      "id": "dbf68430-8d30-4817-a989-5ba276b0b46d",
+      "kind": "box",
+      "params": {
+        "w": 17.4,
+        "d": 3,
+        "h": 3,
+        "radius": 0
+      },
+      "position": [
+        90.4,
+        7,
+        1.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "solid",
+      "color": "#e05d5d",
+      "label": "Sliding pad right guide tongue"
+    },
+    "27fdbfbe-6c77-4e15-b802-7c44d80da682": {
+      "id": "27fdbfbe-6c77-4e15-b802-7c44d80da682",
+      "kind": "cylinder",
+      "params": {
+        "r": 2.5,
+        "h": 1.8,
+        "segments": 64,
+        "bevel": 0
+      },
+      "position": [
+        81.4,
+        0,
+        5
+      ],
+      "rotation": [
+        0,
+        1.5707963267948966,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "hole",
+      "color": "#5d8fe0",
+      "label": "Pressure-pad screw nose seat"
+    },
+    "screw-clamp": {
+      "id": "screw-clamp",
+      "type": "group",
+      "label": "M4 screw clamp",
+      "childIds": [
+        "50aaee6f-2c4c-4546-a539-cf6147e2cf34",
+        "eac5a0ef-250d-4032-a169-e3fbdd2f8305",
+        "1f791d5d-fa7d-4cc5-af74-4b57f60e9c4e",
+        "6e3e6c93-b0a4-42dc-9794-47f1ea1d11eb",
+        "87bc0850-7245-4d1c-9757-991cbf6d76d7",
+        "26b735ad-0332-4fe6-b993-9469fd7ee608",
+        "32ba6890-ea08-4efb-861e-709781a5727c",
+        "ccbeea9a-e713-4259-b8ed-e2cde4ffe7b4",
+        "26a4e12d-33fc-4c36-890d-22f6417679de",
+        "7c80ec6b-1157-4567-97b4-d0540c92e066",
+        "5e16769d-2e24-4efd-8c3a-1fb4f534ae93",
+        "9ea21607-6eb0-4460-94c3-c626d760f25a",
+        "e47f4bc3-0a4b-42d5-980d-4bf31946da2a",
+        "a26782aa-d860-4e93-b073-ee3944c36225",
+        "6df38bc2-9422-4bf4-97b5-fd46e5b292df",
+        "20391937-e961-4771-90e2-015d0552ff01",
+        "885a6ec8-ec0d-48ea-93b4-d13c52cc9a9d",
+        "a5357b98-3144-4031-b9bd-b9bd5f868386",
+        "4c3022c7-154a-4ba5-a413-2dea134837fb",
+        "e826ef90-20c2-4969-b4dd-315eee33935d",
+        "68314ebf-0df9-4632-9dab-2da594c24f6d",
+        "733cf3ab-7cc8-4243-9534-78ee1bb0976f",
+        "a36ff0e4-cb65-4fa5-8348-4adf2fe12f61",
+        "ac7673c5-e5a6-4920-9ad0-80ffe8607578",
+        "2af9477a-56f1-419d-9118-04fca0a67ee0",
+        "dbf68430-8d30-4817-a989-5ba276b0b46d",
+        "27fdbfbe-6c77-4e15-b802-7c44d80da682"
+      ],
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ]
+    }
+  }
+}
