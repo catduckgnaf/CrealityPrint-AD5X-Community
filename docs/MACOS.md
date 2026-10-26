@@ -189,7 +189,11 @@ track.
   `40410087298` then progressed past PNG on both arches and stopped
   on missing runner tools — `nasm` (dep_x264 configure, x86_64) and
   `autoreconf` (dep_MPFR configure) — which the workflow's brew
-  install step now provides. Expect further deps of the same vintage
+  install step now provides. Run `40411124311` then failed in
+  *Build deps* on both arches at the same single subcommand,
+  `dep_MPFR`-build: `makeinfo: command not found` (MPFR builds its
+  docs), so `texinfo` joined the brew list (keg-only; its bin dir is
+  added to `PATH`). Expect further deps of the same vintage
   to need similar repairs; each will surface as a named failing step
   in the workflow run.
 - **Design / offline code is otherwise platform-neutral.** The AD5X

@@ -131,14 +131,17 @@ jobs:
         run: |
           # nasm: dep_x264's configure refuses to run without it (x86_64).
           # autoconf/automake/libtool: dep_MPFR's configure runs autoreconf.
-          # (Both gaps found from failed CI runs on this workflow; see
+          # texinfo: dep_MPFR's make runs makeinfo.
+          # (All gaps found from failed CI runs on this workflow; see
           # docs/MACOS.md "First CI runs".)
-          brew install ninja gettext ccache nasm autoconf automake libtool || \
-            brew upgrade ninja gettext ccache nasm autoconf automake libtool || true
-          brew list ninja gettext nasm autoconf >/dev/null
-          # gettext is keg-only in Homebrew; build_release_macos.sh runs
-          # run_gettext.sh after the slicer build and needs msgfmt on PATH.
+          brew install ninja gettext ccache nasm autoconf automake libtool texinfo || \
+            brew upgrade ninja gettext ccache nasm autoconf automake libtool texinfo || true
+          brew list ninja gettext nasm autoconf texinfo >/dev/null
+          # gettext and texinfo are keg-only in Homebrew;
+          # build_release_macos.sh runs run_gettext.sh after the slicer
+          # build (needs msgfmt) and MPFR needs makeinfo, both on PATH.
           echo "$(brew --prefix gettext)/bin" >> "$GITHUB_PATH"
+          echo "$(brew --prefix texinfo)/bin" >> "$GITHUB_PATH"
 
       - name: Show toolchain
         if: env.SKIP_LEG != 'true'
