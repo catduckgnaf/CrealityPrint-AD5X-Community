@@ -1,0 +1,45 @@
+# Self-hosted CrealityPrint AD5X — server / Unraid deployment.
+#
+#   docker compose -f docker-compose.selfhost.yml up -d
+#
+# Then open http://<server>:6080/vnc.html for the slicer GUI.
+# Set VNC_PASSWORD in a .env file next to this compose file — without it
+# the desktop is unauthenticated (trusted LAN only).
+#
+# Printer networking: with the default bridge networking the slicer can
+# reach the AD5X / Fluidd by IP address. mDNS-based printer *discovery*
+# does not cross a Docker bridge; if you rely on discovery, switch to
+# host networking instead (comment out `ports:` and uncomment
+# `network_mode: host`) — the web GUI is then on the host's port 6080.
+
+services:
+  crealityprint-ad5x:
+    image: ghcr.io/catduckgnaf/crealityprint-ad5x:latest
+    # To build locally instead of pulling:
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile.selfhost
+    container_name: crealityprint-ad5x
+    restart: unless-stopped
+    environment:
+      PUID: "${PUID:-1000}"
+      PGID: "${PGID:-1000}"
+      TZ: "${TZ:-UTC}"
+      VNC_PASSWORD: "${VNC_PASSWORD:-}"
+      VNC_GEOMETRY: "${VNC_GEOMETRY:-1920x1080}"
+    ports:
+      - "6080:6080"   # noVNC web GUI — the port you publish
+      # - "5900:5900" # raw VNC — leave unpublished unless you need it
+    # network_mode: host   # alternative for mDNS printer discovery
+    volumes:
+      # App config, profiles and user presets (persistent).
+      - crealityprint-config:/config
+      # Your models, projects and exported G-code (persistent).
+      # Point this at a host folder instead if you prefer, e.g.
+      #   - /mnt/user/3dprint:/data
+      - crealityprint-data:/data
+    shm_size: "1gb"   # WebKit/WebView pages need more than the 64 MB default
+
+volumes:
+  crealityprint-config:
+  crealityprint-data:

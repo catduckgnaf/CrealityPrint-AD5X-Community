@@ -1,0 +1,9 @@
+# Per-Dockerfile ignore file for Dockerfile.selfhost (Docker 23+ /
+# BuildKit). Keeps the build context lean; the upstream .dockerignore
+# targets the developer AppImage build and does not exclude .git.
+.git
+.github
+build
+deps/build
+*.AppImage
+*.tar

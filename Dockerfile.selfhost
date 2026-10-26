@@ -1,0 +1,235 @@
+# syntax=docker/dockerfile:1
+#
+# Dockerfile.selfhost — self-hosted (server/Unraid) image for the
+# CrealityPrint AD5X community fork.
+#
+# This is NOT the upstream root `Dockerfile`. That file is the inherited
+# OrcaSlicer *developer build container*: it builds an AppImage and then
+# expects a host X11 session, host networking and a bind-mounted home
+# directory (see DockerRun.sh). This file instead produces an end-user
+# runtime image:
+#
+#   * stage `build`   — compiles the Linux application with BuildLinux.sh
+#   * stage `nodebin` — supplies a Linux Node.js binary for the AD5X
+#                       Design bridge (see selfhost/SELFHOST.md, "Design")
+#   * stage `runtime` — slim image: Xvfb + x11vnc + noVNC (browser GUI),
+#                       supervisord, persistent /config and /data volumes,
+#                       and a headless CLI passthrough mode.
+#
+# Platform: linux/amd64 ONLY for now. Two bundled closed-source libraries
+# make an arm64 image impossible today (see selfhost/SELFHOST.md):
+#   deps/CR_CLOSED/CR_FILLTENSOR  — Linux binaries for x86_64 only, its
+#                                   CMake raises FATAL_ERROR on other arches
+#   deps/CR_KM_RECIPE             — Linux binaries for x86_64 only, same
+# (deps/CR_TPMS does ship linux/aarch64 + linux/arm64.)
+
+# ---------------------------------------------------------------------------
+# Stage 1: build the application
+# ---------------------------------------------------------------------------
+FROM ubuntu:22.04 AS build
+
+ENV DEBIAN_FRONTEND=noninteractive \
+    LC_ALL=en_US.UTF-8 \
+    SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
+
+# Package list = union of the upstream root Dockerfile and linux.d/debian
+# (BuildLinux.sh -u), cleaned up:
+#   * the upstream Dockerfile's stray "\ " (backslash-space) line endings,
+#     which corrupt the apt argument list, are removed;
+#   * duplicates removed;
+#   * libgstreamerd-3-dev (present in both upstream lists) is deliberately
+#     NOT installed: it is a real package, but it is the GStreamer *D
+#     language* bindings from the gtk-d source package — the C build needs
+#     libgstreamer1.0-dev / libgstreamer-plugins-*-dev below instead;
+#   * ninja-build, gettext, patchelf and the webrtc/audio deps from
+#     linux.d/debian are added explicitly (the upstream Dockerfile only
+#     gets them indirectly via BuildLinux.sh -u, which we do not run —
+#     this stage installs packages itself and then runs -d/-s only).
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    autoconf \
+    build-essential \
+    ca-certificates \
+    cmake \
+    curl \
+    eglexternalplatform-dev \
+    extra-cmake-modules \
+    file \
+    gettext \
+    git \
+    gstreamer1.0-libav \
+    gstreamer1.0-plugins-bad \
+    gstreamer1.0-plugins-good \
+    libasound2-dev \
+    libcairo2-dev \
+    libcurl4-openssl-dev \
+    libdbus-1-dev \
+    libdeflate-dev \
+    libfontconfig1-dev \
+    libfribidi-dev \
+    libfuse-dev \
+    libglew-dev \
+    libglu1-mesa-dev \
+    libgstreamer-plugins-base1.0-dev \
+    libgstreamer-plugins-good1.0-dev \
+    libgstreamer1.0-dev \
+    libgtk-3-dev \
+    libharfbuzz-dev \
+    liblzma-dev \
+    libmspack-dev \
+    libopus-dev \
+    libosmesa6-dev \
+    libsecret-1-dev \
+    libsoup2.4-dev \
+    libspeexdsp-dev \
+    libssl-dev \
+    libthai-dev \
+    libtool \
+    libudev-dev \
+    libusrsctp-dev \
+    libsrtp2-dev \
+    libwayland-dev \
+    libwebkit2gtk-4.0-dev \
+    libx264-dev \
+    libxft-dev \
+    libxkbcommon-dev \
+    locales \
+    locales-all \
+    m4 \
+    meson \
+    ninja-build \
+    patchelf \
+    pkgconf \
+    sudo \
+    texinfo \
+    wayland-protocols \
+    wget \
+ && rm -rf /var/lib/apt/lists/*
+RUN locale-gen en_US.UTF-8 || true
+
+WORKDIR /src
+COPY . /src
+
+# -r skips BuildLinux.sh's 10 GB RAM / 10 GB disk gate (CI runners and
+# small build hosts); -d builds deps/ (wxWidgets, Boost, ... — the long
+# stage), -s builds the app and, via src/platform/unix/BuildLinuxImage.sh.in,
+# assembles build/package/{bin,resources} plus the launcher script.
+# We deliberately do NOT pass -i: no AppImage is needed inside an image.
+RUN ./BuildLinux.sh -r -d
+RUN ./BuildLinux.sh -r -s
+RUN test -x /src/build/package/bin/CrealityPrint \
+ && ls -la /src/build/package/
+
+# ---------------------------------------------------------------------------
+# Stage 2: Linux Node.js for the AD5X Design bridge
+# ---------------------------------------------------------------------------
+FROM node:22-bookworm-slim AS nodebin
+
+# ---------------------------------------------------------------------------
+# Stage 3: runtime
+# ---------------------------------------------------------------------------
+FROM ubuntu:22.04 AS runtime
+
+ENV DEBIAN_FRONTEND=noninteractive \
+    LC_ALL=en_US.UTF-8 \
+    SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt \
+    DISPLAY=:99 \
+    HOME=/config \
+    XDG_CONFIG_HOME=/config/.config \
+    XDG_DATA_HOME=/config/.local/share \
+    # WebKitGTK under Xvfb/noVNC is more reliable with compositing off.
+    WEBKIT_DISABLE_COMPOSITING_MODE=1 \
+    WEBKIT_DISABLE_DMABUF_RENDERER=1
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    ca-certificates \
+    curl \
+    dbus-x11 \
+    fonts-dejavu-core \
+    fonts-liberation \
+    gosu \
+    gstreamer1.0-libav \
+    gstreamer1.0-plugins-bad \
+    gstreamer1.0-plugins-good \
+    libcurl4 \
+    libdbus-1-3 \
+    libglew2.2 \
+    libglu1-mesa \
+    libgstreamer-plugins-base1.0-0 \
+    libgstreamer1.0-0 \
+    libgtk-3-0 \
+    libmspack0 \
+    libosmesa6 \
+    libsecret-1-0 \
+    libsoup2.4-1 \
+    libssl3 \
+    libudev1 \
+    libwebkit2gtk-4.0-37 \
+    libxkbcommon0 \
+    locales \
+    novnc \
+    supervisor \
+    websockify \
+    x11-xserver-utils \
+    x11vnc \
+    xvfb \
+ && rm -rf /var/lib/apt/lists/*
+RUN locale-gen en_US.UTF-8 || true
+
+# Application tree produced by BuildLinuxImage.sh:
+#   /opt/crealityprint/bin/CrealityPrint   (real binary)
+#   /opt/crealityprint/resources/          (profiles incl. Flashforge AD5X)
+#   /opt/crealityprint/CrealityPrint       (launcher: sets LD_LIBRARY_PATH)
+COPY --from=build /src/build/package /opt/crealityprint
+
+# --- AD5X Design bridge runtime -------------------------------------------
+# The app looks for an *external* runtime folder next to the executable:
+#   bin/External_Runtime_Dependency_AD5X_Design_Service_20261025/
+#     node.exe            (bundled Node — Windows name, see below)
+#     serve_handoff.cjs   (loopback bridge on port 18195)
+#     www/index.html      (built Design web app)
+#     Handoff_Spool/      (staged STL handoff to Prepare)
+# None of that folder ships in this repo at the RC1 tag (the Windows
+# installer bundles it; the Design source was published separately).
+# This image therefore provides:
+#   * a Linux Node binary under the literal name the app searches for
+#     ("node.exe" — src/slic3r/GUI/MainFrame.cpp, ad5x_design_node_path(),
+#     hardcodes the .exe name on every platform; a Linux ELF with that
+#     name executes fine and needs no source change);
+#   * selfhost/design-bridge/serve_handoff.cjs, a clean-room replacement
+#     implementing the bridge contract recovered from the app + the
+#     published Design source;
+#   * a placeholder www/ — mount a real Design build over it (see
+#     selfhost/SELFHOST.md) until the Design assets are bundled.
+COPY --from=nodebin /usr/local/bin/node \
+    /opt/crealityprint/bin/External_Runtime_Dependency_AD5X_Design_Service_20261025/node.exe
+COPY selfhost/design-bridge/serve_handoff.cjs \
+    /opt/crealityprint/bin/External_Runtime_Dependency_AD5X_Design_Service_20261025/serve_handoff.cjs
+COPY selfhost/design-www/ \
+    /opt/crealityprint/bin/External_Runtime_Dependency_AD5X_Design_Service_20261025/www/
+RUN mkdir -p \
+    /opt/crealityprint/bin/External_Runtime_Dependency_AD5X_Design_Service_20261025/Handoff_Spool
+
+COPY selfhost/entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY selfhost/start-vnc.sh /usr/local/bin/start-vnc.sh
+COPY selfhost/healthcheck.sh /usr/local/bin/healthcheck.sh
+COPY selfhost/supervisord.conf /etc/supervisor/conf.d/crealityprint.conf
+RUN chmod +x /usr/local/bin/entrypoint.sh /usr/local/bin/start-vnc.sh \
+             /usr/local/bin/healthcheck.sh \
+             /opt/crealityprint/CrealityPrint \
+             /opt/crealityprint/bin/CrealityPrint
+
+# Unprivileged runtime user; entrypoint remaps it to $PUID/$PGID.
+RUN groupadd -g 1000 app && useradd -u 1000 -g 1000 -M -s /bin/bash app \
+ && mkdir -p /config /data \
+ && chown -R app:app /config /data /opt/crealityprint
+
+VOLUME ["/config", "/data"]
+# 6080 = noVNC web GUI (the one port you publish)
+# 5900 = raw VNC (optional; prefer leaving it unpublished)
+EXPOSE 6080 5900
+
+HEALTHCHECK --interval=30s --timeout=10s --start-period=120s --retries=3 \
+    CMD ["/usr/local/bin/healthcheck.sh"]
+
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+CMD ["gui"]

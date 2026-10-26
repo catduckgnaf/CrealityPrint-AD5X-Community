@@ -71,6 +71,15 @@ This fork preserves those upstream files unmodified. Their implementation source
 
 See [BUILDING.md](BUILDING.md).
 
+## Self-hosted Docker (experimental)
+
+A browser-accessible, self-hosted Linux version (Xvfb + noVNC,
+persistent config/data volumes, headless CLI mode) is packaged in
+`Dockerfile.selfhost` with `docker-compose.selfhost.yml`. See
+[selfhost/SELFHOST.md](selfhost/SELFHOST.md) for usage, the source audit behind
+it, and its current limitations (linux/amd64 only; Design web assets
+not yet bundled).
+
 The original upstream README has been preserved as [UPSTREAM_README.md](UPSTREAM_README.md).
 
 ## Changes
