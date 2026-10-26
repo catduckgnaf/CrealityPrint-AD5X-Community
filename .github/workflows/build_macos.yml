@@ -1,0 +1,204 @@
+name: Build macOS (AD5X fork)
+
+# macOS track for the CrealityPrint AD5X fork.
+#
+# Status: FIRST SCAFFOLD. Manual dispatch only for the real build.
+# The resulting .app / .dmg is UNSIGNED and NOT notarized (no Apple
+# Developer account is used). See docs/MACOS.md for install steps and
+# for what is still unverified (everything GUI-side needs a real Mac).
+#
+# Recipe: the repo's own build_release_macos.sh with the Ninja generator
+# (-x), one native runner per architecture:
+#   - arm64  -> macos-15       (Apple Silicon; macos-14 is deprecated by
+#                               GitHub and unsupported from 2026-11-02)
+#   - x86_64 -> macos-15-intel (Intel; macos-13 was retired 2025-12-04,
+#                               and CR_TPMS selects its precompiled lib
+#                               by CMAKE_SYSTEM_PROCESSOR, so the x86_64
+#                               leg must run on a real Intel host)
+#
+# Per-arch builds are mandatory, not a preference:
+# deps/CR_CLOSED/CR_FILLTENSOR/cr_FillTensor.cmake raises FATAL_ERROR for
+# a universal (multi-arch) CMAKE_OSX_ARCHITECTURES, because the closed
+# cr_FillTensor / cr_tpms archives ship per-arch only
+# (lib/mac/arm64/*.a and lib/mac/x86_64/*.a, no universal archive).
+# The official JenkinsPipeline.MacAppStore builds the two arches
+# separately for the same reason and only merges them afterwards,
+# with signing, which this workflow deliberately does not do.
+
+on:
+  workflow_dispatch:
+    inputs:
+      arch:
+        description: 'Architecture to build'
+        type: choice
+        options:
+          - all
+          - arm64
+          - x86_64
+        default: 'all'
+      build-deps-only:
+        description: 'Only build/cache dependencies (bypasses slicer build)'
+        type: boolean
+        default: false
+  pull_request:
+    branches:
+      - master
+    paths:
+      - '.github/workflows/build_macos.yml'
+      - 'build_release_macos.sh'
+      - 'docs/MACOS.md'
+      - 'src/slic3r/GUI/MainFrame.cpp'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Lightweight sanity job: the only thing that runs on a pull request.
+  # A full deps+slicer build takes hours, so PRs never start one
+  # implicitly; use workflow_dispatch for a real build.
+  validate:
+    name: Validate macOS track files
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check workflow YAML and build script
+        run: |
+          python3 -m pip install --quiet pyyaml
+          python3 -c "import yaml,sys; yaml.safe_load(open('.github/workflows/build_macos.yml')); print('workflow YAML OK')"
+          bash -n build_release_macos.sh && echo "build_release_macos.sh syntax OK"
+          test -f docs/MACOS.md && echo "docs/MACOS.md present"
+
+      - name: Check closed-library macOS coverage
+        run: |
+          # Both closed libs must ship a Mach-O archive for each arch we
+          # claim to support; fail loudly here instead of hours into a
+          # deps build if upstream ever drops one.
+          for arch in arm64 x86_64; do
+            for lib in \
+              "deps/CR_CLOSED/CR_FILLTENSOR/cr_FillTensor/lib/mac/${arch}/libcr_FillTensor_library.a" \
+              "deps/CR_TPMS/cr_tpms/lib/mac/${arch}/libcr_tpms_library.a"; do
+              test -f "$lib" || { echo "MISSING: $lib"; exit 1; }
+              echo "present: $lib"
+            done
+          done
+
+  build:
+    name: Build (${{ matrix.arch }})
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: arm64
+            os: macos-15
+          - arch: x86_64
+            os: macos-15-intel
+    steps:
+      - name: Skip unrequested architecture
+        if: inputs.arch != 'all' && inputs.arch != matrix.arch
+        run: |
+          echo "Architecture '${{ matrix.arch }}' not requested (input: '${{ inputs.arch }}'); exiting this leg as a no-op."
+          echo "SKIP_LEG=true" >> "$GITHUB_ENV"
+
+      - name: Checkout
+        if: env.SKIP_LEG != 'true'
+        uses: actions/checkout@v4
+        with:
+          lfs: 'true'
+
+      - name: Setup CMake 3.28
+        if: env.SKIP_LEG != 'true'
+        uses: lukka/get-cmake@latest
+        with:
+          cmakeVersion: "~3.28.0"  # same pin as the repo's other workflows
+
+      - name: Install build tools
+        if: env.SKIP_LEG != 'true'
+        run: |
+          brew install ninja gettext ccache || brew upgrade ninja gettext ccache || true
+          brew list ninja gettext >/dev/null
+          # gettext is keg-only in Homebrew; build_release_macos.sh runs
+          # run_gettext.sh after the slicer build and needs msgfmt on PATH.
+          echo "$(brew --prefix gettext)/bin" >> "$GITHUB_PATH"
+
+      - name: Show toolchain
+        if: env.SKIP_LEG != 'true'
+        run: |
+          uname -m
+          xcodebuild -version || true
+          cmake --version
+          ninja --version
+          clang --version | head -1
+
+      # Deps cache, following the repo's existing pattern
+      # (build_check_cache.yml: actions/cache keyed on hashFiles('deps/**')).
+      # The path differs on purpose: build_release_macos.sh puts the deps
+      # build tree in deps/build_<arch> (with the install tree in
+      # deps/build_<arch>/dep_<arch>), and the arch is part of the key so
+      # the arm64 and x86_64 legs can never restore each other's deps.
+      - name: Cache deps
+        if: env.SKIP_LEG != 'true'
+        id: cache-deps
+        uses: actions/cache@v4
+        with:
+          path: deps/build_${{ matrix.arch }}
+          key: macos-${{ matrix.arch }}-cache-orcaslicer_deps-build-${{ hashFiles('deps/**') }}
+
+      - name: Build deps
+        if: env.SKIP_LEG != 'true'
+        run: |
+          # With a cache hit this re-runs CMake configure + the deps
+          # target over the restored tree, which is close to a no-op;
+          # on a miss it is the full (long) deps build.
+          ./build_release_macos.sh -d -x -a ${{ matrix.arch }}
+
+      - name: Stop after deps
+        if: env.SKIP_LEG != 'true' && inputs.build-deps-only
+        run: echo "build-deps-only requested; slicer build and packaging skipped."
+
+      - name: Build slicer
+        if: env.SKIP_LEG != 'true' && !inputs.build-deps-only
+        run: ./build_release_macos.sh -s -x -a ${{ matrix.arch }}
+
+      - name: Verify app bundle and architecture
+        if: env.SKIP_LEG != 'true' && !inputs.build-deps-only
+        run: |
+          APP="build_check_${{ matrix.arch }}/src/CrealityPrint.app"
+          test -d "$APP" || { echo "App bundle not found at $APP"; find build_check_${{ matrix.arch }} -name '*.app' -maxdepth 4 || true; exit 1; }
+          BIN="$APP/Contents/MacOS/CrealityPrint"
+          test -f "$BIN" || { echo "App binary not found at $BIN"; exit 1; }
+          echo "Binary architectures: $(lipo -archs "$BIN")"
+          lipo -archs "$BIN" | grep -qw ${{ matrix.arch }} || { echo "Binary does not contain requested arch ${{ matrix.arch }}"; exit 1; }
+          # Unsigned by design: report it, never fake a signature.
+          codesign -dv "$APP" 2>&1 || echo "As expected: app is unsigned / ad-hoc only."
+
+      - name: Package DMG (unsigned)
+        if: env.SKIP_LEG != 'true' && !inputs.build-deps-only
+        run: |
+          APP="build_check_${{ matrix.arch }}/src/CrealityPrint.app"
+          VER="7.3.0-ad5x-rc1"
+          DMG="CrealityPrint_${VER}_macOS_${{ matrix.arch }}_unsigned.dmg"
+          STAGE="$(mktemp -d)"
+          cp -R "$APP" "$STAGE/"
+          ln -s /Applications "$STAGE/Applications"
+          hdiutil create -volname "CrealityPrint ${VER} (${{ matrix.arch }})" \
+            -srcfolder "$STAGE" -ov -format UDZO "$DMG"
+          shasum -a 256 "$DMG" | tee "${DMG}.sha256"
+          ls -lh "$DMG"
+
+      - name: Upload DMG artifact
+        if: env.SKIP_LEG != 'true' && !inputs.build-deps-only
+        uses: actions/upload-artifact@v4
+        with:
+          name: CrealityPrint-macOS-${{ matrix.arch }}-unsigned
+          path: |
+            CrealityPrint_*_macOS_${{ matrix.arch }}_unsigned.dmg
+            CrealityPrint_*_macOS_${{ matrix.arch }}_unsigned.dmg.sha256
+          if-no-files-found: error
+          retention-days: 14

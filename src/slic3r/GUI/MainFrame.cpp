@@ -138,14 +138,22 @@ static boost::filesystem::path ad5x_design_spool_path()
 static wxString ad5x_design_node_path()
 {
     const boost::filesystem::path service_root = ad5x_design_service_root();
-    const boost::filesystem::path bundled_node = service_root / "node.exe";
+#ifdef __WXMSW__
+    const std::string node_name = "node.exe";
+#else
+    // macOS / Linux: the bundled Design Node executable is a POSIX binary
+    // named "node" (a Windows "node.exe" cannot run on these platforms).
+    const std::string node_name = "node";
+#endif
+    const boost::filesystem::path bundled_node = service_root / node_name;
     if (boost::filesystem::exists(bundled_node))
         return from_path(bundled_node);
 
-    const boost::filesystem::path bundled_node_dir = service_root / "node" / "node.exe";
+    const boost::filesystem::path bundled_node_dir = service_root / "node" / node_name;
     if (boost::filesystem::exists(bundled_node_dir))
         return from_path(bundled_node_dir);
 
+#ifdef __WXMSW__
     const boost::filesystem::path exe_dir =
         into_path(wxStandardPaths::Get().GetExecutablePath()).parent_path();
     const boost::filesystem::path project_node =
@@ -153,9 +161,10 @@ static wxString ad5x_design_node_path()
         "03_Tools" / "NodeJS_22.16.0_Portable" / "node.exe";
     if (boost::filesystem::exists(project_node))
         return from_path(project_node);
+#endif
 
-    // Final fallback lets Windows resolve node.exe from PATH.
-    return "node.exe";
+    // Final fallback lets the OS resolve node from PATH.
+    return wxString(node_name);
 }
 
 wxDEFINE_EVENT(EVT_SELECT_TAB, wxCommandEvent);
