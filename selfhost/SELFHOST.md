@@ -108,6 +108,12 @@ inherited OrcaSlicer **developer** container: it builds an AppImage and
 runs it against the host's X11 session with host networking, a
 bind-mounted home directory and `--privileged`. Defects/quirks found:
 
+* `BuildLinux.sh` and `run_gettext.sh` are mode `100644` in git — not
+  executable — so `./BuildLinux.sh` fails with *Permission denied*
+  (exit 126) on a clean checkout. The first CI run of
+  `Dockerfile.selfhost` failed at exactly this step; the Dockerfile now
+  `chmod +x`s them in the build stage rather than changing modes in
+  the upstream tree;
 * stray `\ ` (backslash-space) line endings in the package list (e.g.
   after `libglew-dev`), which corrupt the continuation;
 * duplicated packages (`libglu1-mesa-dev`, `libgtk-3-dev` twice);

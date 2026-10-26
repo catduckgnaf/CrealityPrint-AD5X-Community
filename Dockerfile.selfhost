@@ -114,7 +114,13 @@ COPY . /src
 # stage), -s builds the app and, via src/platform/unix/BuildLinuxImage.sh.in,
 # assembles build/package/{bin,resources} plus the launcher script.
 # We deliberately do NOT pass -i: no AppImage is needed inside an image.
-RUN ./BuildLinux.sh -r -d
+# Note: BuildLinux.sh and run_gettext.sh are mode 100644 in git (not
+# executable) — the first CI run of this Dockerfile failed at this step
+# with "Permission denied" (exit 126) for exactly that reason, so the
+# scripts are invoked through bash / chmod +x here instead of changing
+# file modes in the upstream tree.
+RUN chmod +x BuildLinux.sh run_gettext.sh \
+ && ./BuildLinux.sh -r -d
 RUN ./BuildLinux.sh -r -s
 RUN test -x /src/build/package/bin/CrealityPrint \
  && ls -la /src/build/package/
