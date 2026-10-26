@@ -172,6 +172,22 @@ track.
   per-arch with Ninja and a 12.0 target, then assembles a signed
   universal app with Creality's certificates; none of that signing
   infrastructure exists (or should exist) in this fork.
+- **First CI runs (2026-10-26).** Run `40409036248` failed in
+  seconds: repo shell scripts are mode `100644` in git, so the
+  workflow now invokes the build script via `bash` and `chmod +x`s
+  the helpers it calls internally. Run `40409296170` then got real
+  compilation going but both arches stopped in the deps build at
+  `dep_PNG`: libpng 1.6.35's `pngpriv.h:524` includes `<fp.h>` for
+  `TARGET_OS_MAC`, and `fp.h` no longer exists in the macOS 15 SDK
+  on current GitHub runners. This is the “one-time png repair” the
+  App Store pipeline alludes to. Fix: `deps/PNG/PNG.patch` (the patch
+  the deps build already applies on Apple) now also swaps that
+  include to `<math.h>` — the same fix used by Qt and others, and
+  what later libpng releases do. The extended patch was verified to
+  apply cleanly against the pristine, SHA-256-pinned 1.6.35 archive
+  with the exact `git apply` flags the deps build uses. Expect
+  further deps of the same vintage to need similar repairs; each
+  will surface as a named failing step in the workflow run.
 - **Design / offline code is otherwise platform-neutral.** The AD5X
   offline changes (cloud/analytics/login disabled, Design tab,
   AD5X profiles) live in ordinary cross-platform GUI code paths. The
