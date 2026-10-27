@@ -193,9 +193,26 @@ track.
   *Build deps* on both arches at the same single subcommand,
   `dep_MPFR`-build: `makeinfo: command not found` (MPFR builds its
   docs), so `texinfo` joined the brew list (keg-only; its bin dir is
-  added to `PATH`). Expect further deps of the same vintage
-  to need similar repairs; each will surface as a named failing step
-  in the workflow run.
+  added to `PATH`). Run `40413822384` (head `be17a156`) then built
+  **everything** on both arches — deps, slicer, app-bundle/arch
+  verification (`lipo` reports exactly `arm64` / `x86_64`), DMG
+  packaging and artifact upload all succeeded — yet both jobs were
+  marked **failed** by a single post step, *Post Cache deps*:
+  `hashFiles('deps/**') couldn't finish within 120 seconds`. The
+  cache key hashed `deps/**`, but the deps build tree itself lives
+  under `deps/build_<arch>`, so re-evaluating the key at post-job
+  save time meant hashing gigabytes of build output. Fix: the key
+  is now a shell hash of the deps sources only (build dirs pruned),
+  computed before the build; restore and save are separate
+  `actions/cache` steps, and the save runs in-job right after the
+  deps build with `continue-on-error`, so a cache problem can never
+  fail an otherwise successful build again. The DMGs from that run
+  (artifacts on the run, 14-day retention): arm64 — 232 MB,
+  SHA-256 `b1701519473e3f664b5316de7c3b821755713e39759492a36c3fe20d4a95b936`;
+  x86_64 — 205 MB,
+  SHA-256 `45ac37822d749ee8033f10fcb3b78b6b296e37a596c8c937593a6babdc96e626`.
+  They are unsigned and **unverified on a real Mac** (no GUI/install
+  acceptance has happened yet).
 - **Design / offline code is otherwise platform-neutral.** The AD5X
   offline changes (cloud/analytics/login disabled, Design tab,
   AD5X profiles) live in ordinary cross-platform GUI code paths. The

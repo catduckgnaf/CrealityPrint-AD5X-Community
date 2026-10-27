@@ -152,19 +152,36 @@ jobs:
           ninja --version
           clang --version | head -1
 
-      # Deps cache, following the repo's existing pattern
-      # (build_check_cache.yml: actions/cache keyed on hashFiles('deps/**')).
-      # The path differs on purpose: build_release_macos.sh puts the deps
-      # build tree in deps/build_<arch> (with the install tree in
+      # Deps cache. The path differs from the repo's other workflows on
+      # purpose: build_release_macos.sh puts the deps build tree in
+      # deps/build_<arch> (with the install tree in
       # deps/build_<arch>/dep_<arch>), and the arch is part of the key so
       # the arm64 and x86_64 legs can never restore each other's deps.
-      - name: Cache deps
+      #
+      # The key is a shell hash of the deps *sources* computed before
+      # anything is built — NOT hashFiles('deps/**'). Run 40413822384
+      # proved why: the build tree lives under deps/, so when the
+      # combined actions/cache step re-evaluated hashFiles('deps/**')
+      # in its post-job save, the tree had grown by gigabytes, hashing
+      # exceeded the 120-second template limit, and BOTH legs were
+      # marked failed even though every build/package/upload step had
+      # succeeded. Restore and save are therefore separate actions and
+      # the save (below, right after Build deps) is best-effort.
+      - name: Compute deps cache key
+        if: env.SKIP_LEG != 'true'
+        id: deps-key
+        run: |
+          HASH=$(find deps -path 'deps/build_*' -prune -o -type f -print0 | LC_ALL=C sort -z | xargs -0 shasum -a 256 | shasum -a 256 | awk '{print $1}')
+          echo "Deps source hash: ${HASH}"
+          echo "value=macos-${{ matrix.arch }}-cache-orcaslicer_deps-build-${HASH}" >> "$GITHUB_OUTPUT"
+
+      - name: Restore deps cache
         if: env.SKIP_LEG != 'true'
         id: cache-deps
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: deps/build_${{ matrix.arch }}
-          key: macos-${{ matrix.arch }}-cache-orcaslicer_deps-build-${{ hashFiles('deps/**') }}
+          key: ${{ steps.deps-key.outputs.value }}
 
       - name: Build deps
         if: env.SKIP_LEG != 'true'
@@ -175,6 +192,17 @@ jobs:
           # NOTE: the script is mode 100644 in git (not executable),
           # so invoke it through bash, like the Jenkins pipelines do.
           bash ./build_release_macos.sh -d -x -a ${{ matrix.arch }}
+
+      - name: Save deps cache
+        # In-job step (not a post step) and best-effort on purpose:
+        # a cache-save problem must never fail a build that otherwise
+        # succeeded — see run 40413822384 in docs/MACOS.md.
+        if: env.SKIP_LEG != 'true' && steps.cache-deps.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v4
+        continue-on-error: true
+        with:
+          path: deps/build_${{ matrix.arch }}
+          key: ${{ steps.deps-key.outputs.value }}
 
       - name: Stop after deps
         if: env.SKIP_LEG != 'true' && inputs.build-deps-only
