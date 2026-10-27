@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AD5X Design — assets not bundled yet</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 3rem auto; max-width: 42rem; padding: 0 1rem; }
+  code { background: #eee; padding: 0.1em 0.3em; border-radius: 4px; }
+</style>
+</head>
+<body>
+<h1>AD5X Design workspace</h1>
+<p>The Design bridge is running, but the built Design web assets are not
+bundled in this image yet. The Design source (<code>design/</code>) was
+published after the RC1 tag this image is based on, and its production
+build (<code>npm ci &amp;&amp; npm run build</code> → <code>dist/</code>)
+has not been wired into the image build yet.</p>
+<p>To use Design today, build it from the fork's <code>master</code>
+branch and mount the output over
+<code>/opt/crealityprint/bin/External_Runtime_Dependency_AD5X_Design_Service_20261025/www</code>
+in the container. See <code>selfhost/SELFHOST.md</code>.</p>
+</body>
+</html>

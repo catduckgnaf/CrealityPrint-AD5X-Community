@@ -146,6 +146,15 @@ The custom RC1 installer and modified `CrealityPrint_Slicer.dll` are currently *
 - Third-party/upstream notes: [THIRD_PARTY.md](THIRD_PARTY.md)
 - Original Creality README: [UPSTREAM_README.md](UPSTREAM_README.md)
 
+## Self-hosted Docker (experimental)
+
+A browser-accessible, self-hosted Linux version (Xvfb + noVNC,
+persistent config/data volumes, headless CLI mode) is packaged in
+`Dockerfile.selfhost` with `docker-compose.selfhost.yml`. See
+[selfhost/SELFHOST.md](selfhost/SELFHOST.md) for usage, the source audit
+behind it, and its current limitations (linux/amd64 only; Design web
+assets not yet bundled).
+
 ## Upstream and licence
 
 This fork is based on [CrealityOfficial/CrealityPrint](https://github.com/CrealityOfficial/CrealityPrint), which in turn derives from OrcaSlicer, Bambu Studio, PrusaSlicer and Slic3r.

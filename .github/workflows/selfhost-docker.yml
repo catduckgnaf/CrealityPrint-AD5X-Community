@@ -1,0 +1,148 @@
+name: Self-host Docker image
+
+# Builds the self-hosted runtime image (Dockerfile.selfhost).
+#
+#   * Pull requests touching the self-host packaging: build-only + smoke
+#     test, nothing is pushed.
+#   * Pushes to master and v* tags, and manual dispatch with push=true:
+#     publishes to ghcr.io/catduckgnaf/crealityprint-ad5x.
+#
+# linux/amd64 only: the bundled closed-source CR_FILLTENSOR and
+# CR_KM_RECIPE libraries ship Linux binaries for x86_64 only (their
+# CMake files FATAL_ERROR on other Linux architectures). See
+# selfhost/SELFHOST.md.
+
+on:
+  pull_request:
+    paths:
+      - "Dockerfile.selfhost"
+      - "Dockerfile.selfhost.dockerignore"
+      - "selfhost/**"
+      - "docker-compose.selfhost.yml"
+      - "selfhost/SELFHOST.md"
+      - ".github/workflows/selfhost-docker.yml"
+  push:
+    branches:
+      - master
+    tags:
+      - "v*"
+  workflow_dispatch:
+    inputs:
+      push:
+        description: "Push the image to GHCR after a successful build + smoke test"
+        type: boolean
+        default: false
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build:
+    name: Build self-host image (linux/amd64)
+    runs-on: ubuntu-22.04
+    # The deps build (wxWidgets/Boost/...) plus the app build is a
+    # multi-hour compile; stay close to the hosted-runner job limit.
+    timeout-minutes: 350
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          lfs: "true"
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GHCR
+        if: github.event_name == 'push' || inputs.push
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Image metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/catduckgnaf/crealityprint-ad5x
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=sha
+          flavor: |
+            latest=auto
+
+      - name: Build image (load locally for the smoke test)
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: Dockerfile.selfhost
+          platforms: linux/amd64
+          load: true
+          push: false
+          tags: crealityprint-ad5x:smoke
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Smoke test — container starts, GUI port and healthcheck respond
+        run: |
+          set -eux
+          docker run -d --name cp-smoke \
+            -p 6080:6080 \
+            -e VNC_PASSWORD=smoke-test \
+            --shm-size=1g \
+            crealityprint-ad5x:smoke
+          ok=""
+          for i in $(seq 1 60); do
+            if curl -fsS http://127.0.0.1:6080/ >/dev/null 2>&1; then ok=1; break; fi
+            sleep 5
+          done
+          if [ -z "$ok" ]; then
+            echo "::error::noVNC port 6080 did not respond in time"
+            docker logs cp-smoke || true
+            exit 1
+          fi
+          # The image healthcheck must turn healthy (GUI process alive).
+          healthy=""
+          for i in $(seq 1 60); do
+            status=$(docker inspect -f '{{.State.Health.Status}}' cp-smoke)
+            echo "health: $status"
+            if [ "$status" = "healthy" ]; then healthy=1; break; fi
+            if [ "$status" = "unhealthy" ]; then break; fi
+            sleep 5
+          done
+          if [ -z "$healthy" ]; then
+            echo "::error::container did not become healthy"
+            docker logs cp-smoke || true
+            exit 1
+          fi
+          docker logs cp-smoke | tail -50
+
+      - name: Smoke test — binary exists and CLI passthrough starts
+        run: |
+          set -ux
+          docker exec cp-smoke test -x /opt/crealityprint/bin/CrealityPrint
+          # Informational in this first iteration: capture what the
+          # binary prints for --help (a GUI-linked binary may require a
+          # display); existence/executability above is the hard check.
+          docker run --rm crealityprint-ad5x:smoke cli --help 2>&1 | head -40 || true
+          docker rm -f cp-smoke
+
+      - name: Push image to GHCR
+        if: github.event_name == 'push' || inputs.push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: Dockerfile.selfhost
+          platforms: linux/amd64
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max

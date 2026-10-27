@@ -5291,7 +5291,7 @@ static int infer_gradient_direction_from_curve(int persisted_direction, const Gr
     return 1; // monotonic increasing endpoints => B->A
 }
 
-static MixedFilamentResult build_result_from_mixed(const MixedFilament& mf)
+MixedFilamentResult build_result_from_mixed(const MixedFilament& mf)
 {
     MixedFilamentResult r;
     if (!mf.gradient_component_ids.empty()) {
