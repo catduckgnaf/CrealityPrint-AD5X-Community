@@ -165,7 +165,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libgstreamer-plugins-base1.0-0 \
     libgstreamer1.0-0 \
     libgtk-3-0 \
-    liblerc4 \
+    liblerc3 \
     libmspack0 \
     libosmesa6 \
     libsecret-1-0 \
